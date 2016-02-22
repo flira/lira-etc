@@ -1,0 +1,510 @@
+@charset "UTF-8";
+/*
+TOC:
+
+style.scss */
+/*  │
+    ├─ [1] fonts.scss
+    │   └─ [1.1] Font imports 
+    │
+    ├─ [2] normalize.scss
+    │   ├─ [2.1] compass/reset
+    │   └─ [2.2] git.io/normalize
+    │
+    ├─ [3] globals.scss
+    │   ├─ [3.1] Basic definitions
+    │   └─ [3.2] Inline definitions
+    │       ├─ [3.2.1] Text align
+    │       └─ [3.2.2] Fonts and text definitions
+    │
+    ├─ [/a] modules
+    │   ├─ [4] header.scss
+    │   ├─ [5] body.scss
+    │   └─ [6] footer.scss
+    │
+    ├─ [/b] pages
+    │   ├─ [7] works.scss
+    │   ├─ [8] about.scss
+    │   ├─ [9] faq.scss
+    │   └─ [10] contact.scss
+    └─ [/c] components
+        ├─ [11] sprites.scss
+*/
+/* [1] fonts.scss */
+/* [1.1] Font imports */
+/* All font imports are made using adobe typekit, so this small style just avoid the flash of unstyled text */
+body,
+.wf-loading.wf-inactive body {
+  opacity: 1;
+  transition: opacity .2s ease-in; }
+
+.wf-loading body,
+.wf-inactive body {
+  opacity: 0; }
+
+.wf-loading.wf-inactive body::before {
+  background: rgba(0, 0, 0, 0.8);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  content: 'Loading custom font...';
+  color: #c0ff33;
+  display: block;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  width: 100%; }
+
+/* [2] normalize.scss */
+/* [2.1] compass/reset */
+a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, kbd, label, legend, li, main, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline; }
+
+html {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+caption, td, th {
+  text-align: left;
+  font-weight: 400;
+  vertical-align: middle; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:after, blockquote:before, q:after, q:before {
+  content: "";
+  content: none; }
+
+a img, img {
+  border: none; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block; }
+
+/* [2.2] git.io/normalize */
+/*! normalize.css v3.0.1 | MIT License | git.io/normalize */
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%; }
+
+audio, canvas, progress, video {
+  display: inline-block;
+  vertical-align: baseline; }
+
+audio:not([controls]) {
+  display: none;
+  height: 0; }
+
+[hidden], template {
+  display: none; }
+
+a {
+  background: 0 0;
+  text-decoration: none; }
+
+a:active, a:hover {
+  outline: 0; }
+
+b, optgroup, strong {
+  font-weight: 700; }
+
+dfn {
+  font-style: italic; }
+
+mark {
+  background: #ff0;
+  color: #000; }
+
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sup {
+  top: -.5em; }
+
+sub {
+  bottom: -.25em; }
+
+svg:not(:root) {
+  overflow: hidden; }
+
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0; }
+
+pre, textarea {
+  overflow: auto; }
+
+code, kbd, pre, samp {
+  font-family: monospace,monospace;
+  font-size: 1em; }
+
+button, input, optgroup, select, textarea {
+  color: inherit;
+  font: inherit; }
+
+button {
+  overflow: visible; }
+
+button, select {
+  text-transform: none; }
+
+button, html input[type=button], input[type=reset], input[type=submit] {
+  -webkit-appearance: button;
+  cursor: pointer; }
+
+button[disabled], html input[disabled] {
+  cursor: default; }
+
+input {
+  line-height: normal; }
+
+input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
+  height: auto; }
+
+input[type=search] {
+  -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box; }
+
+input[type=search]::-webkit-search-cancel-button, input[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+/* [3] globals.scss */
+/* [3.1] Basic definitions */
+:focus {
+  outline: none;
+  background: #c0ff33;
+  color: #222; }
+
+::-moz-selection {
+  background: #c0ff33;
+  color: #222; }
+
+::selection {
+  background: #c0ff33;
+  color: #222; }
+
+html {
+  background: #edecea; }
+
+html,
+body,
+button {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased; }
+
+body {
+  color: #444;
+  font: normal 300 1em/1.3 "alegreya", georgia, serif; }
+
+@media only screen and (min-width: 900px) {
+  body {
+    padding-left: 5em; } }
+.wf-inactive body {
+  font-family: georgia, serif; }
+
+div,
+img,
+video,
+object {
+  max-width: 100%; }
+
+a {
+  border-bottom: outset 2px #c0ff33;
+  color: #222;
+  display: inline-block;
+  height: 1.15em;
+  text-decoration: none;
+  text-indent: 0; }
+  a:hover {
+    background: #c0ff33;
+    color: #222; }
+
+@media only screen and (min-width: 900px) {
+  .fluid-txt {
+    -webkit-column-width: 25em;
+    -moz-column-width: 25em;
+    column-width: 25em;
+    -webkit-column-gap: 3.8em;
+    -moz-column-gap: 3.8em;
+    column-gap: 3.8em; } }
+@media only screen and (min-width: 1900px) {
+  .fluid-txt {
+    -webkit-column-width: 45em;
+    -moz-column-width: 45em;
+    column-width: 45em;
+    -webkit-column-gap: 6.2em;
+    -moz-column-gap: 6.2em;
+    column-gap: 6.2em; } }
+/* [3.2] Inline definitions */
+/* [3.2.1] Text align */
+body, .main-header, .site-title {
+  text-align: center; }
+
+h1, h2, h3, h4,
+.main,
+.main-footer {
+  text-align: left; }
+
+/* [3.2.2] Fonts and text definitions */
+h1, h2, h3, h4, dt {
+  font-family: "abril-titling-narrow", sans-serif;
+  font-weight: 800; }
+
+.wf-inactive h1, .wf-inactive h2, .wf-inactive h3, .wf-inactive h4 {
+  font-family: "segoe UI", "Gill Sans", arial, sans-serif;
+  font-weight: 700; }
+
+h1 {
+  color: #222;
+  font-size: 2.5em;
+  padding: .75em 0 .5em; }
+
+h2 {
+  color: #222;
+  font-size: 2em;
+  padding: .75em 0 .5em; }
+
+h3 {
+  color: #222;
+  font-size: 1.75em;
+  padding: .75em 0 .5em; }
+
+h4 {
+  color: #222;
+  font-size: 1.25em;
+  padding: .75em 0 .5em; }
+
+p {
+  text-indent: 1.62em;
+  margin-bottom: .38em; }
+  p:first-of-type {
+    text-indent: 0; }
+
+@media only screen and (min-width: 419px) {
+  p {
+    text-align: justify; } }
+strong {
+  color: #222; }
+
+b, strong, .main-menu-a {
+  font-weight: 700; }
+
+i, q, em {
+  font-style: italic; }
+
+dt {
+  margin-top: .5em; }
+  dt:first-child {
+    margin-top: 0; }
+
+/* [3.3] Block definitions */
+/* [3.3.1] Positions */
+.site-title {
+  position: absolute; }
+
+.main-header {
+  position: relative; }
+
+/* [/a] modules */
+/* [4] header.scss */
+.main-header {
+  height: 68vh; }
+
+.site-title {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto; }
+
+.site-title {
+  height: 4em; }
+  .site-title-pos {
+    color: #666;
+    display: block;
+    font-family: alegreya;
+    font-style: italic;
+    font-size: .9em;
+    font-weight: 400;
+    margin-top: -.2em;
+    padding-bottom: .5em; }
+  .site-title-symb {
+    background: #c00033;
+    border-radius: 100%;
+    margin: auto;
+    position: relative;
+    top: -.5em;
+    right: 0;
+    left: 0;
+    width: 2em;
+    height: 2em; }
+    .site-title-symb::before, .site-title-symb::after {
+      content: "";
+      display: block;
+      position: absolute;
+      z-index: -1; }
+    .site-title-symb::before {
+      background: #666;
+      margin: auto;
+      bottom: 1em;
+      left: -2.5em;
+      width: 7em;
+      height: 2px; }
+    .site-title-symb::after {
+      background: #edecea;
+      border-radius: 100%;
+      width: 3em;
+      height: 3em;
+      left: -.5em; }
+
+@media only screen and (min-width: 419px) {
+  .site-title {
+    font-size: 3em; } }
+@media only screen and (min-width: 660px) {
+  .site-title {
+    width: 8em;
+    font-size: 4em; } }
+.main-menu {
+  background: rgba(0, 0, 0, 0.9);
+  box-shadow: 0 0 5px #000;
+  position: fixed;
+  overflow-y: hidden;
+  transition: height .5s ease-in-out;
+  height: 3em;
+  z-index: 9999; }
+  .main-menu.open {
+    height: 100vh; }
+  .main-menu, .main-menu-a {
+    width: 100%; }
+  .main-menu-h {
+    color: #fff;
+    margin-right: 1em;
+    font-size: 1em;
+    float: right; }
+  .main-menu-a {
+    border-bottom: solid 1px #000;
+    color: #aaa;
+    display: block;
+    padding: 1em 0 3em;
+    position: relative;
+    transition: color .3s; }
+    .main-menu-a:hover, .main-menu-a:focus {
+      background: transparent;
+      color: #fff; }
+    .main-menu-a::before {
+      background: #000;
+      content: '';
+      display: block;
+      margin: auto;
+      position: absolute;
+      right: 0;
+      bottom: 10px;
+      left: 0;
+      transition: all .3s;
+      width: 5em;
+      height: 2px; }
+  .main-menu-li {
+    border-bottom: solid 1px #222; }
+  .main-menu .selected, .main-menu .selected:hover, .main-menu .selected:focus {
+    color: #fff; }
+  .main-menu .selected::before {
+    background-color: #c0ff33;
+    box-shadow: 0 0 3px rgba(192, 255, 51, 0.75), -1px 1px 0 #000; }
+  .main-menu .logo::before {
+    display: none; }
+
+@media only screen and (min-width: 660px) {
+  .main-menu {
+    transition: none; }
+    .main-menu-h {
+      margin-right: 3.8em; } }
+@media only screen and (min-width: 900px) {
+  .main-menu {
+    overflow-y: auto;
+    padding-top: 2.4em;
+    left: 0;
+    width: 5em;
+    height: 100vh; }
+    .main-menu .logo {
+      background: transparent;
+      box-shadow: none;
+      border-bottom: solid 1px #000;
+      padding: 1.5em 0 2.8em;
+      position: static;
+      width: auto;
+      height: auto; }
+    .main-menu-h {
+      display: none; }
+    .main-menu-a {
+      padding: 1.5em 0 2.8em; }
+      .main-menu-a::before {
+        width: 68%; } }
+/* [5] body.scss */
+.main {
+  padding: 2.4em 1em 4.8em; }
+  .main-encap {
+    border-bottom: solid 1px #aaa;
+    min-height: 100vh;
+    padding-bottom: 4.8em;
+    position: relative; }
+
+@media only screen and (min-width: 660px) {
+  .main {
+    padding: 2.4em 3.8em 4.8em; } }
+@media only screen and (min-width: 900px) {
+  .main {
+    padding: 2.4em 6.2em 4.8em; } }
+#works {
+  min-height: 120vh; }
+
+/* [6] footer.scss */
+.main-footer {
+  padding: 2.4em 1em 4.8em; }
+
+@media only screen and (min-width: 660px) {
+  .main-footer {
+    padding: 2.4em 3.8em 4.8em; } }
+@media only screen and (min-width: 900px) {
+  .main-footer {
+    padding: 2.4em 6.2em 4.8em; } }
+/* [/b] pages */
+/* [7] works.scss */
+/* [8] about.scss */
+/* [9] faq.scss */
+/* [10] contact.scss */
+#contact li {
+  display: inline-block;
+  margin-right: .28em; }
+#contact a {
+  border-bottom: none;
+  display: block;
+  direction: ltr;
+  overflow: hidden;
+  text-indent: -9999px;
+  width: 30px;
+  height: 30px; }
+  #contact a:hover, #contact a:focus {
+    background-color: transparent; }
+
+/* [/c] components */
+/* [11] contact.scss */
+
+/*# sourceMappingURL=style.css.map */

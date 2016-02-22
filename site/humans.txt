@@ -1,0 +1,24 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+  Web designer, Front-end developer: Fernando Lira.
+  Site: https://fernando.lira.etc.br (Yep, you are already there)
+  Location: Brasília, Brazil.
+
+# TECHNOLOGY COLOPHON
+
+  Standards: HTML5, CSS3, ECMAScript, PHP
+  Components: Angular JS, Babel JS, jQuery ,Google web-starter-kit, Gulp, Sass
+  IDE: Cloud 9 @ c9.io, atom.io
+
+Source: https://github.com/flira/lira-etc
+
+    ┌──          ──┐
+    │   ┌─┐        │
+      ┌─┼─┘  ┌─┐    
+      │ └─┐  │ │    
+      │ ┌─┘  │ └─┐  
+    │ └─┘    └───┘ │
+    └──          ──┘

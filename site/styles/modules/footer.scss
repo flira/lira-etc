@@ -1,0 +1,13 @@
+.main-footer {
+  padding: $margin-top $margin-small $margin-bottom;
+}
+@include medium {
+  .main-footer {
+    padding: $margin-top $margin-in $margin-bottom;
+  }
+}
+@include large {
+  .main-footer {
+    padding: $margin-top $margin-out $margin-bottom;
+  }
+}

@@ -1,0 +1,28 @@
+/* [1.1] Font imports */
+
+/* All font imports are made using adobe typekit, so this small style just avoid the flash of unstyled text */
+
+body,
+.wf-loading.wf-inactive body{
+  opacity: 1;
+  transition: opacity .2s ease-in;
+}
+
+.wf-loading,
+.wf-inactive {
+  body {
+    opacity: 0;
+  }
+}
+
+.wf-loading.wf-inactive body::before {
+  background: rgba(0,0,0,.8);
+  box-shadow: 0 1px 3px rgba(0,0,0,.5);
+  content: 'Loading custom font...';
+  color: $color1;
+  display: block;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}

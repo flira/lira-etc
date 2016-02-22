@@ -1,0 +1,148 @@
+/* [3.1] Basic definitions */
+:focus {
+  outline: none;
+  @include focus;
+}
+::-moz-selection {
+  @include focus;
+}
+::selection {
+  @include focus;
+}
+html, {
+  background: $color-bg;
+}
+html,
+body,
+button {
+  -moz-osx-font-smoothing: grayscale;
+   -webkit-font-smoothing: antialiased;
+           font-smoothing: antialiased;
+}
+body {
+  @extend %text-center;
+  color: $color-txt;
+  font: normal 300 toEm($font-size-base,16)/1.3 $font;
+}
+@include large {
+  body {
+    padding-left: $main-menu-w;
+  }
+}
+.wf-inactive body {
+  font-family: $font-fallback;
+}
+div,
+img,
+video,
+object {
+  max-width: 100%;
+}
+
+a {
+  border-bottom: outset 2px $color1;
+  color: $color-strong;
+  display: inline-block;
+  height: 1.15em;
+  text-decoration: none;
+  text-indent: 0;
+  &:hover {
+    @include focus;
+  }
+}
+
+@include large {
+  .fluid-txt {
+    -webkit-column-width: 25em;
+       -moz-column-width: 25em;
+            column-width: 25em;
+    -webkit-column-gap: $margin-in;
+       -moz-column-gap: $margin-in;
+            column-gap: $margin-in;
+  }
+}
+@include huge {
+  .fluid-txt {
+    -webkit-column-width: 45em;
+       -moz-column-width: 45em;
+            column-width: 45em;
+    -webkit-column-gap: $margin-out;
+       -moz-column-gap: $margin-out;
+            column-gap: $margin-out;
+  }
+}
+/* [3.2] Inline definitions */
+
+/* [3.2.1] Text align */
+%text-center {
+  text-align: center;
+}
+%text-left,
+.main,
+.main-footer {
+  text-align: left;
+}
+%text-right {
+  text-align: right;
+}
+%text-justify {
+  text-align: justify;
+}
+
+/* [3.2.2] Fonts and text definitions */
+%headers {
+  font-family: $font-header;
+  font-weight: 800;
+}
+%alt-headers {
+  font-family: $font-header-fallback;
+  font-weight: 700;
+}
+@each $header, $size in (h1: 2.5em, h2: 2em, h3: 1.75em, h4: 1.25em) {
+  #{$header} {
+    @extend %headers;
+    @extend %text-left;
+    color: $color-strong;
+    font-size: $size;
+    padding: .75em 0 .5em;
+  }
+  .wf-inactive #{$header} {
+    @extend %alt-headers;
+  }
+}
+p {
+  margin-bottom: .38em;
+  text-align: justify;
+  text-indent: 1.62em;
+  &:first-of-type {
+    text-indent: 0;
+  }
+}
+
+strong {
+  color: $color-strong;
+}
+b, strong, %bold {
+  font-weight: 700;
+}
+i, q, em, %italic {
+  font-style: italic;
+}
+dt {
+  @extend %headers;
+  margin-top: .5em;
+  &:first-child {
+    margin-top: 0;
+  }
+}
+/* [3.3] Block definitions */
+
+/* [3.3.1] Positions */
+
+%absolute {
+  position: absolute;
+}
+
+%relative {
+  position: relative;
+}

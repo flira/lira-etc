@@ -1,0 +1,89 @@
+// [0.1] Variables
+
+//main colors
+$color1: #c0ff33;
+$color2: #c0ffee;
+$color3: #c00033;
+
+//aditional colors:
+$color-black: #000;
+$color-gray1: #222;
+$color-gray2: #333;
+$color-gray3: #444;
+$color-gray4: #666;
+$color-gray5: #aaa;
+$color-white: #fff;
+
+//component colors
+$color-aside: $color-gray2;
+$color-bg: #edecea;
+$color-bg-layer: rgba(92.9%,92.5%,91.8%,.965);
+$color-lines: $color-gray5;
+$color-selected: $color-white;
+$color-subtitle: $color-gray4;
+$color-strong: $color-gray1;
+$color-txt: $color-gray3;
+
+$font: "alegreya", georgia, serif;
+$font-fallback: georgia, serif;
+$font-header: "abril-titling-narrow", sans-serif;
+$font-header-fallback: "segoe UI","Gill Sans",arial,sans-serif;
+
+$font-size-base: 16;
+
+$huge: 1900px;
+$large: 900px;
+$medium: 660px;
+$small: 419px;
+
+$margin-top: 2.4em;
+$margin-bottom: 4.8em;
+$margin-in: 3.8em;
+$margin-out: 6.2em;
+$margin-small: 1em;
+$main-menu-w: 5em;
+
+// [0.2] Functions
+
+@function toEm($n, $m: $font-size-base) {
+  @return ($n/$m)+em;
+}
+
+// [0.3] Mixins
+
+// Media Query
+@mixin media-query($media-query) {
+  @if $media-query == small {
+    @media only screen and (min-width: $small) { @content; }
+  }
+  @if $media-query == medium {
+    @media only screen and (min-width: $medium) { @content; }
+  }
+  @if $media-query == large {
+    @media only screen and (min-width: $large) { @content; }
+  }
+  @if $media-query == huge {
+    @media only screen and (min-width: $huge) { @content; }
+  }
+}
+
+// Just some helpers...
+@mixin small { @include media-query(small) { @content }; }
+@mixin medium { @include media-query(medium) { @content }; }
+@mixin large { @include media-query(large) { @content }; }
+@mixin huge { @include media-query(huge) { @content }; }
+
+// Inline-block with polyfill
+
+@mixin v-center {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
+@mixin focus {
+  background: $color1;
+  color: $color-strong;
+}
