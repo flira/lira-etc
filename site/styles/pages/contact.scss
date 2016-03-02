@@ -3,16 +3,8 @@
     display: inline-block;
     margin-right: .28em;
   }
-  a {
-    border-bottom: none;
-    display: block;
-    direction: ltr;
-    overflow: hidden;
-    text-indent: -9999px;
+  .icon {
     width: 30px;
     height: 30px;
-    &:hover, &:focus {
-      background-color: transparent;
-    }
   }
 }

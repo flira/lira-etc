@@ -3,7 +3,7 @@ Error: Undefined mixin 'v-center'.
         on line 9 of /home/ubuntu/workspace/site/styles/modules/header.scss, in `v-center'
         from line 9 of /home/ubuntu/workspace/site/styles/modules/header.scss
 
-4:   height: 68vh;
+4:   height: 55vh;
 5: }
 6: 
 7: %header-v-center {
@@ -73,4 +73,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined mixin 'v-center'.\A         on line 9 of /home/ubuntu/workspace/site/styles/modules/header.scss, in `v-center'\A         from line 9 of /home/ubuntu/workspace/site/styles/modules/header.scss\A \A 4:   height: 68vh;\A 5: }\A 6: \A 7: %header-v-center {\A 8:   @extend %absolute;\A 9:   @include v-center;\A 10: }\A 11: \A 12: .site-title {\A 13:   @extend %text-center;\A 14:   @extend %header-v-center;"; }
+  content: "Error: Undefined mixin 'v-center'.\A         on line 9 of /home/ubuntu/workspace/site/styles/modules/header.scss, in `v-center'\A         from line 9 of /home/ubuntu/workspace/site/styles/modules/header.scss\A \A 4:   height: 55vh;\A 5: }\A 6: \A 7: %header-v-center {\A 8:   @extend %absolute;\A 9:   @include v-center;\A 10: }\A 11: \A 12: .site-title {\A 13:   @extend %text-center;\A 14:   @extend %header-v-center;"; }

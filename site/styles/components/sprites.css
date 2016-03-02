@@ -1,21 +1,19 @@
 /*
-Error: Undefined mixin 'focus'.
-        on line 4 of /home/ubuntu/workspace/site/styles/globals.scss, in `focus'
-        from line 4 of /home/ubuntu/workspace/site/styles/globals.scss
+Error: Undefined mixin 'sprite'.
+        on line 2 of /home/ubuntu/workspace/site/styles/components/sprites.scss, in `sprite'
+        from line 2 of /home/ubuntu/workspace/site/styles/components/sprites.scss
 
-1: /* [3.1] Basic definitions *\/
-2: :focus {
-3:   outline: none;
-4:   @include focus;
-5: }
-6: ::-moz-selection {
-7:   @include focus($color1);
-8: }
-9: ::selection {
+1: .icon {
+2:   @include sprite;
+3: }
+4: %bg-center {
+5:   background-position: center;
+6:   background-repeat: no-repeat;
+7: }
 
 Backtrace:
-/home/ubuntu/workspace/site/styles/globals.scss:4:in `focus'
-/home/ubuntu/workspace/site/styles/globals.scss:4
+/home/ubuntu/workspace/site/styles/components/sprites.scss:2:in `sprite'
+/home/ubuntu/workspace/site/styles/components/sprites.scss:2
 /usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:349:in `block in visit_mixin'
 /usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/stack.rb:98:in `block in with_mixin'
 /usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/stack.rb:115:in `with_frame'
@@ -71,4 +69,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined mixin 'focus'.\A         on line 4 of /home/ubuntu/workspace/site/styles/globals.scss, in `focus'\A         from line 4 of /home/ubuntu/workspace/site/styles/globals.scss\A \A 1: /* [3.1] Basic definitions */\A 2: :focus {\A 3:   outline: none;\A 4:   @include focus;\A 5: }\A 6: ::-moz-selection {\A 7:   @include focus($color1);\A 8: }\A 9: ::selection {"; }
+  content: "Error: Undefined mixin 'sprite'.\A         on line 2 of /home/ubuntu/workspace/site/styles/components/sprites.scss, in `sprite'\A         from line 2 of /home/ubuntu/workspace/site/styles/components/sprites.scss\A \A 1: .icon {\A 2:   @include sprite;\A 3: }\A 4: %bg-center {\A 5:   background-position: center;\A 6:   background-repeat: no-repeat;\A 7: }"; }

@@ -1,15 +1,8 @@
 #contact li {
   display: inline-block;
   margin-right: .28em; }
-#contact a {
-  border-bottom: none;
-  display: block;
-  direction: ltr;
-  overflow: hidden;
-  text-indent: -9999px;
+#contact .icon {
   width: 30px;
   height: 30px; }
-  #contact a:hover, #contact a:focus {
-    background-color: transparent; }
 
 /*# sourceMappingURL=contact.css.map */

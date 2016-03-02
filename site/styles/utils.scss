@@ -19,7 +19,7 @@ $color-aside: $color-gray2;
 $color-bg: #edecea;
 $color-bg-layer: rgba(92.9%,92.5%,91.8%,.965);
 $color-lines: $color-gray5;
-$color-selected: $color-white;
+$color-selected: $color-black;
 $color-subtitle: $color-gray4;
 $color-strong: $color-gray1;
 $color-txt: $color-gray3;
@@ -41,7 +41,7 @@ $margin-bottom: 4.8em;
 $margin-in: 3.8em;
 $margin-out: 6.2em;
 $margin-small: 1em;
-$main-menu-w: 5em;
+$p-indent: 1.62em;
 
 // [0.2] Functions
 
@@ -75,15 +75,26 @@ $main-menu-w: 5em;
 
 // Inline-block with polyfill
 
+@mixin focus($f-color: $color2) {
+  background-color: $f-color;
+  color: $color-strong;
+}
+
+@mixin sprite {
+  border-bottom: none;
+  display: block;
+  direction: ltr;
+  overflow: hidden;
+  text-indent: -9999px;
+  &:hover, &:focus {
+    background-color: transparent;
+  }
+}
+
 @mixin v-center {
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
   margin: auto;
-}
-
-@mixin focus {
-  background: $color1;
-  color: $color-strong;
 }

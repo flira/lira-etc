@@ -4,10 +4,10 @@
   @include focus;
 }
 ::-moz-selection {
-  @include focus;
+  @include focus($color1);
 }
 ::selection {
-  @include focus;
+  @include focus($color1);
 }
 html, {
   background: $color-bg;
@@ -24,11 +24,6 @@ body {
   color: $color-txt;
   font: normal 300 toEm($font-size-base,16)/1.3 $font;
 }
-@include large {
-  body {
-    padding-left: $main-menu-w;
-  }
-}
 .wf-inactive body {
   font-family: $font-fallback;
 }
@@ -40,7 +35,7 @@ object {
 }
 
 a {
-  border-bottom: outset 2px $color1;
+  border-bottom: outset 2px $color2;
   color: $color-strong;
   display: inline-block;
   height: 1.15em;
@@ -50,12 +45,11 @@ a {
     @include focus;
   }
 }
-
 @include large {
   .fluid-txt {
-    -webkit-column-width: 25em;
-       -moz-column-width: 25em;
-            column-width: 25em;
+    -webkit-column-width: 27em;
+       -moz-column-width: 27em;
+            column-width: 27em;
     -webkit-column-gap: $margin-in;
        -moz-column-gap: $margin-in;
             column-gap: $margin-in;
@@ -111,16 +105,10 @@ a {
   }
 }
 p {
-  margin-bottom: .38em;
-  text-align: justify;
-  text-indent: 1.62em;
+  text-indent: $p-indent;
   &:first-of-type {
     text-indent: 0;
   }
-}
-
-strong {
-  color: $color-strong;
 }
 b, strong, %bold {
   font-weight: 700;

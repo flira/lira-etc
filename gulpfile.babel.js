@@ -102,6 +102,8 @@ gulp.task('styles', () => {
     .pipe(gulp.dest('dist/styles'));
 });
 
+gulp.task()
+
 // Concatenate and minify JavaScript. Optionally transpiles ES2015 code to ES5.
 // to enables ES2015 support remove the line `"only": "gulpfile.babel.js",` in the
 // `.babelrc` file.
@@ -110,9 +112,10 @@ gulp.task('scripts', () =>
       // Note: Since we are not using useref in the scripts build pipeline,
       //       you need to explicitly list your scripts here in the right order
       //       to be correctly concatenated
-      './site/scripts/components/gwk.js',
-      './site/scripts/components/scroller.js',
-      './site/scripts/components/app.js' //must be the last one
+      'node_modules/angular2/angular2-polyfills.js',
+      'node_modules/rxjs/Rx.js',
+      'node_modules/angular2/angular2.js',
+      './site/scripts/components/gwk.js'
     ])
       .pipe($.newer('.tmp/scripts'))
       .pipe($.sourcemaps.init())

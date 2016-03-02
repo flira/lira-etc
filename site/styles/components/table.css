@@ -1,26 +1,39 @@
 /*
-Error: Undefined mixin 'focus'.
-        on line 4 of /home/ubuntu/workspace/site/styles/globals.scss, in `focus'
-        from line 4 of /home/ubuntu/workspace/site/styles/globals.scss
+Error: Undefined variable: "$font".
+        on line 14 of /home/ubuntu/workspace/site/styles/components/table.scss
 
-1: /* [3.1] Basic definitions *\/
-2: :focus {
-3:   outline: none;
-4:   @include focus;
-5: }
-6: ::-moz-selection {
-7:   @include focus($color1);
-8: }
-9: ::selection {
+9:   .empty {
+10:     background: url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%208%208'%3E%3Cpath%20fill%3D'none'%20stroke%3D'%23AAA'%20stroke-linecap%3D'square'%20stroke-miterlimit%3D'10'%20d%3D'M0%204l4-4M4%208l4-4'%2F%3E%3C%2Fsvg%3E");
+11:     background-size: 8px;
+12:   }
+13:   dt {
+14:     font: 700 1em $font;
+15:   }
+16: }
+17: thead {
+18:   border-bottom: solid 2px $color-txt;
+19: }
 
 Backtrace:
-/home/ubuntu/workspace/site/styles/globals.scss:4:in `focus'
-/home/ubuntu/workspace/site/styles/globals.scss:4
-/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:349:in `block in visit_mixin'
-/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/stack.rb:98:in `block in with_mixin'
+/home/ubuntu/workspace/site/styles/components/table.scss:14
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/script/tree/variable.rb:49:in `_perform'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/script/tree/node.rb:50:in `perform'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/script/tree/list_literal.rb:63:in `block in _perform'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/script/tree/list_literal.rb:63:in `map'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/script/tree/list_literal.rb:63:in `_perform'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/script/tree/node.rb:50:in `perform'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:395:in `visit_prop'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/tree/visitors/base.rb:36:in `visit'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/stack.rb:79:in `block in with_base'
 /usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/stack.rb:115:in `with_frame'
-/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/stack.rb:98:in `with_mixin'
-/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:347:in `visit_mixin'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/stack.rb:79:in `with_base'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:431:in `block (2 levels) in visit_rule'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:431:in `map'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:431:in `block in visit_rule'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:429:in `visit_rule'
 /usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/tree/visitors/base.rb:36:in `visit'
 /usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
 /usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/stack.rb:79:in `block in with_base'
@@ -71,4 +84,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined mixin 'focus'.\A         on line 4 of /home/ubuntu/workspace/site/styles/globals.scss, in `focus'\A         from line 4 of /home/ubuntu/workspace/site/styles/globals.scss\A \A 1: /* [3.1] Basic definitions */\A 2: :focus {\A 3:   outline: none;\A 4:   @include focus;\A 5: }\A 6: ::-moz-selection {\A 7:   @include focus($color1);\A 8: }\A 9: ::selection {"; }
+  content: "Error: Undefined variable: \"$font\".\A         on line 14 of /home/ubuntu/workspace/site/styles/components/table.scss\A \A 9:   .empty {\A 10:     background: url(\"data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%208%208'%3E%3Cpath%20fill%3D'none'%20stroke%3D'%23AAA'%20stroke-linecap%3D'square'%20stroke-miterlimit%3D'10'%20d%3D'M0%204l4-4M4%208l4-4'%2F%3E%3C%2Fsvg%3E\");\A 11:     background-size: 8px;\A 12:   }\A 13:   dt {\A 14:     font: 700 1em $font;\A 15:   }\A 16: }\A 17: thead {\A 18:   border-bottom: solid 2px $color-txt;\A 19: }"; }

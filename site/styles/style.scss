@@ -32,8 +32,10 @@ style.scss */
     │   ├─ [8] about.scss
     │   ├─ [9] faq.scss
     │   └─ [10] contact.scss
+    │
     └─ [/c] components
         ├─ [11] sprites.scss
+        ├─ [12] table.scss
 */
 // [0] utils.scss
 @import "utils";
@@ -60,5 +62,7 @@ style.scss */
 /* [10] contact.scss */
 @import "pages/contact";
 /* [/c] components */
-/* [11] contact.scss */
+/* [11] sprites.scss */
 @import "components/sprites";
+/* [12] table.scss */
+@import "components/table";

@@ -3,6 +3,7 @@
   &-encap {
     border-bottom: solid 1px $color-lines;
     min-height: 100vh;
+    padding-top: $margin-top;
     padding-bottom: $margin-bottom;
     position: relative;
   }
