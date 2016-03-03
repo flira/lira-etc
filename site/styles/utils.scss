@@ -26,8 +26,8 @@ $color-txt: $color-gray3;
 
 $font: "alegreya", georgia, serif;
 $font-fallback: georgia, serif;
-$font-header: "abril-titling-narrow", sans-serif;
-$font-header-fallback: "segoe UI","Gill Sans",arial,sans-serif;
+$font-header: "abril-titling-narrow", "Gill Sans","Gill Sans MT", sans-serif;
+$font-header-fallback: "Gill Sans","Gill Sans MT", sans-serif;
 
 $font-size-base: 16;
 
@@ -35,6 +35,9 @@ $huge: 1900px;
 $large: 900px;
 $medium: 660px;
 $small: 419px;
+$hd: 1.5;
+$uhd: 2;
+$luhd: 2.5;
 
 $margin-top: 2.4em;
 $margin-bottom: 4.8em;
@@ -43,6 +46,10 @@ $margin-out: 6.2em;
 $margin-small: 1em;
 $p-indent: 1.62em;
 
+$img-url: #{"images/"};
+$hd-img-url: #{$img-url}#{"hd/"}; // 1.5 dppx
+$uhd-img-url: #{$img-url}#{"uhd/"}; // 2 dppx
+$luhd-img-url: #{$img-url}#{"luhd/"}; // ludicrous dppx
 // [0.2] Functions
 
 @function toEm($n, $m: $font-size-base) {
@@ -65,6 +72,15 @@ $p-indent: 1.62em;
   @if $media-query == huge {
     @media only screen and (min-width: $huge) { @content; }
   }
+  @if $media-query == hd {
+    @media only screen and (min-resolution: 1.5dppx) { @content; }
+  }
+  @if $media-query == uhd {
+    @media only screen and (min-resolution: 2dppx) { @content; }
+  }
+  @if $media-query == luhd {
+    @media only screen and (min-resolution: 2.5dppx) { @content; }
+  }
 }
 
 // Just some helpers...
@@ -72,15 +88,18 @@ $p-indent: 1.62em;
 @mixin medium { @include media-query(medium) { @content }; }
 @mixin large { @include media-query(large) { @content }; }
 @mixin huge { @include media-query(huge) { @content }; }
+@mixin hd { @include media-query(hd) { @content }; }
+@mixin uhd { @include media-query(uhd) { @content }; }
+@mixin luhd { @include media-query(luhd) { @content }; }
 
 // Inline-block with polyfill
-
 @mixin focus($f-color: $color2) {
   background-color: $f-color;
   color: $color-strong;
 }
 
 @mixin sprite {
+  background-repeat: no-repeat;
   border-bottom: none;
   display: block;
   direction: ltr;

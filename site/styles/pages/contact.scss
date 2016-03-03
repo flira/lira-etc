@@ -1,10 +1,38 @@
 #contact {
   li {
     display: inline-block;
-    margin-right: .28em;
+    margin-right: .5em;
   }
   .icon {
+    background-image: url($img-url + "contact.png");
+    background-size: 228px 63px;
     width: 30px;
     height: 30px;
+  }
+  @each $class, $i in (mail:0, behance:1, git:2, insta:3, lastfm:4, linkedin:5, steam:6) {
+    .#{$class} {
+      $unity: "" !default;
+      @if $i > 0 {$unity: "px"};
+      background-position: -#{($i * 33)+$unity} 0;
+      &:hover,
+      &:focus {
+        background-position: -#{($i * 33)+$unity} -33px;
+      }
+    }
+  }
+}
+@include hd {
+  #about .icon {
+    background-image: url($hd-img-url + "contact.png");
+  }
+}
+@include uhd {
+  #about .icon {
+    background-image: url($uhd-img-url + "contact.png");
+  }
+}
+@include luhd {
+  #about .icon {
+    background-image: url($luhd-img-url + "contact.png");
   }
 }

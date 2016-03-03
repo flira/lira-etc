@@ -154,7 +154,7 @@
     &:hover,
     &:focus {
       @extend %bg-center;
-      @extend %logo-white;
+      @extend %logo;
       background-color: $color3;
     }
   }

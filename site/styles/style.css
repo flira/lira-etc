@@ -264,11 +264,11 @@ h1, h2, h3, h4,
 
 /* [3.2.2] Fonts and text definitions */
 h1, h2, h3, h4, dt {
-  font-family: "abril-titling-narrow", sans-serif;
+  font-family: "abril-titling-narrow", "Gill Sans", "Gill Sans MT", sans-serif;
   font-weight: 800; }
 
 .wf-inactive h1, .wf-inactive h2, .wf-inactive h3, .wf-inactive h4 {
-  font-family: "segoe UI", "Gill Sans", arial, sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", sans-serif;
   font-weight: 700; }
 
 h1 {
@@ -425,6 +425,7 @@ dt {
     color: #000; }
   .main-menu .logo {
     background-size: 30px;
+    background-repeat: no-repeat;
     border-bottom: none;
     display: block;
     direction: ltr;
@@ -519,14 +520,54 @@ dt {
 /* [10] contact.scss */
 #contact li {
   display: inline-block;
-  margin-right: .28em; }
+  margin-right: .5em; }
 #contact .icon {
+  background-image: url(images/contact.png);
+  background-size: 228px 63px;
   width: 30px;
   height: 30px; }
+#contact .mail {
+  background-position: -0 0; }
+  #contact .mail:hover, #contact .mail:focus {
+    background-position: -0 -33px; }
+#contact .behance {
+  background-position: -33px 0; }
+  #contact .behance:hover, #contact .behance:focus {
+    background-position: -33px -33px; }
+#contact .git {
+  background-position: -66px 0; }
+  #contact .git:hover, #contact .git:focus {
+    background-position: -66px -33px; }
+#contact .insta {
+  background-position: -99px 0; }
+  #contact .insta:hover, #contact .insta:focus {
+    background-position: -99px -33px; }
+#contact .lastfm {
+  background-position: -132px 0; }
+  #contact .lastfm:hover, #contact .lastfm:focus {
+    background-position: -132px -33px; }
+#contact .linkedin {
+  background-position: -165px 0; }
+  #contact .linkedin:hover, #contact .linkedin:focus {
+    background-position: -165px -33px; }
+#contact .steam {
+  background-position: -198px 0; }
+  #contact .steam:hover, #contact .steam:focus {
+    background-position: -198px -33px; }
 
+@media only screen and (min-resolution: 1.5dppx) {
+  #about .icon {
+    background-image: url(images/hd/contact.png); } }
+@media only screen and (min-resolution: 2dppx) {
+  #about .icon {
+    background-image: url(images/uhd/contact.png); } }
+@media only screen and (min-resolution: 2.5dppx) {
+  #about .icon {
+    background-image: url(images/luhd/contact.png); } }
 /* [/c] components */
 /* [11] sprites.scss */
 .icon {
+  background-repeat: no-repeat;
   border-bottom: none;
   display: block;
   direction: ltr;
@@ -539,11 +580,8 @@ dt {
   background-position: center;
   background-repeat: no-repeat; }
 
-.logo {
+.main-menu .logo:hover, .main-menu .logo:focus, .logo {
   background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%205%204'%3E%3Cpath%20fill%3D'%23444'%20d%3D'M4%203V1H3v3h2V3M1%200h1v1H1zM1%202V1H0v3h1V3h1V2'%2F%3E%3C%2Fsvg%3E"); }
-
-.main-menu .logo:hover, .main-menu .logo:focus, .logo.white {
-  background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%205%204'%3E%3Cpath%20fill%3D'%23edecea'%20d%3D'M4%203V1H3v3h2V3M1%200h1v1H1zM1%202V1H0v3h1V3h1V2'%2F%3E%3C%2Fsvg%3E"); }
 
 /* [12] table.scss */
 .table-encap {
