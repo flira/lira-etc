@@ -87,7 +87,6 @@
   box-shadow: 0 0 10px rgba(0,0,0,.15);
   overflow-y: hidden;
   padding: 0;
-  position: fixed;
   transition: height .5s ease-in-out;
   height: 2.4em;
   z-index: 9999;
@@ -134,13 +133,18 @@
     }
   }
   .logo {
-    background-size: 30px;
-    @include sprite;
+    background-size: 15px;
+    background-repeat: no-repeat;
+    border: dashed 1px #666;
+    display: block;
+    direction: ltr;
+    overflow: hidden;
+    text-indent: -9999px;
     position: absolute;
-    background-color: $color-white;
     left: $margin-small;
-    top: 0;
-    padding: 1em 0;
+    top: 0.4em;
+    opacity: .75;
+    padding: .8em;
     width: 0;
     height: 0;
     transition: all .25s ease-in-out;
@@ -153,9 +157,8 @@
     }
     &:hover,
     &:focus {
-      @extend %bg-center;
-      @extend %logo;
-      background-color: $color3;
+      background-color: $color1;
+      opacity: 1;
     }
   }
 }

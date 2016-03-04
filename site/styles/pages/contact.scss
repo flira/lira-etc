@@ -4,12 +4,15 @@
     margin-right: .5em;
   }
   .icon {
-    background-image: url($img-url + "contact.png");
-    background-size: 228px 63px;
-    width: 30px;
-    height: 30px;
+    background-image: url($img-url + "networks.png");
+    background-size: 195px 63px;
+    width: 32px;
+    height: 32px;
   }
-  @each $class, $i in (mail:0, behance:1, git:2, insta:3, lastfm:4, linkedin:5, steam:6) {
+  .network {
+    padding-top: .5em;
+  }
+  @each $class, $i in (behance:0, git:1, insta:2, lastfm:3, linkedin:4, steam:5) {
     .#{$class} {
       $unity: "" !default;
       @if $i > 0 {$unity: "px"};
@@ -22,17 +25,17 @@
   }
 }
 @include hd {
-  #about .icon {
-    background-image: url($hd-img-url + "contact.png");
+  #contact .icon {
+    background-image: url($hd-img-url + "networks.png");
   }
 }
 @include uhd {
-  #about .icon {
-    background-image: url($uhd-img-url + "contact.png");
+  #contact .icon {
+    background-image: url($uhd-img-url + "networks.png");
   }
 }
 @include luhd {
-  #about .icon {
-    background-image: url($luhd-img-url + "contact.png");
+  #contact .icon {
+    background-image: url($luhd-img-url + "networks.png");
   }
 }

@@ -93,7 +93,7 @@ $luhd-img-url: #{$img-url}#{"luhd/"}; // ludicrous dppx
 @mixin luhd { @include media-query(luhd) { @content }; }
 
 // Inline-block with polyfill
-@mixin focus($f-color: $color2) {
+@mixin focus($f-color: $color1) {
   background-color: $f-color;
   color: $color-strong;
 }

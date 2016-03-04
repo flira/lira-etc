@@ -7,12 +7,12 @@ Error: Undefined variable: "$img-url".
 4:     margin-right: .5em;
 5:   }
 6:   .icon {
-7:     background-image: url($img-url + "contact.png");
-8:     background-size: 228px 63px;
-9:     width: 30px;
-10:     height: 30px;
+7:     background-image: url($img-url + "networks.png");
+8:     background-size: 195px 63px;
+9:     width: 32px;
+10:     height: 32px;
 11:   }
-12:   @each $class, $i in (mail:0, behance:1, git:2, insta:3, lastfm:4, linkedin:5, steam:6) {
+12:   .network {
 
 Backtrace:
 /home/ubuntu/workspace/site/styles/pages/contact.scss:7
@@ -90,4 +90,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$img-url\".\A         on line 7 of /home/ubuntu/workspace/site/styles/pages/contact.scss\A \A 2:   li {\A 3:     display: inline-block;\A 4:     margin-right: .5em;\A 5:   }\A 6:   .icon {\A 7:     background-image: url($img-url + \"contact.png\");\A 8:     background-size: 228px 63px;\A 9:     width: 30px;\A 10:     height: 30px;\A 11:   }\A 12:   @each $class, $i in (mail:0, behance:1, git:2, insta:3, lastfm:4, linkedin:5, steam:6) {"; }
+  content: "Error: Undefined variable: \"$img-url\".\A         on line 7 of /home/ubuntu/workspace/site/styles/pages/contact.scss\A \A 2:   li {\A 3:     display: inline-block;\A 4:     margin-right: .5em;\A 5:   }\A 6:   .icon {\A 7:     background-image: url($img-url + \"networks.png\");\A 8:     background-size: 195px 63px;\A 9:     width: 32px;\A 10:     height: 32px;\A 11:   }\A 12:   .network {"; }

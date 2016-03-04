@@ -4,19 +4,9 @@
       display: inline-block;
     }
   }
-  .list-tech {
-    li li {
-      font-weight: 700;
-      padding-left: $p-indent;
-      li {
-        list-style: inside disc;
-        font-weight: 300;
-      }
-    }
-  }
   .tech-table {
-    max-width: 40em;
-    min-width: 27em;
+    max-width: 68em;
+    min-width: 30em;
     th {
       width: 25%;
     }

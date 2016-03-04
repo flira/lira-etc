@@ -191,7 +191,7 @@ input[type=search]::-webkit-search-cancel-button, input[type=search]::-webkit-se
 /* [3.1] Basic definitions */
 :focus {
   outline: none;
-  background-color: #c0ffee;
+  background-color: #c0ff33;
   color: #222; }
 
 ::-moz-selection {
@@ -226,14 +226,14 @@ object {
   max-width: 100%; }
 
 a {
-  border-bottom: outset 2px #c0ffee;
+  border-bottom: outset 2px #c0ff33;
   color: #222;
   display: inline-block;
   height: 1.15em;
   text-decoration: none;
   text-indent: 0; }
   a:hover {
-    background-color: #c0ffee;
+    background-color: #c0ff33;
     color: #222; }
 
 @media only screen and (min-width: 900px) {
@@ -388,7 +388,6 @@ dt {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
   overflow-y: hidden;
   padding: 0;
-  position: fixed;
   transition: height .5s ease-in-out;
   height: 2.4em;
   z-index: 9999; }
@@ -424,30 +423,29 @@ dt {
   .main-menu .selected, .main-menu .selected:hover, .main-menu .selected:focus {
     color: #000; }
   .main-menu .logo {
-    background-size: 30px;
+    background-size: 15px;
     background-repeat: no-repeat;
-    border-bottom: none;
+    border: dashed 1px #666;
     display: block;
     direction: ltr;
     overflow: hidden;
     text-indent: -9999px;
     position: absolute;
-    background-color: #fff;
     left: 1em;
-    top: 0;
-    padding: 1em 0;
+    top: 0.4em;
+    opacity: .75;
+    padding: .8em;
     width: 0;
     height: 0;
     transition: all .25s ease-in-out; }
-    .main-menu .logo:hover, .main-menu .logo:focus {
-      background-color: transparent; }
     .main-menu .logo.active {
       width: 3.5em;
       height: 3.5em; }
     .main-menu .logo::before {
       display: none; }
     .main-menu .logo:hover, .main-menu .logo:focus {
-      background-color: #c00033; }
+      background-color: #c0ff33;
+      opacity: 1; }
 
 @media only screen and (min-width: 660px) {
   .main-menu {
@@ -504,15 +502,9 @@ dt {
 /* [8] about.scss */
 #about .list-design li {
   display: inline-block; }
-#about .list-tech li li {
-  font-weight: 700;
-  padding-left: 1.62em; }
-  #about .list-tech li li li {
-    list-style: inside disc;
-    font-weight: 300; }
 #about .tech-table {
-  max-width: 40em;
-  min-width: 27em; }
+  max-width: 68em;
+  min-width: 30em; }
   #about .tech-table th {
     width: 25%; }
 
@@ -522,48 +514,46 @@ dt {
   display: inline-block;
   margin-right: .5em; }
 #contact .icon {
-  background-image: url(images/contact.png);
-  background-size: 228px 63px;
-  width: 30px;
-  height: 30px; }
-#contact .mail {
-  background-position: -0 0; }
-  #contact .mail:hover, #contact .mail:focus {
-    background-position: -0 -33px; }
+  background-image: url(images/networks.png);
+  background-size: 195px 63px;
+  width: 32px;
+  height: 32px; }
+#contact .network {
+  padding-top: .5em; }
 #contact .behance {
-  background-position: -33px 0; }
+  background-position: -0 0; }
   #contact .behance:hover, #contact .behance:focus {
-    background-position: -33px -33px; }
+    background-position: -0 -33px; }
 #contact .git {
-  background-position: -66px 0; }
+  background-position: -33px 0; }
   #contact .git:hover, #contact .git:focus {
-    background-position: -66px -33px; }
+    background-position: -33px -33px; }
 #contact .insta {
-  background-position: -99px 0; }
+  background-position: -66px 0; }
   #contact .insta:hover, #contact .insta:focus {
-    background-position: -99px -33px; }
+    background-position: -66px -33px; }
 #contact .lastfm {
-  background-position: -132px 0; }
+  background-position: -99px 0; }
   #contact .lastfm:hover, #contact .lastfm:focus {
-    background-position: -132px -33px; }
+    background-position: -99px -33px; }
 #contact .linkedin {
-  background-position: -165px 0; }
+  background-position: -132px 0; }
   #contact .linkedin:hover, #contact .linkedin:focus {
-    background-position: -165px -33px; }
+    background-position: -132px -33px; }
 #contact .steam {
-  background-position: -198px 0; }
+  background-position: -165px 0; }
   #contact .steam:hover, #contact .steam:focus {
-    background-position: -198px -33px; }
+    background-position: -165px -33px; }
 
 @media only screen and (min-resolution: 1.5dppx) {
-  #about .icon {
-    background-image: url(images/hd/contact.png); } }
+  #contact .icon {
+    background-image: url(images/hd/networks.png); } }
 @media only screen and (min-resolution: 2dppx) {
-  #about .icon {
-    background-image: url(images/uhd/contact.png); } }
+  #contact .icon {
+    background-image: url(images/uhd/networks.png); } }
 @media only screen and (min-resolution: 2.5dppx) {
-  #about .icon {
-    background-image: url(images/luhd/contact.png); } }
+  #contact .icon {
+    background-image: url(images/luhd/networks.png); } }
 /* [/c] components */
 /* [11] sprites.scss */
 .icon {
@@ -576,11 +566,11 @@ dt {
   .icon:hover, .icon:focus {
     background-color: transparent; }
 
-.main-menu .logo:hover, .main-menu .logo:focus, .logo {
+.logo {
   background-position: center;
   background-repeat: no-repeat; }
 
-.main-menu .logo:hover, .main-menu .logo:focus, .logo {
+.logo {
   background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%205%204'%3E%3Cpath%20fill%3D'%23444'%20d%3D'M4%203V1H3v3h2V3M1%200h1v1H1zM1%202V1H0v3h1V3h1V2'%2F%3E%3C%2Fsvg%3E"); }
 
 /* [12] table.scss */
