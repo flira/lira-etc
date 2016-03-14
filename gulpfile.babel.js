@@ -112,9 +112,13 @@ gulp.task('scripts', () =>
       // Note: Since we are not using useref in the scripts build pipeline,
       //       you need to explicitly list your scripts here in the right order
       //       to be correctly concatenated
-      'node_modules/angular2/angular2-polyfills.js',
-      'node_modules/rxjs/Rx.js',
-      'node_modules/angular2/angular2.js',
+      "./node_modules/es6-shim/es6-shim.min.js",
+      "./node_modules/systemjs/dist/system-polyfills.js",
+      "./node_modules/angular2/es6/dev/src/testing/shims_for_IE.js",
+      "./node_modules/angular2/bundles/angular2-polyfills.js",
+      "./node_modules/systemjs/dist/system.src.js",
+      "./node_modules/rxjs/bundles/Rx.js",
+      "./node_modules/angular2/bundles/angular2.js",
       './site/scripts/components/gwk.js'
     ])
       .pipe($.newer('.tmp/scripts'))

@@ -13,7 +13,7 @@
   @extend %text-center;
   @extend %header-v-center;
   width: 6.7em;
-  height: 2.5em;
+  height: 1.75em;
   &-name::after {
     background: $color-gray5;
     content: '';
@@ -21,12 +21,12 @@
     height: 1px;
     width: 100%;
     position: absolute;
-    bottom: -1.75em;
+    bottom: -2.1em;
     z-index: -1;
   }
   &-pos {
     color: $color-subtitle;
-    background: #edecea;
+    background: $color-bg;
     display: inline-block;
     font: italic 400 .9em $font;
     padding: 0 .3em .5em;
@@ -35,9 +35,7 @@
   }
   &-symb.logo {
     background-color: $color-white;
-    background-size: 35px;
-    //border: solid 2px $color-gray4;
-    //border-radius: 100%;
+    background-size: to-em(35, 2.5);
     border-radius: 100%;
     box-shadow: 0 3px $color-gray5;
     display: block;
@@ -57,12 +55,12 @@
   }
   .site-title {
     font-size: 3.5em;
-    height: 3.5em;
+    height: 3em;
     &-symb.logo {
-     background-size: 45px; 
+     background-size: to-em(45, 3.5); 
     }
     &-name::after {
-      bottom: -.75em;
+      bottom: -.8em;
     }
   }
 }
@@ -72,19 +70,15 @@
   }
   .site-title {
     font-size: 4em;
-    height: 4em;
     &-symb.logo {
-      background-size: 65px; 
-    }
-    &-name::after {
-      bottom: -.25em;
+      background-size: to-em(65, 4); 
     }
   }
 }
 
 .main-menu {
   background: $color-bg-layer;
-  box-shadow: 0 0 10px rgba(0,0,0,.15);
+  box-shadow: $soft-shadow;
   overflow-y: hidden;
   padding: 0;
   transition: height .5s ease-in-out;
@@ -122,6 +116,7 @@
     }
     &:hover {
       background-color: transparent;
+      text-shadow: none;
     }
     &:focus {
       @include focus($color1);
@@ -133,18 +128,17 @@
     }
   }
   .logo {
-    background-size: 15px;
+    background-size: to-em(20);
     background-repeat: no-repeat;
-    border: dashed 1px #666;
     display: block;
     direction: ltr;
     overflow: hidden;
     text-indent: -9999px;
     position: absolute;
     left: $margin-small;
-    top: 0.4em;
+    top: .3em;
     opacity: .75;
-    padding: .8em;
+    padding: 1em;
     width: 0;
     height: 0;
     transition: all .25s ease-in-out;

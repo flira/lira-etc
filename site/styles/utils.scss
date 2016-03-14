@@ -23,6 +23,7 @@ $color-selected: $color-black;
 $color-subtitle: $color-gray4;
 $color-strong: $color-gray1;
 $color-txt: $color-gray3;
+$soft-shadow: 0 0 5px rgba(0,0,0,.2);
 
 $font: "alegreya", georgia, serif;
 $font-fallback: georgia, serif;
@@ -35,9 +36,9 @@ $huge: 1900px;
 $large: 900px;
 $medium: 660px;
 $small: 419px;
-$hd: 1.5;
-$uhd: 2;
-$luhd: 2.5;
+$hd: 1.5dppx;
+$uhd: 2dppx;
+$luhd: 2.5dppx;
 
 $margin-top: 2.4em;
 $margin-bottom: 4.8em;
@@ -52,14 +53,17 @@ $uhd-img-url: #{$img-url}#{"uhd/"}; // 2 dppx
 $luhd-img-url: #{$img-url}#{"luhd/"}; // ludicrous dppx
 // [0.2] Functions
 
-@function toEm($n, $m: $font-size-base) {
-  @return ($n/$m)+em;
+@function to-em($n, $m: 1) {
+  //$m = Parent font size, in "em".
+  @return ($n / ($m * $font-size-base))+em;
 }
 
 // [0.3] Mixins
 
 // Media Query
 @mixin media-query($media-query) {
+  
+  //Queries by size
   @if $media-query == small {
     @media only screen and (min-width: $small) { @content; }
   }
@@ -72,15 +76,18 @@ $luhd-img-url: #{$img-url}#{"luhd/"}; // ludicrous dppx
   @if $media-query == huge {
     @media only screen and (min-width: $huge) { @content; }
   }
+  
+  // Queries by screen resolution
   @if $media-query == hd {
-    @media only screen and (min-resolution: 1.5dppx) { @content; }
+    @media only screen and (min-resolution: $hd) { @content; }
   }
   @if $media-query == uhd {
-    @media only screen and (min-resolution: 2dppx) { @content; }
+    @media only screen and (min-resolution: $uhd) { @content; }
   }
   @if $media-query == luhd {
-    @media only screen and (min-resolution: 2.5dppx) { @content; }
+    @media only screen and (min-resolution: $luhd) { @content; }
   }
+  
 }
 
 // Just some helpers...
@@ -116,4 +123,43 @@ $luhd-img-url: #{$img-url}#{"luhd/"}; // ludicrous dppx
   bottom: 0;
   left: 0;
   margin: auto;
+}
+
+// [0.3.1] works
+// Media query loop to definy how many tiles the "works" section will have.
+// Keys are queries, and values are the number of tiles.
+
+@mixin tiles-per-mq($tiles-map: ($small: 2, $medium: 3, $large: 4, $huge: 5)) {
+  @each $mq, $qty in $tiles-map {
+    @media only screen and (min-width: $mq) {
+      #works {
+        @if $mq == $small {
+          .works-list {
+            margin-left: -1em;
+          }
+        }
+        .works-item {
+          @if $mq == $small {margin-left: 1em;}
+          width: calc(#{(100 / $qty)}% - 1em);
+        }
+      }
+    }
+  }
+}
+
+// [0.3.2] contacts
+// Maps networks sprites.
+// Keys are the classes names and values are their positions on the html.
+@mixin net-sprites($classes: (behance: 0, git: 1, linkedin: 2, insta: 3, lastfm: 4, steam: 5)) {
+  @each $class, $i in $classes {
+    .#{$class} {
+      $unit: if($i > 0, "em", "");
+      $ico-em: 33 / 16;
+      background-position: -#{($i * $ico-em)+$unit} 0;
+      &:hover,
+      &:focus {
+        background-position: -#{($i * $ico-em)+$unit} -#{$ico-em+em};
+      }
+    }
+  }
 }

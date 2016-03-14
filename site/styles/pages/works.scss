@@ -1,0 +1,38 @@
+#works {
+  .works-item {
+    display: inline-block;
+    margin-bottom: 2em;
+    vertical-align: top;
+    width: 100%;
+  }
+  .works-anc {
+    border-bottom: outset 2px $color1;
+    padding: 0;
+    display: block;
+    height: auto;
+    figcaption {
+      font-weight: 700;
+      padding: .2em 0 .75em;
+    }
+    img {
+      border-bottom: solid 1px $color-gray5;
+      box-shadow: $soft-shadow;
+      transition: all .25s;
+      -webkit-filter: grayscale(50%) sepia(25%);
+              filter: grayscale(50%) sepia(25%);
+    }
+    &:hover, &:focus {
+      img {
+        -webkit-filter: unset;
+                filter: unset;
+      }
+    }
+  }
+}
+@include tiles-per-mq((
+  $small: 2,
+  $medium: 3,
+  $large: 4,
+  $huge: 5,
+  2540px: 6
+));

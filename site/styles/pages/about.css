@@ -1,9 +1,65 @@
-#about .list-design li {
-  display: inline-block; }
-#about .tech-table {
-  max-width: 68em;
-  min-width: 30em; }
-  #about .tech-table th {
-    width: 25%; }
+/*
+Error: Undefined mixin 'large'.
+        on line 16 of /home/ubuntu/workspace/site/styles/pages/about.scss, in `large'
+        from line 16 of /home/ubuntu/workspace/site/styles/pages/about.scss
 
-/*# sourceMappingURL=about.css.map */
+11:     th {
+12:       width: 25%;
+13:     }
+14:   }
+15: }
+16: @include large {
+17:   #about {
+18:     .tech-table {
+19:       width: 50%;
+20:     }
+21:   }
+
+Backtrace:
+/home/ubuntu/workspace/site/styles/pages/about.scss:16:in `large'
+/home/ubuntu/workspace/site/styles/pages/about.scss:16
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:349:in `block in visit_mixin'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/stack.rb:98:in `block in with_mixin'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/stack.rb:115:in `with_frame'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/stack.rb:98:in `with_mixin'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:347:in `visit_mixin'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/tree/visitors/base.rb:36:in `visit'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/stack.rb:79:in `block in with_base'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/stack.rb:115:in `with_frame'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/stack.rb:79:in `with_base'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/tree/visitors/base.rb:52:in `map'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/tree/visitors/base.rb:36:in `visit'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:157:in `visit'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:8:in `visit'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/tree/root_node.rb:36:in `css_tree'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/engine.rb:378:in `_render_with_sourcemap'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/engine.rb:295:in `render_with_sourcemap'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/plugin/compiler.rb:490:in `update_stylesheet'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/plugin/compiler.rb:209:in `each'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/plugin.rb:82:in `update_stylesheets'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/exec/sass_scss.rb:361:in `watch_or_update'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/exec/sass_scss.rb:51:in `process_result'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/exec/base.rb:52:in `parse'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/exec/base.rb:19:in `parse!'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/bin/scss:13:in `<top (required)>'
+/usr/local/rvm/gems/ruby-2.2.1/bin/scss:23:in `load'
+/usr/local/rvm/gems/ruby-2.2.1/bin/scss:23:in `<main>'
+/usr/local/rvm/gems/ruby-2.2.1/bin/ruby_executable_hooks:15:in `eval'
+/usr/local/rvm/gems/ruby-2.2.1/bin/ruby_executable_hooks:15:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Undefined mixin 'large'.\A         on line 16 of /home/ubuntu/workspace/site/styles/pages/about.scss, in `large'\A         from line 16 of /home/ubuntu/workspace/site/styles/pages/about.scss\A \A 11:     th {\A 12:       width: 25%;\A 13:     }\A 14:   }\A 15: }\A 16: @include large {\A 17:   #about {\A 18:     .tech-table {\A 19:       width: 50%;\A 20:     }\A 21:   }"; }

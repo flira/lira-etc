@@ -3,12 +3,12 @@ Error: Undefined variable: "$margin-top".
         on line 2 of /home/ubuntu/workspace/site/styles/modules/body.scss
 
 1: .main {
-2:   padding: $margin-top $margin-small $margin-bottom;
+2:   padding: $margin-top $margin-small 0;
 3:   &-encap {
-4:     border-bottom: solid 1px $color-lines;
-5:     min-height: 100vh;
-6:     padding-top: $margin-top;
-7:     padding-bottom: $margin-bottom;
+4:     padding-top: $margin-top;
+5:     padding-bottom: $margin-bottom;
+6:   }
+7: }
 
 Backtrace:
 /home/ubuntu/workspace/site/styles/modules/body.scss:2
@@ -69,4 +69,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$margin-top\".\A         on line 2 of /home/ubuntu/workspace/site/styles/modules/body.scss\A \A 1: .main {\A 2:   padding: $margin-top $margin-small $margin-bottom;\A 3:   &-encap {\A 4:     border-bottom: solid 1px $color-lines;\A 5:     min-height: 100vh;\A 6:     padding-top: $margin-top;\A 7:     padding-bottom: $margin-bottom;"; }
+  content: "Error: Undefined variable: \"$margin-top\".\A         on line 2 of /home/ubuntu/workspace/site/styles/modules/body.scss\A \A 1: .main {\A 2:   padding: $margin-top $margin-small 0;\A 3:   &-encap {\A 4:     padding-top: $margin-top;\A 5:     padding-bottom: $margin-bottom;\A 6:   }\A 7: }"; }

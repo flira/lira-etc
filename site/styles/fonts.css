@@ -11,7 +11,7 @@ Error: Undefined variable: "$color1".
 23:   display: block;
 24:   padding: 20px;
 25:   position: fixed;
-26:   top: 0;
+26:   bottom: 0;
 27:   width: 100%;
 
 Backtrace:
@@ -69,4 +69,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$color1\".\A         on line 22 of /home/ubuntu/workspace/site/styles/fonts.scss\A \A 17: \A 18: .wf-loading.wf-inactive body::before {\A 19:   background: rgba(0,0,0,.8);\A 20:   box-shadow: 0 1px 3px rgba(0,0,0,.5);\A 21:   content: 'Loading custom font...';\A 22:   color: $color1;\A 23:   display: block;\A 24:   padding: 20px;\A 25:   position: fixed;\A 26:   top: 0;\A 27:   width: 100%;"; }
+  content: "Error: Undefined variable: \"$color1\".\A         on line 22 of /home/ubuntu/workspace/site/styles/fonts.scss\A \A 17: \A 18: .wf-loading.wf-inactive body::before {\A 19:   background: rgba(0,0,0,.8);\A 20:   box-shadow: 0 1px 3px rgba(0,0,0,.5);\A 21:   content: 'Loading custom font...';\A 22:   color: $color1;\A 23:   display: block;\A 24:   padding: 20px;\A 25:   position: fixed;\A 26:   bottom: 0;\A 27:   width: 100%;"; }

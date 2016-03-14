@@ -1,0 +1,118 @@
+#project {
+  background-color: $color-bg-layer;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: -10em;
+  transition: left .35s ease-in-out, opacity .35s ease-in-out;
+  text-align: left;
+  width: 100%;
+  z-index: 99999;
+  h1 {
+    background: $color-gray1;
+    box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.5);
+    color: $color-bg;
+    display: inline-block;
+    margin-bottom: -1em;
+    max-width: 20em;
+    padding: 0 1em .2em;
+    position: relative;
+    top: -1em;
+    left: -1em;
+  }
+  .content {
+    box-shadow: 0 -2px 5px rgba(0,0,0,.2);
+    padding: 0 $margin-small $margin-bottom;
+  }
+  .hero {
+    background: {
+      attachment: fixed;
+      position: center 0;
+      repeat: no-repeat;
+      size: auto;
+    }
+    box-shadow: 0 -2px 5px rgba(0,0,0,.2);
+    min-height: 62vh;
+    img {
+      opacity: 0;
+      width: 100%;
+    }
+  }
+  .list-img {
+    text-align: center;
+  }
+  .project-ctrl {
+    background: #c00033;
+    border-radius: 100%;
+    border: solid 1px darken($color3, 5%);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    position: fixed;
+    top: 1em;
+    right: 1em;
+    text-shadow: none;
+    width: 2em;
+    height: 2em;
+    &::before {
+      color: $color-white;
+      content: '+';
+      display: block;
+      font: {
+        family: sans-serif;
+        size: 1.75em;
+        weight: 700;
+      }
+      margin: auto;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      text-align: center;
+      transform: rotate(45deg);
+      width: 1em;
+      height: 1.3em;
+    }
+    &:focus {
+      background: #f00;
+    }
+  }
+  &.active {
+    display: block;
+    opacity: 1;
+    left: 0;
+  }
+}
+@include medium {
+  #project.active {
+    width: calc(100% - 3em);
+    .content {
+      padding: 0 $margin-in $margin-bottom;
+    }
+    .project-ctrl {
+      border-radius: 0;
+      border-left: solid 2px darken($color3, 7.5%);
+      box-shadow: $soft-shadow;
+      height: 3em;
+      top: 1.25em;
+      &::before {
+        width: 1.5em;
+        left: -.2em;
+      }
+    }
+  }
+}
+@include large {
+  #project {
+    .content {
+      padding: 0 $margin-out $margin-bottom;
+    }
+    .hero {
+      min-height: 0;
+      background-size: contain;
+      img {
+        margin-bottom: -1em;
+      }
+    }
+  }
+}

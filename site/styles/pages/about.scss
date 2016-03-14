@@ -5,10 +5,18 @@
     }
   }
   .tech-table {
-    max-width: 68em;
+    width: 100%;
     min-width: 30em;
+    margin-bottom: 1em;
     th {
       width: 25%;
+    }
+  }
+}
+@include large {
+  #about {
+    .tech-table {
+      width: 50%;
     }
   }
 }

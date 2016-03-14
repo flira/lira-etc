@@ -8,6 +8,8 @@ style.scss */
 //  │   ├─ [0.1] Variables
 //  │   ├─ [0.2] Functions
 //  │   └─ [0.3] Mixes
+//  │       ├─ [0.3.1] works
+//  │       └─ [0.3.2] contacts 
 /*  │
     ├─ [1] fonts.scss
     │   └─ [1.1] Font imports 
@@ -31,11 +33,12 @@ style.scss */
     │   ├─ [7] works.scss
     │   ├─ [8] about.scss
     │   ├─ [9] faq.scss
-    │   └─ [10] contact.scss
+    │   ├─ [10] contact.scss
+    │   └─ [11] project.scss
     │
     └─ [/c] components
-        ├─ [11] sprites.scss
-        ├─ [12] table.scss
+        ├─ [12] sprites.scss
+        └─ [13] table.scss
 */
 // [0] utils.scss
 @import "utils";
@@ -61,8 +64,10 @@ style.scss */
 @import "pages/faq";
 /* [10] contact.scss */
 @import "pages/contact";
+/* [11] project.scss */
+@import "pages/project";
 /* [/c] components */
-/* [11] sprites.scss */
+/* [12] sprites.scss */
 @import "components/sprites";
-/* [12] table.scss */
+/* [13] table.scss */
 @import "components/table";

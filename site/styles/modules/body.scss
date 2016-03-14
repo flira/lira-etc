@@ -1,23 +1,17 @@
 .main {
-  padding: $margin-top $margin-small $margin-bottom;
+  padding: $margin-top $margin-small 0;
   &-encap {
-    border-bottom: solid 1px $color-lines;
-    min-height: 100vh;
     padding-top: $margin-top;
     padding-bottom: $margin-bottom;
-    position: relative;
   }
 }
 @include medium {
   .main {
-    padding: $margin-top $margin-in $margin-bottom;
+    padding: $margin-top $margin-in 0;
   }
 }
 @include large {
   .main {
-    padding: $margin-top $margin-out $margin-bottom;
+    padding: $margin-top $margin-out 0;
   }
-}
-#works {
-  min-height: 120vh;
 }

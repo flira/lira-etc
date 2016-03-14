@@ -1,32 +1,26 @@
 /*
-Error: Undefined variable: "$img-url".
-        on line 7 of /home/ubuntu/workspace/site/styles/pages/contact.scss
+Error: Undefined variable: "$color1".
+        on line 9 of /home/ubuntu/workspace/site/styles/pages/works.scss
 
-2:   li {
-3:     display: inline-block;
-4:     margin-right: .5em;
-5:   }
-6:   .icon {
-7:     background-image: url($img-url + "networks.png");
-8:     background-size: (195 / 16)+em;
-9:     width: 2em;
-10:     height: 2em;
-11:   }
-12:   .network {
+4:     margin-bottom: 2em;
+5:     vertical-align: top;
+6:     width: 100%;
+7:   }
+8:   .works-anc {
+9:     border-bottom: outset 2px $color1;
+10:     padding: 0;
+11:     display: block;
+12:     height: auto;
+13:     figcaption {
+14:       font-weight: 700;
 
 Backtrace:
-/home/ubuntu/workspace/site/styles/pages/contact.scss:7
+/home/ubuntu/workspace/site/styles/pages/works.scss:9
 /usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/script/tree/variable.rb:49:in `_perform'
 /usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/script/tree/node.rb:50:in `perform'
-/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/script/tree/operation.rb:64:in `_perform'
-/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/script/tree/node.rb:50:in `perform'
-/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/script/tree/funcall.rb:170:in `perform_arg'
-/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/script/tree/funcall.rb:124:in `block in _perform'
-/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/script/tree/funcall.rb:124:in `each'
-/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/script/tree/funcall.rb:124:in `each_with_index'
-/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/script/tree/funcall.rb:124:in `each'
-/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/script/tree/funcall.rb:124:in `map'
-/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/script/tree/funcall.rb:124:in `_perform'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/script/tree/list_literal.rb:63:in `block in _perform'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/script/tree/list_literal.rb:63:in `map'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/script/tree/list_literal.rb:63:in `_perform'
 /usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/script/tree/node.rb:50:in `perform'
 /usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:395:in `visit_prop'
 /usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/tree/visitors/base.rb:36:in `visit'
@@ -90,4 +84,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$img-url\".\A         on line 7 of /home/ubuntu/workspace/site/styles/pages/contact.scss\A \A 2:   li {\A 3:     display: inline-block;\A 4:     margin-right: .5em;\A 5:   }\A 6:   .icon {\A 7:     background-image: url($img-url + \"networks.png\");\A 8:     background-size: (195 / 16)+em;\A 9:     width: 2em;\A 10:     height: 2em;\A 11:   }\A 12:   .network {"; }
+  content: "Error: Undefined variable: \"$color1\".\A         on line 9 of /home/ubuntu/workspace/site/styles/pages/works.scss\A \A 4:     margin-bottom: 2em;\A 5:     vertical-align: top;\A 6:     width: 100%;\A 7:   }\A 8:   .works-anc {\A 9:     border-bottom: outset 2px $color1;\A 10:     padding: 0;\A 11:     display: block;\A 12:     height: auto;\A 13:     figcaption {\A 14:       font-weight: 700;"; }

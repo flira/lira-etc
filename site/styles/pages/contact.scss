@@ -5,24 +5,21 @@
   }
   .icon {
     background-image: url($img-url + "networks.png");
-    background-size: 195px 63px;
-    width: 32px;
-    height: 32px;
+    background-size: (195 / 16)+em;
+    width: 2em;
+    height: 2em;
   }
   .network {
     padding-top: .5em;
   }
-  @each $class, $i in (behance:0, git:1, insta:2, lastfm:3, linkedin:4, steam:5) {
-    .#{$class} {
-      $unity: "" !default;
-      @if $i > 0 {$unity: "px"};
-      background-position: -#{($i * 33)+$unity} 0;
-      &:hover,
-      &:focus {
-        background-position: -#{($i * 33)+$unity} -33px;
-      }
-    }
-  }
+  @include net-sprites((
+    behance: 0,
+    git: 1,
+    linkedin: 4,
+    insta: 2,
+    lastfm: 3,
+    steam: 5
+  ));
 }
 @include hd {
   #contact .icon {
