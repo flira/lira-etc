@@ -36,7 +36,7 @@
   }
   &-symb.logo {
     background-color: $color-white;
-    background-size: to-em(35, 2.5);
+    background-size: to-em(35, 2.5) to-em(28, 2.5);
     border-radius: 100%;
     box-shadow: 0 3px $color-gray5;
     display: block;
@@ -58,7 +58,7 @@
     font-size: 3.5em;
     height: 3em;
     &-symb.logo {
-     background-size: to-em(45, 3.5); 
+     background-size: to-em(45, 3.5) to-em(36, 3.5); 
     }
     &-name::after {
       bottom: -.8em;
@@ -72,7 +72,7 @@
   .site-title {
     font-size: 4em;
     &-symb.logo {
-      background-size: to-em(65, 4); 
+      background-size: to-em(65, 4) to-em(52, 4); 
     }
   }
 }
@@ -98,6 +98,9 @@
     top: 0;
     padding: 10px 0;
     font-size: 1em;
+    &:first-child {
+      padding-top: .75em;
+    }
   }
   &-ul {
     margin-top: $margin-top;
@@ -129,7 +132,7 @@
     }
   }
   .logo {
-    background-size: to-em(20);
+    background-size: to-em(20) to-em(16);
     background-repeat: no-repeat;
     display: block;
     direction: ltr;

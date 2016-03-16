@@ -1,4 +1,5 @@
 'use strict';
+//Component to animate the hash links navigation
 import {ScrollNav} from 'scripts/components/typescripts/scroll-nav.js';
 
 interface Components {
@@ -7,6 +8,4 @@ interface Components {
 
 (function(c: Components):void{
   c.sn.init();
-})({
-  sn: new ScrollNav()
-});
+})({sn: new ScrollNav()});
