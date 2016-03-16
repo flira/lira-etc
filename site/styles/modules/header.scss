@@ -2,6 +2,7 @@
   @extend %text-center;
   @extend %relative;
   height: 55vh;
+  min-height: 180px;
 }
 
 %header-v-center {

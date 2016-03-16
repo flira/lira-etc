@@ -1,0 +1,41 @@
+/* Above the fold style
+
+TOC:
+
+style.scss */
+//  │
+//  ├─ [0] utils.scss
+//  │   ├─ [0.1] Variables
+//  │   ├─ [0.2] Functions
+//  │   └─ [0.3] Mixes
+//  │       ├─ [0.3.1] works
+//  │       └─ [0.3.2] contacts 
+/*  │
+    ├─ [1] fonts.scss
+    │   └─ [1.1] Font imports 
+    │
+    ├─ [2] normalize.scss
+    │   ├─ [2.1] compass/reset
+    │   └─ [2.2] git.io/normalize
+    │
+    ├─ [3] globals.scss
+    │   ├─ [3.1] Basic definitions
+    │   └─ [3.2] Inline definitions
+    │       ├─ [3.2.1] Text align
+    │       └─ [3.2.2] Fonts and text definitions
+    │
+    └─ [/a] modules
+        └─ [4] header.scss
+*/
+
+// [0] utils.scss
+@import "utils.scss";
+/* [1] fonts.scss */
+@import "fonts.scss";
+/* [2] normalize.scss */
+@import "normalize.scss";
+/* [3] globals.scss */
+@import "globals.scss";
+/* [/a] modules */
+/* [4] header.scss */
+@import "modules/header.scss";

@@ -55,7 +55,7 @@
     height: 2em;
     &::before {
       color: $color-white;
-      content: '+';
+      content: '×';
       display: block;
       font: {
         family: sans-serif;
@@ -69,8 +69,6 @@
       bottom: 0;
       left: 0;
       text-align: center;
-      transform: rotate(45deg);
-      width: 1em;
       height: 1.3em;
     }
     &:focus {
@@ -95,10 +93,6 @@
       box-shadow: $soft-shadow;
       height: 3em;
       top: 1.25em;
-      &::before {
-        width: 1.5em;
-        left: -.2em;
-      }
     }
   }
 }

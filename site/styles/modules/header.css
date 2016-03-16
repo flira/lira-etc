@@ -1,23 +1,23 @@
 /*
 Error: Undefined mixin 'v-center'.
-        on line 9 of /home/ubuntu/workspace/site/styles/modules/header.scss, in `v-center'
-        from line 9 of /home/ubuntu/workspace/site/styles/modules/header.scss
+        on line 10 of /home/ubuntu/workspace/site/styles/modules/header.scss, in `v-center'
+        from line 10 of /home/ubuntu/workspace/site/styles/modules/header.scss
 
-4:   height: 55vh;
-5: }
-6: 
-7: %header-v-center {
-8:   @extend %absolute;
-9:   @include v-center;
-10: }
-11: 
-12: .site-title {
-13:   @extend %text-center;
-14:   @extend %header-v-center;
+5:   min-height: 180px;
+6: }
+7: 
+8: %header-v-center {
+9:   @extend %absolute;
+10:   @include v-center;
+11: }
+12: 
+13: .site-title {
+14:   @extend %text-center;
+15:   @extend %header-v-center;
 
 Backtrace:
-/home/ubuntu/workspace/site/styles/modules/header.scss:9:in `v-center'
-/home/ubuntu/workspace/site/styles/modules/header.scss:9
+/home/ubuntu/workspace/site/styles/modules/header.scss:10:in `v-center'
+/home/ubuntu/workspace/site/styles/modules/header.scss:10
 /usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:349:in `block in visit_mixin'
 /usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/stack.rb:98:in `block in with_mixin'
 /usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/stack.rb:115:in `with_frame'
@@ -73,4 +73,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined mixin 'v-center'.\A         on line 9 of /home/ubuntu/workspace/site/styles/modules/header.scss, in `v-center'\A         from line 9 of /home/ubuntu/workspace/site/styles/modules/header.scss\A \A 4:   height: 55vh;\A 5: }\A 6: \A 7: %header-v-center {\A 8:   @extend %absolute;\A 9:   @include v-center;\A 10: }\A 11: \A 12: .site-title {\A 13:   @extend %text-center;\A 14:   @extend %header-v-center;"; }
+  content: "Error: Undefined mixin 'v-center'.\A         on line 10 of /home/ubuntu/workspace/site/styles/modules/header.scss, in `v-center'\A         from line 10 of /home/ubuntu/workspace/site/styles/modules/header.scss\A \A 5:   min-height: 180px;\A 6: }\A 7: \A 8: %header-v-center {\A 9:   @extend %absolute;\A 10:   @include v-center;\A 11: }\A 12: \A 13: .site-title {\A 14:   @extend %text-center;\A 15:   @extend %header-v-center;"; }

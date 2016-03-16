@@ -85,8 +85,7 @@ gulp.task('styles', () => {
 
   // For best performance, don't add Sass partials to `gulp.src`
   return gulp.src([
-    'site/styles/**/*.scss',
-    'site/styles/**/*.css'
+    'site/styles/style.scss'
   ])
     .pipe($.newer('.tmp/styles'))
     .pipe($.sourcemaps.init())
@@ -102,8 +101,6 @@ gulp.task('styles', () => {
     .pipe(gulp.dest('dist/styles'));
 });
 
-gulp.task()
-
 // Concatenate and minify JavaScript. Optionally transpiles ES2015 code to ES5.
 // to enables ES2015 support remove the line `"only": "gulpfile.babel.js",` in the
 // `.babelrc` file.
@@ -112,13 +109,10 @@ gulp.task('scripts', () =>
       // Note: Since we are not using useref in the scripts build pipeline,
       //       you need to explicitly list your scripts here in the right order
       //       to be correctly concatenated
-      "./node_modules/es6-shim/es6-shim.min.js",
-      "./node_modules/systemjs/dist/system-polyfills.js",
-      "./node_modules/angular2/es6/dev/src/testing/shims_for_IE.js",
-      "./node_modules/angular2/bundles/angular2-polyfills.js",
-      "./node_modules/systemjs/dist/system.src.js",
-      "./node_modules/rxjs/bundles/Rx.js",
-      "./node_modules/angular2/bundles/angular2.js",
+      "./node_modules/angular2/bundles/angular2-polyfills.min.js",
+      "./node_modules/systemjs/dist/system.min.js",
+      "./node_modules/rxjs/bundles/Rx.min.js",
+      "./node_modules/angular2/bundles/angular2.min.js",
       './site/scripts/components/gwk.js'
     ])
       .pipe($.newer('.tmp/scripts'))
@@ -179,7 +173,7 @@ gulp.task('serve', ['scripts', 'styles'], () => {
 
   gulp.watch(['site/**/*.html'], reload);
   gulp.watch(['site/styles/**/*.{scss,css}'], ['styles', reload]);
-  gulp.watch(['site/scripts/**/*.js'], ['lint', 'scripts']);
+  gulp.watch(['site/scripts/**/*.js'], [/*'lint'*/, 'scripts']);
   gulp.watch(['site/images/**/*'], reload);
 });
 
@@ -203,7 +197,7 @@ gulp.task('serve:dist', ['default'], () =>
 gulp.task('default', ['clean'], cb =>
   runSequence(
     'styles',
-    ['lint', 'html', 'scripts', 'images', 'copy'],
+    [/*'lint',*/ 'html', 'scripts', 'images', 'copy'],
     'generate-service-worker',
     cb
   )

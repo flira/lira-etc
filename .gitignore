@@ -2,6 +2,7 @@ node_modules
 .c9
 .tmp
 dist/
+site/DEL
 site/styles/.sass-cache
 site/styles/components/.sass-cache
 site/styles/modules/.sass-cache

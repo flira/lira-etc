@@ -49,73 +49,36 @@
         <span class="site-title-name">Fernando Lira</span>
         <span class="site-title-pos"><abbr title="User Experience">UX</abbr> designer</span>
     </h1>
-    <div class="main-menu">
+    <div class="main-menu" data-selective-fix>
       <nav>
-        <h2 class="main-menu-h">Menu</h2>
-        <ul class="main-menu-ul">
+        <h2 class="main-menu-h" data-hide-menu="ctrl">Menu</h2>
+        <ul class="main-menu-ul" data-scroll-nav data-hide-menu="model">
           <li class="main-menu-li"><a href="#home" class="main-menu-a logo">home</a></li>
           <li class="main-menu-li"><a href="#works" class="main-menu-a">works</a></li>
           <li class="main-menu-li"><a href="#about" class="main-menu-a">about</a></li>
           <li class="main-menu-li"><a href="#contact" class="main-menu-a">contact</a></li>
         </ul>
       </nav>
+      <!--
+        About the datas:
+        Selective-fix:
+          Makes the element fixed or static, based if the page is being
+          scrolled up or down.
+        
+        Scroll-nav: 
+          Every hash anchor children will have animated scroll.
+        
+        Hide-menu: 
+          Toggle menu, while it's  hidden by media query.
+      -->
     </div>
   </header>
   <main class="main">
     <section class="main-encap" id="works">
       <h2>Works</h2>
-      <ul class="works-list">
-        <li class="works-item">
-          <a class="works-anc" href="#">
-            <figure>
-              <img src="http://fernando.lira.etc.br/img/img.png" alt="Img crossmedia studio"/>
-              <figcaption>Img crossmedia studio</figcaption>
-            </figure>
-          </a>
-        </li><li class="works-item">
-          <a class="works-anc" href="#">
-            <figure>
-              <img src="http://fernando.lira.etc.br/img/tcu.png" alt="Img crossmedia studio"/>
-              <figcaption>Img crossmedia studio</figcaption>
-            </figure>
-          </a>
-        </li><li class="works-item">
-          <a class="works-anc" href="#">
-            <figure>
-              <img src="http://fernando.lira.etc.br/img/mariapenha.png" alt="Img crossmedia studio"/>
-              <figcaption>E isso é um texto grande para teste de prováveis duas linhas</figcaption>
-            </figure>
-          </a>
-        </li><li class="works-item">
-          <a class="works-anc" href="#">
-            <figure>
-              <img src="http://fernando.lira.etc.br/img/buffalo.png" alt="Img crossmedia studio"/>
-              <figcaption>Img crossmedia studio</figcaption>
-            </figure>
-          </a>
-        </li><li class="works-item">
-          <a class="works-anc" href="#">
-            <figure>
-              <img src="http://fernando.lira.etc.br/img/geekcore.png" alt="Img crossmedia studio"/>
-              <figcaption>Img crossmedia studio</figcaption>
-            </figure>
-          </a>
-        </li><li class="works-item">
-          <a class="works-anc" href="#">
-            <figure>
-              <img src="http://fernando.lira.etc.br/img/muradas.png" alt="Img crossmedia studio"/>
-              <figcaption>Img crossmedia studio</figcaption>
-            </figure>
-          </a>
-        </li><li class="works-item">
-          <a class="works-anc" href="#">
-            <figure>
-              <img src="http://fernando.lira.etc.br/img/organogram.png" alt="Img crossmedia studio"/>
-              <figcaption>Img crossmedia studio</figcaption>
-            </figure>
-          </a>
-        </li>
-      </ul>
+      <div data-load-work>
+        <span id="load-msg">Loading...</span>
+      </div>
     </section>
     <section class="main-encap" id="about">
       <h2>About</h2>
@@ -201,7 +164,7 @@
         <dt>Bio</dt>
         <dd class="fluid-txt">
           <p>Fernando Lira is a designer who is concerned about the many aspects of user experience in websites, including accessibility, user feedback, information architecture and usability.
-          <p>He obtained his bachelor degree in visual communications design in 2010, but since 2009 he continuously works as an UX designer - assisting and complementing other UI designers projects - and as a frontend developer. His main focus is to guarantee acessible, responsive and comprehensible UI coding, and consequently, great websites.
+          <p>He obtained his bachelor degree in visual communications design in 2010, but since 2009 he continuously works as an <abbr title="User Experience">UX</abbr> designer - assisting and complementing other <abbr title="User Interface">UI</abbr> designers projects - and as a frontend developer. His main focus is to guarantee acessible, responsive and comprehensible UI coding, and consequently, great websites.
           <p>He also seems to like to talk about himself in the third person. Go figure.</p>
         </dd>
       </dl>
@@ -239,16 +202,10 @@
       </div>
     </section>
   </footer>
-  <!--IE polyfills-->
-  <script src="../node_modules/es6-shim/es6-shim.min.js"></script>
-  <script src="../node_modules/systemjs/dist/system-polyfills.js"></script>
-  <script src="../node_modules/angular2/es6/dev/src/testing/shims_for_IE.js"></script>
-  <!--/IE polyfills-->
-
-  <script src="../node_modules/angular2/bundles/angular2-polyfills.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
   <script src="../node_modules/systemjs/dist/system.src.js"></script>
-  <script src="../node_modules/rxjs/bundles/Rx.js"></script>
-  <script src="../node_modules/angular2/bundles/angular2.dev.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/4.1.0/rx.lite.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenLite.min.js"></script>
   <script src="scripts/components/gwk.js"></script>
   <script>
     System.config({
