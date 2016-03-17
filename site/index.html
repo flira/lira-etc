@@ -52,8 +52,8 @@
     <div class="main-menu" data-selective-fix>
       <nav>
         <h2 class="main-menu-h" data-hide-menu="ctrl">Menu</h2>
-        <ul class="main-menu-ul" data-scroll-nav data-hide-menu="model">
-          <li class="main-menu-li"><a href="#home" class="main-menu-a logo">home</a></li>
+        <ul class="main-menu-ul" data-scroll-nav data-scroll-nav-speed="2500" data-hide-menu="model">
+          <li class="main-menu-li"><a href="" class="main-menu-a logo">home</a></li>
           <li class="main-menu-li"><a href="#works" class="main-menu-a">works</a></li>
           <li class="main-menu-li"><a href="#about" class="main-menu-a">about</a></li>
           <li class="main-menu-li"><a href="#contact" class="main-menu-a">contact</a></li>
@@ -66,7 +66,11 @@
           scrolled up or down.
         
         Scroll-nav: 
-          Every hash anchor children will have animated scroll.
+          Regular window scroll to the element with the same id of the hash reference
+          but animated.
+          !optional:
+          data-scroll-nav-speed:
+            Set the speed that the page will scroll, in pixels per second
         
         Hide-menu: 
           Toggle menu, while it's hidden by media query.
@@ -91,6 +95,9 @@
         <dd>Fernando Lira</dd>
         <dt>Location</dt>
         <dd>Brasília - Brazil</dd>
+        <dt>Languages</dt>
+        <dd>Portuguese</dd>
+        <dd>English</dd>
         <dt>Technologies</dt>
         <dd class="table-encap">
           <table class="tech-table">
@@ -127,7 +134,7 @@
                 <td>ECMAScript 5 / 6(2015)</td>
                 <td>
                   <ul>
-                    <li>Angular 1 / 2</li>
+                    <li>Angular 1</li>
                     <li>jQuery</li>
                   </ul>
                 </td>
