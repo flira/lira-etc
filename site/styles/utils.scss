@@ -32,6 +32,7 @@ $font-header-fallback: "Gill Sans","Gill Sans MT", sans-serif;
 
 $font-size-base: 16;
 
+$ludicrous: 2400px;
 $huge: 1900px;
 $large: 900px;
 $medium: 660px;
@@ -76,6 +77,9 @@ $luhd-img-url: #{$img-url}#{"luhd/"}; // ludicrous dppx
   @if $media-query == huge {
     @media only screen and (min-width: $huge) { @content; }
   }
+  @if $media-query == ludicrous {
+    @media only screen and (min-width: $ludicrous) { @content; }
+  }
   
   // Queries by screen resolution
   @if $media-query == hd {
@@ -95,6 +99,7 @@ $luhd-img-url: #{$img-url}#{"luhd/"}; // ludicrous dppx
 @mixin medium { @include media-query(medium) { @content }; }
 @mixin large { @include media-query(large) { @content }; }
 @mixin huge { @include media-query(huge) { @content }; }
+@mixin ludicrous { @include media-query(ludicrous) { @content }; }
 @mixin hd { @include media-query(hd) { @content }; }
 @mixin uhd { @include media-query(uhd) { @content }; }
 @mixin luhd { @include media-query(luhd) { @content }; }

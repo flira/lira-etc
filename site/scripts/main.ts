@@ -1,11 +1,16 @@
 'use strict';
-//Component to animate the hash links navigation
-import {ScrollNav} from 'scripts/components/typescripts/scroll-nav.js';
+import {ScrollNav} from 'scripts/components/scroll-nav.js';
+import {ToggleMenu} from 'scripts/components/toggle-menu.js';
 
 interface Components {
   sn: ScrollNav;
+  tm: ToggleMenu;
 }
 
 (function(c: Components):void{
   c.sn.init();
-})({sn: new ScrollNav()});
+  c.tm.init();
+})({
+  sn: new ScrollNav(),
+  tm: new ToggleMenu()
+});

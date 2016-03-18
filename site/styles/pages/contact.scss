@@ -26,7 +26,8 @@
     background-image: url($hd-img-url + "networks.png");
   }
 }
-@include uhd {
+@media only screen and (min-resolution: $uhd),
+       only screen and (min-width: $ludicrous) {
   #contact .icon {
     background-image: url($uhd-img-url + "networks.png");
   }

@@ -213,6 +213,9 @@ body {
   color: #444;
   font: normal 300 1em/1.35 "alegreya", georgia, serif; }
 
+@media only screen and (min-width: 1900px) and (min-resolution: 2dppx), only screen and (min-width: 2400px) {
+  body {
+    font-size: 1.5em; } }
 .wf-inactive body {
   font-family: georgia, serif; }
 
@@ -342,7 +345,7 @@ dt {
 /* [4] header.scss */
 .main-header {
   height: 55vh;
-  min-height: 180px; }
+  min-height: 11.25em; }
 
 .site-title {
   top: 0;
@@ -387,7 +390,8 @@ dt {
 
 @media only screen and (min-width: 660px) {
   .main-header {
-    height: 62vh; }
+    height: 62vh;
+    min-height: 19.375em; }
 
   .site-title {
     font-size: 3.5em;
@@ -398,7 +402,8 @@ dt {
       bottom: -.8em; } }
 @media only screen and (min-width: 900px) {
   .main-header {
-    height: 68vh; }
+    height: 68vh;
+    min-height: 21.875em; }
 
   .site-title {
     font-size: 4em; }
@@ -610,7 +615,7 @@ dt {
 @media only screen and (min-resolution: 1.5dppx) {
   #contact .icon {
     background-image: url(images/hd/networks.png); } }
-@media only screen and (min-resolution: 2dppx) {
+@media only screen and (min-resolution: 2dppx), only screen and (min-width: 2400px) {
   #contact .icon {
     background-image: url(images/uhd/networks.png); } }
 @media only screen and (min-resolution: 2.5dppx) {
