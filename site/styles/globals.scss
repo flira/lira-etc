@@ -22,9 +22,7 @@ body {
 }
 @media only screen and (min-width: $huge) and (min-resolution: $uhd),
        only screen and (min-width: $ludicrous) {
-  body {
-    font-size: 1.5em;
-  }
+  body {font-size: 1.5em}
 }
 .wf-inactive body {
   font-family: $font-fallback;
@@ -45,14 +43,12 @@ a {
   text: {
     decoration: none;
     indent: 0;
-    shadow: 1px 0 $color-bg, 2px 0 $color-bg, -1px 0 $color-bg, -2px 0 $color-bg;
   }
-  
+  @include anchor-shadow($color-bg);
   &:hover,
   &:focus {
     outline: none;
     @include focus;
-    text-shadow: 1px 0 $color1, 2px 0 $color1, -1px 0 $color1, -2px 0 $color1;
   }
 }
 @include large {

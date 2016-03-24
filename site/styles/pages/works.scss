@@ -1,32 +1,38 @@
 #works {
-  .works-item {
-    display: inline-block;
-    margin-bottom: 2em;
-    vertical-align: top;
-    width: 100%;
-  }
-  .works-anc {
-    border-bottom: outset 2px $color1;
-    padding: 0;
-    display: block;
-    height: auto;
-    figcaption {
-      font-weight: 700;
-      padding: .2em 0 .75em;
+  .works{
+    &-item {
+      display: inline-block;
+      margin-bottom: 2em;
+      vertical-align: top;
+      width: 100%;
     }
-    img {
+    &-anc {
+      border-bottom: outset 2px $color1;
+      padding: 0;
+      display: block;
+      height: auto;
+      &:hover, &:focus {
+        .works-img {
+          -webkit-filter: unset;
+                  filter: unset;
+        }
+      }
+    }
+    &-img {
       border-bottom: solid 1px $color-gray5;
       box-shadow: $soft-shadow;
-      transition: all .25s;
+      opacity: 0;
+      transition: filter .25s, -webkit-filter .25s, opacity .5s .1s ease-out;
       -webkit-filter: grayscale(50%) sepia(25%);
               filter: grayscale(50%) sepia(25%);
     }
-    &:hover, &:focus {
-      img {
-        -webkit-filter: unset;
-                filter: unset;
-      }
+    &-captcha {
+      font-weight: 700;
+      padding: .2em 0 .75em;
     }
+  }
+  .loaded .works-img {
+    opacity: 1;
   }
 }
 @include tiles-per-mq((

@@ -1,0 +1,12 @@
+{
+  "project0": {
+    "title": "Image crossmedia studio",
+    "anchor": "#",
+    "tileSrc": "http://fernando.lira.etc.br/img/img.png"
+  },
+  "project1": {
+    "title": "Other project",
+    "anchor": "#",
+    "tileSrc": "http://fernando.lira.etc.br/img/geekcore.png"
+  }
+}

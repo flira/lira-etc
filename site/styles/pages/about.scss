@@ -7,16 +7,10 @@
   .tech-table {
     width: 100%;
     min-width: 30em;
+    //max-width: 45em;
     margin-bottom: 1em;
     th {
       width: 25%;
-    }
-  }
-}
-@include large {
-  #about {
-    .tech-table {
-      width: 50%;
     }
   }
 }

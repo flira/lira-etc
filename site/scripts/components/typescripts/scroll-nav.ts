@@ -29,10 +29,10 @@ export class ScrollNav {
     return attr;
   }
   setValues(): TweenValues {
-    const self = this,
+    const self: ScrollNav = this,
       i: {val:number} = {val: window.scrollY},
       f: number = self.target.length ? self.target.offset().top : 0,
-      s: number = (f - window.scrollY) / self.speed,
+      s: number = Math.abs(f - window.scrollY) / self.speed,
       oS = function(): void {
         location.hash = f ? self.target[0].id : '/';
       },
@@ -53,11 +53,12 @@ export class ScrollNav {
   }
   init(): void {
     const self: ScrollNav = this,
-      clickSource = Rx
+      source = Rx
         .Observable
         .fromEvent($(this.selector), 'click')
         .subscribe(function(e: Event): void {
-          self.speed = self.setSpeed($(e.currentTarget).attr("data-scroll-nav-speed"));
+          self.speed = self.setSpeed($(e.currentTarget)
+            .data("scrollNavSpeed"));
           self.target = $(e.target.hash);
           e.preventDefault();
           $(e.target).blur();

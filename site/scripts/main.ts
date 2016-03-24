@@ -1,16 +1,21 @@
 'use strict';
 import {ScrollNav} from 'scripts/components/scroll-nav.js';
-import {ToggleMenu} from 'scripts/components/toggle-menu.js';
+//import {SelectiveFix} from 'scripts/components/typescripts/selective-fix.js';
+import {ToggleItem} from 'scripts/components/toggle-item.js';
+import {LoadWork} from 'scripts/components/typescripts/load-work.js';
 
 interface Components {
+  lw: LoadWork;
   sn: ScrollNav;
-  tm: ToggleMenu;
+  //sf: SelectiveFix;
+  ti: ToggleItem;
 }
 
-(function(c: Components):void{
-  c.sn.init();
-  c.tm.init();
+(function(c: Components): void{
+  $.each(c, function(i, val){c[i].init();});
 })({
+  lw: new LoadWork(),
   sn: new ScrollNav(),
-  tm: new ToggleMenu()
+  //sf: new SelectiveFix(),
+  ti: new ToggleItem()
 });

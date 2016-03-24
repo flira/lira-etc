@@ -1,0 +1,10 @@
+#about .list-design li {
+  display: inline-block; }
+#about .tech-table {
+  width: 100%;
+  min-width: 30em;
+  margin-bottom: 1em; }
+  #about .tech-table th {
+    width: 25%; }
+
+/*# sourceMappingURL=about.css.map */

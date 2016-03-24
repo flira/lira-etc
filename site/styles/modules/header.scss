@@ -15,6 +15,7 @@
   @extend %header-v-center;
   width: 6.7em;
   height: 1.75em;
+  z-index: -1;
   &-name::after {
     background: $color-gray5;
     content: '';
@@ -84,11 +85,13 @@
   box-shadow: $soft-shadow;
   overflow-y: hidden;
   padding: 0;
+  position: fixed;
+  top: 0;
   transition: height .5s ease-in-out;
   height: 2.4em;
   z-index: 9999;
-  &.open {
-    height: 100vh;
+  &.active {
+    height: 90vh;
   }
   &, &-a {
     width: 100%;

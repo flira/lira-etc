@@ -105,9 +105,14 @@ $luhd-img-url: #{$img-url}#{"luhd/"}; // ludicrous dppx
 @mixin luhd { @include media-query(luhd) { @content }; }
 
 // Inline-block with polyfill
+
+@mixin anchor-shadow($s-color: $color1) {
+  text-shadow: 1px 0 $s-color, 2px 0 $s-color, -1px 0 $s-color, -2px 0 $s-color;
+}
 @mixin focus($f-color: $color1) {
   background-color: $f-color;
   color: $color-strong;
+  @include anchor-shadow;
 }
 
 @mixin sprite {
