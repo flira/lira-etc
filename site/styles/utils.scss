@@ -45,6 +45,9 @@ $margin-top: 2.4em;
 $margin-bottom: 4.8em;
 $margin-in: 3.8em;
 $margin-out: 6.2em;
+$relative-top: 10.8vh;
+$relative-side: 11.1%;
+$relative-bottom: 22vh;
 $margin-small: 1em;
 $p-indent: 1.62em;
 
@@ -54,9 +57,8 @@ $uhd-img-url: #{$img-url}#{"uhd/"}; // 2 dppx
 $luhd-img-url: #{$img-url}#{"luhd/"}; // ludicrous dppx
 // [0.2] Functions
 
-@function to-em($n, $m: 1) {
-  //$m = Parent font size, in "em".
-  @return ($n / ($m * $font-size-base))+em;
+@function to-rem($n) {
+  @return ($n / 16)+rem;
 }
 
 // [0.3] Mixins

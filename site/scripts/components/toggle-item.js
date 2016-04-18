@@ -1,1 +1,27 @@
-System.register([],function(t){"use strict";var e;return{setters:[],execute:function(){e=function(){function t(){this.c=$("[data-toggle-for]")}return t.prototype.init=function(){var t=this;Rx.Observable.fromEvent(t.c,"click").subscribe(function(t){var e="#"+$(t.target).data("toggleFor"),r=$(e),o=!(r.hasClass("active")||void 0!=$(t.target).data("toggleCloseOnly"));r.toggleClass("active",o)})},t}(),t("ToggleItem",e)}}});
+System.register([], function(exports_1) {
+    /// <reference path="definitely-typed/jquery.d.ts" />
+    /// <reference path="definitely-typed/rx.lite.d.ts" />
+    'use strict';
+    var ToggleItem;
+    return {
+        setters:[],
+        execute: function() {
+            ToggleItem = (function () {
+                function ToggleItem() {
+                    this.c = $('[data-toggle-for]');
+                }
+                ToggleItem.prototype.init = function () {
+                    var source = Rx.Observable
+                        .fromEvent(this.c, 'click')
+                        .subscribe(function (e) {
+                        var selector = '#' + $(e.target).data('toggleFor'), model = $(selector), bool = !model.hasClass('active')
+                            && !($(e.target).data('toggleCloseOnly') != void 0);
+                        model.toggleClass('active', bool);
+                    });
+                };
+                return ToggleItem;
+            })();
+            exports_1("ToggleItem", ToggleItem);
+        }
+    }
+});

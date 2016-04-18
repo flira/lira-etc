@@ -4,19 +4,19 @@
 # TEAM
 
   Web designer, Front-end developer: Fernando Lira.
-  Site: https://fernando.lira.etc.br (Yep, you are already there)
+  Site: https://fernando.lira.etc.br
   Location: Brasília, Brazil.
   
-  Server: Saulo Paiva.
+  Server setup: Saulo Paiva.
   Location: Prague, Czech Republic.
 
 # TECHNOLOGY COLOPHON
 
-  Standards: HTML5, CSS3, ECMAScript, PHP
-  Components: Angular 2 JS, jQuery ,Google web-starter-kit, Gulp, TypeScript, Sass
+  Standards: HTML5, CSS3 (Scss), ECMAScript (TypeScript), JSON
+  Frameworks: jQuery, Google web-starter-kit, GSAP, RxJS
+  Taskrunner: Gulp
   IDE: Cloud 9 @ c9.io
-
-Source: https://github.com/flira/lira-etc
+  Source: https://github.com/flira/lira-etc
 
     ┌──          ──┐
     │   ┌─┐        │

@@ -1,28 +1,24 @@
 /*
-Error: Undefined mixin 'v-center'.
-        on line 10 of /home/ubuntu/workspace/site/styles/modules/header.scss, in `v-center'
-        from line 10 of /home/ubuntu/workspace/site/styles/modules/header.scss
+Error: Undefined variable: "$margin-top".
+        on line 2 of /home/ubuntu/workspace/site/styles/modules/footer.scss
 
-5:   min-height: to-rem(180);
-6: }
-7: 
-8: %header-v-center {
-9:   @extend %absolute;
-10:   @include v-center;
-11: }
-12: 
-13: .site-title {
-14:   @extend %text-center;
-15:   @extend %header-v-center;
+1: .main-footer {
+2:   padding: $margin-top $margin-small $margin-bottom;
+3: }
+4: @include medium {
+5:   .main-footer {
+6:     padding: $margin-top $margin-in $margin-bottom;
+7:   }
 
 Backtrace:
-/home/ubuntu/workspace/site/styles/modules/header.scss:10:in `v-center'
-/home/ubuntu/workspace/site/styles/modules/header.scss:10
-/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:349:in `block in visit_mixin'
-/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/stack.rb:98:in `block in with_mixin'
-/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/stack.rb:115:in `with_frame'
-/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/stack.rb:98:in `with_mixin'
-/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:347:in `visit_mixin'
+/home/ubuntu/workspace/site/styles/modules/footer.scss:2
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/script/tree/variable.rb:49:in `_perform'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/script/tree/node.rb:50:in `perform'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/script/tree/list_literal.rb:63:in `block in _perform'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/script/tree/list_literal.rb:63:in `map'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/script/tree/list_literal.rb:63:in `_perform'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/script/tree/node.rb:50:in `perform'
+/usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:395:in `visit_prop'
 /usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/tree/visitors/base.rb:36:in `visit'
 /usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
 /usr/local/rvm/gems/ruby-2.2.1@global/gems/sass-3.4.20/lib/sass/stack.rb:79:in `block in with_base'
@@ -73,4 +69,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined mixin 'v-center'.\A         on line 10 of /home/ubuntu/workspace/site/styles/modules/header.scss, in `v-center'\A         from line 10 of /home/ubuntu/workspace/site/styles/modules/header.scss\A \A 5:   min-height: to-rem(180);\A 6: }\A 7: \A 8: %header-v-center {\A 9:   @extend %absolute;\A 10:   @include v-center;\A 11: }\A 12: \A 13: .site-title {\A 14:   @extend %text-center;\A 15:   @extend %header-v-center;"; }
+  content: "Error: Undefined variable: \"$margin-top\".\A         on line 2 of /home/ubuntu/workspace/site/styles/modules/footer.scss\A \A 1: .main-footer {\A 2:   padding: $margin-top $margin-small $margin-bottom;\A 3: }\A 4: @include medium {\A 5:   .main-footer {\A 6:     padding: $margin-top $margin-in $margin-bottom;\A 7:   }"; }

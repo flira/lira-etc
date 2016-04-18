@@ -5,10 +5,10 @@ Error: Undefined variable: "$margin-top".
 1: .main {
 2:   padding: $margin-top $margin-small 0;
 3:   &-encap {
-4:     padding-top: $margin-top;
-5:     padding-bottom: $margin-bottom;
-6:   }
-7: }
+4:     @extend %relative;
+5:     padding-top: $margin-top;
+6:     padding-bottom: $margin-bottom;
+7:     &::after {
 
 Backtrace:
 /home/ubuntu/workspace/site/styles/modules/body.scss:2
@@ -69,4 +69,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$margin-top\".\A         on line 2 of /home/ubuntu/workspace/site/styles/modules/body.scss\A \A 1: .main {\A 2:   padding: $margin-top $margin-small 0;\A 3:   &-encap {\A 4:     padding-top: $margin-top;\A 5:     padding-bottom: $margin-bottom;\A 6:   }\A 7: }"; }
+  content: "Error: Undefined variable: \"$margin-top\".\A         on line 2 of /home/ubuntu/workspace/site/styles/modules/body.scss\A \A 1: .main {\A 2:   padding: $margin-top $margin-small 0;\A 3:   &-encap {\A 4:     @extend %relative;\A 5:     padding-top: $margin-top;\A 6:     padding-bottom: $margin-bottom;\A 7:     &::after {"; }

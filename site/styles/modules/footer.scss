@@ -8,6 +8,6 @@
 }
 @include large {
   .main-footer {
-    padding: $margin-top $margin-out $margin-bottom;
+    padding: $relative-top $relative-side $relative-bottom;
   }
 }

@@ -25,7 +25,8 @@ style.scss */
     │       └─ [3.2.2] Fonts and text definitions
     │
     └─ [/a] modules
-        └─ [4] header.scss
+        ├─ [4] header.scss
+        └─ [5] body.scss
 */
 
 // [0] utils.scss
@@ -39,3 +40,5 @@ style.scss */
 /* [/a] modules */
 /* [4] header.scss */
 @import "modules/header.scss";
+/* [5] body.scss */
+@import "modules/body.scss";

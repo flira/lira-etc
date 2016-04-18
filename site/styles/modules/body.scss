@@ -1,8 +1,21 @@
 .main {
   padding: $margin-top $margin-small 0;
   &-encap {
+    @extend %relative;
     padding-top: $margin-top;
     padding-bottom: $margin-bottom;
+    &::after {
+      @extend %absolute;
+      background: $color-gray4;
+      content: '';
+      display: block;
+      margin: auto;
+      right: 0;
+      bottom: -2rem;
+      left: 0;
+      width: 4em;
+      height: 1px;
+    }
   }
 }
 @include medium {
@@ -12,6 +25,10 @@
 }
 @include large {
   .main {
-    padding: $margin-top $margin-out 0;
+    padding: $margin-top $relative-side 0;
+    &-encap {
+      padding-top: $relative-top;
+      padding-bottom: 0;
+    }
   }
 }

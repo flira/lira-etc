@@ -1,13 +1,24 @@
 #project {
-  background-color: $color-bg-layer;
-  opacity: 0;
-  position: absolute;
+  @extend %absolute;
+  background-color: rgba(0,0,0, .2);
+  overflow: auto;
   top: 0;
-  left: -10em;
-  transition: left .35s ease-in-out, opacity .35s ease-in-out;
+  opacity: 0;
+  //transition: opacity .35s ease-in-out;
   text-align: left;
   width: 100%;
+  height: 100vh;
   z-index: 99999;
+  -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
+  .project-encap {
+    @extend %absolute;
+    background-color: $color-bg-layer;
+    width: 100%;
+    right: -10em;
+    opacity: 0;
+    //transition: right .35s ease-in-out, opacity .35s ease-in-out;
+  }
   h1 {
     background: $color-gray1;
     box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.5);
@@ -75,25 +86,31 @@
       background: #f00;
     }
   }
-  &.active {
-    display: block;
+}
+.project-open {
+  overflow: hidden;
+  #project {
     opacity: 1;
-    left: 0;
+    .project-encap {
+      right: 0;
+      opacity: 1;
+    }
   }
 }
 @include medium {
-  #project.active {
-    width: calc(100% - 3em);
+  #project {
     .content {
       padding: 0 $margin-in $margin-bottom;
     }
     .project-ctrl {
       border-radius: 0;
-      border-left: solid 2px darken($color3, 7.5%);
+      border-right: solid 2px darken($color3, 7.5%);
       box-shadow: $soft-shadow;
       height: 3em;
-      top: 1.25em;
+      top: 1em;
+      right: 80%;
     }
+    .project-encap {width: 80%}
   }
 }
 @include large {

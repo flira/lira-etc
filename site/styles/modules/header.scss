@@ -2,7 +2,7 @@
   @extend %text-center;
   @extend %relative;
   height: 55vh;
-  min-height: to-em(180);
+  min-height: to-rem(180);
 }
 
 %header-v-center {
@@ -37,7 +37,7 @@
   }
   &-symb.logo {
     background-color: $color-white;
-    background-size: to-em(35, 2.5) to-em(28, 2.5);
+    background-size: to-rem(35) to-rem(28);
     border-radius: 100%;
     box-shadow: 0 3px $color-gray5;
     display: block;
@@ -54,13 +54,13 @@
 @include medium {
   .main-header {
     height: 62vh;
-    min-height: to-em(310);
+    min-height: to-rem(310);
   }
   .site-title {
     font-size: 3.5em;
     height: 3em;
     &-symb.logo {
-     background-size: to-em(45, 3.5) to-em(36, 3.5); 
+     background-size: to-rem(45) to-rem(36); 
     }
     &-name::after {
       bottom: -.8em;
@@ -70,12 +70,12 @@
 @include large {
   .main-header {
     height: 68vh;
-    min-height: to-em(350);
+    min-height: to-rem(350);
   }
   .site-title {
     font-size: 4em;
     &-symb.logo {
-      background-size: to-em(65, 4) to-em(52, 4); 
+      background-size: to-rem(65) to-rem(52); 
     }
   }
 }
@@ -108,7 +108,7 @@
     }
   }
   &-ul {
-    margin-top: $margin-top;
+    margin-top: 2 * $margin-top;
   }
   &-a {
     @extend %bold;
@@ -116,7 +116,7 @@
     color: $color-lines;
     display: block;
     height: auto;
-    padding: 1em 20%;
+    padding: 1em 1.5em;
     position: relative;
     transition: color .3s;
     text-align: left;
@@ -137,15 +137,13 @@
     }
   }
   .logo {
-    background-size: to-em(20) to-em(16);
-    background-repeat: no-repeat;
-    display: block;
-    direction: ltr;
-    overflow: hidden;
+    @extend %icon;
+    background-size: 20px 16px;
+    border-radius: 100%;
     text-indent: -9999px;
     position: absolute;
     left: $margin-small;
-    top: .3em;
+    top: .2em;
     opacity: .75;
     padding: 1em;
     width: 0;
@@ -195,7 +193,8 @@
 @include large {
   .main-menu {
     .logo {
-      left: $margin-out;
+      background-size: 25px 20px;
+      left: $relative-side;
     }
   }
 }

@@ -8,9 +8,9 @@ Error: Undefined variable: "$img-url".
 5:   }
 6:   .icon {
 7:     background-image: url($img-url + "networks.png");
-8:     background-size: (195 / 16)+em;
-9:     width: 2em;
-10:     height: 2em;
+8:     background-size: to-rem(195) to-rem(63);
+9:     width: 2rem;
+10:     height: 2rem;
 11:   }
 12:   .network {
 
@@ -90,4 +90,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$img-url\".\A         on line 7 of /home/ubuntu/workspace/site/styles/pages/contact.scss\A \A 2:   li {\A 3:     display: inline-block;\A 4:     margin-right: .5em;\A 5:   }\A 6:   .icon {\A 7:     background-image: url($img-url + \"networks.png\");\A 8:     background-size: (195 / 16)+em;\A 9:     width: 2em;\A 10:     height: 2em;\A 11:   }\A 12:   .network {"; }
+  content: "Error: Undefined variable: \"$img-url\".\A         on line 7 of /home/ubuntu/workspace/site/styles/pages/contact.scss\A \A 2:   li {\A 3:     display: inline-block;\A 4:     margin-right: .5em;\A 5:   }\A 6:   .icon {\A 7:     background-image: url($img-url + \"networks.png\");\A 8:     background-size: to-rem(195) to-rem(63);\A 9:     width: 2rem;\A 10:     height: 2rem;\A 11:   }\A 12:   .network {"; }

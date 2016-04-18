@@ -1,12 +1,34 @@
 {
-  "project0": {
+  "projects": [{
     "title": "Image crossmedia studio",
-    "anchor": "#",
-    "tileSrc": "http://fernando.lira.etc.br/img/img.png"
-  },
-  "project1": {
+    "positions": ["front-end developer"],
+    "anchor": "img",
+    "tileSrc": "http://fernando.lira.etc.br/img/img.png",
+    "tileSrcset": "",
+    "heroSrc": "DEL/crossmedia/capa.png",
+    "heroSrcset": "",
+    "description": "Omellete du fromage",
+    "git": "img",
+    "images": [{
+      "alt": "",
+      "src": "",
+      "srcset": ""
+    }, {
+      "alt": "",
+      "src": "",
+      "srcset": ""
+    }, {
+      "alt": "",
+      "src": "",
+      "srcset": ""
+    }],
+    "others": [{
+      "title": "Original codes",
+      "content": "<p><a href=\"../../projects/img/\">Here</a> is a backup of the front-end working without the back-end implementation.</p>"
+    }]
+  }, {
     "title": "Other project",
     "anchor": "#",
     "tileSrc": "http://fernando.lira.etc.br/img/geekcore.png"
-  }
+  }]
 }

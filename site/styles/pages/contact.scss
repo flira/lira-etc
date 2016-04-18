@@ -5,9 +5,9 @@
   }
   .icon {
     background-image: url($img-url + "networks.png");
-    background-size: (195 / 16)+em;
-    width: 2em;
-    height: 2em;
+    background-size: to-rem(195) to-rem(63);
+    width: 2rem;
+    height: 2rem;
   }
   .network {
     padding-top: .5em;
@@ -21,7 +21,8 @@
     steam: 5
   ));
 }
-@include hd {
+@media only screen and (min-resolution: $hd),
+       only screen and (min-width: $huge) {
   #contact .icon {
     background-image: url($hd-img-url + "networks.png");
   }

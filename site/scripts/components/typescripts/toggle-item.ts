@@ -7,10 +7,9 @@ export class ToggleItem {
     this.c = $('[data-toggle-for]');
   }
   init(): void {
-    const self: ToggleItem = this,
-      source = Rx.Observable
-        .fromEvent(self.c, 'click')
-        .subscribe(function(e: Event) {
+    const source:Rx = Rx.Observable
+        .fromEvent(this.c, 'click')
+        .subscribe((e: Event) => {
           const selector: string = '#' + $(e.target).data('toggleFor'),
             model: JQuery = $(selector),
             bool: boolean = !model.hasClass('active')

@@ -211,13 +211,16 @@ button {
   -webkit-font-smoothing: antialiased;
   font-smoothing: antialiased; }
 
-body {
+html {
   color: #444;
-  font: normal 300 1em/1.35 "alegreya", georgia, serif; }
+  font: normal 300 1rem/1.35 "alegreya", georgia, serif; }
 
+@media only screen and (min-width: 1900px) {
+  html {
+    font-size: 1.125rem; } }
 @media only screen and (min-width: 1900px) and (min-resolution: 2dppx), only screen and (min-width: 2400px) {
-  body {
-    font-size: 1.5em; } }
+  html {
+    font-size: 1.5rem; } }
 .wf-inactive body {
   font-family: georgia, serif; }
 
@@ -260,7 +263,7 @@ abbr {
 
 /* [3.2] Inline definitions */
 /* [3.2.1] Text align */
-body, .main-header, .site-title {
+html, .main-header, .site-title {
   text-align: center; }
 
 h1, h2, h3, h4,
@@ -279,7 +282,7 @@ h1, h2, h3, h4, dt {
 
 h1 {
   color: #222;
-  font-size: 2.5em;
+  font-size: 2.125em;
   padding: .75em 0 .5em; }
 
 h1:first-child {
@@ -287,7 +290,7 @@ h1:first-child {
 
 h2 {
   color: #222;
-  font-size: 2em;
+  font-size: 1.75em;
   padding: .75em 0 .5em; }
 
 h2:first-child {
@@ -295,7 +298,7 @@ h2:first-child {
 
 h3 {
   color: #222;
-  font-size: 1.75em;
+  font-size: 1.5em;
   padding: .75em 0 .5em; }
 
 h3:first-child {
@@ -328,26 +331,27 @@ dt {
 
 /* [3.3] Block definitions */
 /* [3.3.1] Positions */
-.site-title {
+.site-title, .main-encap::after, #project, #project .project-encap {
   position: absolute; }
 
-.main-header {
+.main-header, .main-encap {
   position: relative; }
 
-/* [3.3.x] Other blocks */
-.main-encap::before,
-.main-footer::before {
-  background: #108A69;
-  content: '';
+.main-menu .logo, .icon {
+  background-repeat: no-repeat;
+  border-bottom: none;
   display: block;
-  width: 4em;
-  height: 4px; }
+  direction: ltr;
+  overflow: hidden;
+  text-indent: -9999px; }
+  .main-menu .logo:hover, .icon:hover, .main-menu .logo:focus, .icon:focus {
+    background-color: transparent; }
 
 /* [/a] modules */
 /* [4] header.scss */
 .main-header {
   height: 55vh;
-  min-height: 11.25em; }
+  min-height: 11.25rem; }
 
 .site-title {
   top: 0;
@@ -379,7 +383,7 @@ dt {
     top: -0.35em; }
   .site-title-symb.logo {
     background-color: #fff;
-    background-size: 0.875em 0.7em;
+    background-size: 2.1875rem 1.75rem;
     border-radius: 100%;
     box-shadow: 0 3px #aaa;
     display: block;
@@ -394,24 +398,24 @@ dt {
 @media only screen and (min-width: 660px) {
   .main-header {
     height: 62vh;
-    min-height: 19.375em; }
+    min-height: 19.375rem; }
 
   .site-title {
     font-size: 3.5em;
     height: 3em; }
     .site-title-symb.logo {
-      background-size: 0.80357em 0.64286em; }
+      background-size: 2.8125rem 2.25rem; }
     .site-title-name::after {
       bottom: -.8em; } }
 @media only screen and (min-width: 900px) {
   .main-header {
     height: 68vh;
-    min-height: 21.875em; }
+    min-height: 21.875rem; }
 
   .site-title {
     font-size: 4em; }
     .site-title-symb.logo {
-      background-size: 1.01563em 0.8125em; } }
+      background-size: 4.0625rem 3.25rem; } }
 .main-menu {
   background: rgba(237, 236, 234, 0.965);
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
@@ -436,13 +440,13 @@ dt {
     .main-menu-h:first-child {
       padding-top: .75em; }
   .main-menu-ul {
-    margin-top: 2.4em; }
+    margin-top: 4.8em; }
   .main-menu-a {
     border-bottom: none;
     color: #aaa;
     display: block;
     height: auto;
-    padding: 1em 20%;
+    padding: 1em 1.5em;
     position: relative;
     transition: color .3s;
     text-align: left; }
@@ -458,15 +462,12 @@ dt {
   .main-menu .selected, .main-menu .selected:hover, .main-menu .selected:focus {
     color: #000; }
   .main-menu .logo {
-    background-size: 1.25em 1em;
-    background-repeat: no-repeat;
-    display: block;
-    direction: ltr;
-    overflow: hidden;
+    background-size: 20px 16px;
+    border-radius: 100%;
     text-indent: -9999px;
     position: absolute;
     left: 1em;
-    top: .3em;
+    top: .2em;
     opacity: .75;
     padding: 1em;
     width: 0;
@@ -501,20 +502,34 @@ dt {
         width: 68%; } }
 @media only screen and (min-width: 900px) {
   .main-menu .logo {
-    left: 6.2em; } }
+    background-size: 25px 20px;
+    left: 11.1%; } }
 /* [5] body.scss */
 .main {
   padding: 2.4em 1em 0; }
   .main-encap {
     padding-top: 2.4em;
     padding-bottom: 4.8em; }
+    .main-encap::after {
+      background: #666;
+      content: '';
+      display: block;
+      margin: auto;
+      right: 0;
+      bottom: -2rem;
+      left: 0;
+      width: 4em;
+      height: 1px; }
 
 @media only screen and (min-width: 660px) {
   .main {
     padding: 2.4em 3.8em 0; } }
 @media only screen and (min-width: 900px) {
   .main {
-    padding: 2.4em 6.2em 0; } }
+    padding: 2.4em 11.1% 0; }
+    .main-encap {
+      padding-top: 10.8vh;
+      padding-bottom: 0; } }
 /* [6] footer.scss */
 .main-footer {
   padding: 2.4em 1em 4.8em; }
@@ -524,7 +539,7 @@ dt {
     padding: 2.4em 3.8em 4.8em; } }
 @media only screen and (min-width: 900px) {
   .main-footer {
-    padding: 2.4em 6.2em 4.8em; } }
+    padding: 10.8vh 11.1% 22vh; } }
 /* [/b] pages */
 /* [7] works.scss */
 #works .works-item {
@@ -588,9 +603,9 @@ dt {
   margin-right: .5em; }
 #contact .icon {
   background-image: url(images/networks.png);
-  background-size: 12.1875em;
-  width: 2em;
-  height: 2em; }
+  background-size: 12.1875rem 3.9375rem;
+  width: 2rem;
+  height: 2rem; }
 #contact .network {
   padding-top: .5em; }
 #contact .behance {
@@ -618,7 +633,7 @@ dt {
   #contact .steam:hover, #contact .steam:focus {
     background-position: -10.3125em -2.0625em; }
 
-@media only screen and (min-resolution: 1.5dppx) {
+@media only screen and (min-resolution: 1.5dppx), only screen and (min-width: 1900px) {
   #contact .icon {
     background-image: url(images/hd/networks.png); } }
 @media only screen and (min-resolution: 2dppx), only screen and (min-width: 2400px) {
@@ -629,15 +644,21 @@ dt {
     background-image: url(images/luhd/networks.png); } }
 /* [11] project.scss */
 #project {
-  background-color: rgba(237, 236, 234, 0.965);
-  opacity: 0;
-  position: absolute;
+  background-color: rgba(0, 0, 0, 0.2);
+  overflow: auto;
   top: 0;
-  left: -10em;
-  transition: left .35s ease-in-out, opacity .35s ease-in-out;
+  opacity: 0;
   text-align: left;
   width: 100%;
-  z-index: 99999; }
+  height: 100vh;
+  z-index: 99999;
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px); }
+  #project .project-encap {
+    background-color: rgba(237, 236, 234, 0.965);
+    width: 100%;
+    right: -10em;
+    opacity: 0; }
   #project h1 {
     background: #222;
     box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.5);
@@ -693,22 +714,27 @@ dt {
       height: 1.3em; }
     #project .project-ctrl:focus {
       background: #f00; }
-  #project.active {
-    display: block;
-    opacity: 1;
-    left: 0; }
+
+.project-open {
+  overflow: hidden; }
+  .project-open #project {
+    opacity: 1; }
+    .project-open #project .project-encap {
+      right: 0;
+      opacity: 1; }
 
 @media only screen and (min-width: 660px) {
-  #project.active {
-    width: calc(100% - 3em); }
-    #project.active .content {
-      padding: 0 3.8em 4.8em; }
-    #project.active .project-ctrl {
-      border-radius: 0;
-      border-left: solid 2px #9a0029;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-      height: 3em;
-      top: 1.25em; } }
+  #project .content {
+    padding: 0 3.8em 4.8em; }
+  #project .project-ctrl {
+    border-radius: 0;
+    border-right: solid 2px #9a0029;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    height: 3em;
+    top: 1em;
+    right: 80%; }
+  #project .project-encap {
+    width: 80%; } }
 @media only screen and (min-width: 900px) {
   #project .content {
     padding: 0 6.2em 4.8em; }
@@ -719,21 +745,9 @@ dt {
       margin-bottom: -1em; } }
 /* [/c] components */
 /* [12] sprites.scss */
-.icon {
-  background-repeat: no-repeat;
-  border-bottom: none;
-  display: block;
-  direction: ltr;
-  overflow: hidden;
-  text-indent: -9999px; }
-  .icon:hover, .icon:focus {
-    background-color: transparent; }
-
 .logo {
   background-position: center;
-  background-repeat: no-repeat; }
-
-.logo {
+  background-repeat: no-repeat;
   background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20shape-rendering='crispEdges'%20viewBox%3D'0%200%205%204'%3E%3Cpath%20fill%3D'%23444'%20d%3D'M4%203V1H3v3h2V3M1%200h1v1H1zM1%202V1H0v3h1V3h1V2'%2F%3E%3C%2Fsvg%3E"); }
 
 /* [13] table.scss */

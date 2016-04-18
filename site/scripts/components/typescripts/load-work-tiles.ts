@@ -1,7 +1,7 @@
 /// <reference path="definitely-typed/jquery.d.ts" />
 /// <reference path="definitely-typed/fl-tile.d.ts" />
 'use strict';
-export class LoadWork {
+export class LoadWorkTiles {
   data: FLTile;
   items: string;
   constructor() {
@@ -9,7 +9,7 @@ export class LoadWork {
     this.items = "";
     this.template; //Template for the list items
     this.createItems; //Creates list items
-    this.createList; //Creates the final list and bind it to the html
+    this.createList; //Creates the final list and insert it to the html
   }
   template(key: string): string {
     //add srcset only if available
@@ -17,7 +17,7 @@ export class LoadWork {
       ? `srcset="${this.data[key].tileSrcset}"`
       : '';
     return `<li class="works-item">
-              <a class="works-anc" href="${this.data[key].anchor}">
+              <a class="works-anc" href="#works/${this.data[key].anchor}">
                 <figure class="works-fig">
                   <img class="works-img" src="${this.data[key].tileSrc}" ${srcset} alt="${this.data[key].title}"/>
                   <figcaption class="works-captcha">${this.data[key].title}</figcaption>
@@ -26,9 +26,8 @@ export class LoadWork {
             </li>`
   }
   createItems(): void {
-    const self: LoadWork = this;
-    $.each(this.data, function(i, val){
-      self.items += self.template(i);
+    $.each(this.data, (i, val): void =>{
+      this.items += this.template(i);
     });
     this.createList();
   }
@@ -44,10 +43,9 @@ export class LoadWork {
         });
   }
   init(): void {
-    var self: LoadWork = this;
-    $.getJSON('scripts/components/content.json', function(data) {
-        self.data = data;
-        self.createItems();
+    $.getJSON('scripts/components/content.json', (data): void => {
+        this.data = data.projects;
+        this.createItems();
     });
   }
 }

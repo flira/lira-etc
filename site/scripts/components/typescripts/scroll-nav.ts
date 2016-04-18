@@ -29,14 +29,13 @@ export class ScrollNav {
     return attr;
   }
   setValues(): TweenValues {
-    const self: ScrollNav = this,
-      i: {val:number} = {val: window.scrollY},
-      f: number = self.target.length ? self.target.offset().top : 0,
-      s: number = Math.abs(f - window.scrollY) / self.speed,
-      oS = function(): void {
-        location.hash = f ? self.target[0].id : '/';
+    const i: {val:number} = {val: window.scrollY},
+      f: number = this.target.length ? this.target.offset().top : 0,
+      s: number = Math.abs(f - window.scrollY) / this.speed,
+      oS = (): void => {
+        location.hash = f ? this.target[0].id : '';
       },
-      oU = function(): void {
+      oU = (): void => {
         window.scroll(
           window.scrollX,
           Math.round(i.val));
@@ -52,17 +51,19 @@ export class ScrollNav {
       });
   }
   init(): void {
-    const self: ScrollNav = this,
-      source = Rx
+    const source = Rx
         .Observable
         .fromEvent($(this.selector), 'click')
-        .subscribe(function(e: Event): void {
-          self.speed = self.setSpeed($(e.currentTarget)
-            .data("scrollNavSpeed"));
-          self.target = $(e.target.hash);
-          e.preventDefault();
-          $(e.target).blur();
-          self.animateScroll();
+        .subscribe((e: Event): void => {
+          const el = <Element>e.target;
+          if (el.hasAttribute('href')) {
+            this.speed = this.setSpeed($(e.currentTarget)
+              .data("scrollNavSpeed"));
+            this.target = $(el.getAttribute('href'));
+            e.preventDefault();
+            $(el).blur();
+            this.animateScroll();
+          }
       });
   }
 }

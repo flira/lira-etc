@@ -1,6 +1,9 @@
 {
   "name": "lira-etc",
   "version": "1.0.0",
+  "description": "Fernando Lira's online portfolio.",
+  "repository": "https://github.com/flira/lira-etc",
+  "author": "Fernando Lira <fernando@lira.etc.br>",
   "scripts": {
     "tsc": "tsc",
     "tsc:w": "tsc -w",

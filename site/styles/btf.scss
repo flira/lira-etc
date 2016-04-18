@@ -12,7 +12,6 @@ style.scss */
 //  │       └─ [0.3.2] contacts 
 /*  │
     ├─ [/a] modules
-    │   ├─ [5] body.scss
     │   └─ [6] footer.scss
     │
     ├─ [/b] pages
@@ -29,8 +28,6 @@ style.scss */
 // [0] utils.scss
 @import "utils.scss";
 /* [/a] modules */
-/* [5] body.scss */
-@import "modules/body.scss";
 /* [6] footer.scss */
 @import "modules/footer.scss";
 /* [/b] pages */
