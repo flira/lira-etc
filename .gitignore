@@ -9,3 +9,4 @@ site/styles/modules/.sass-cache
 site/styles/pages/.sass-cache
 .htaccess
 app.yaml
+npm-debug.log
