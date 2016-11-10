@@ -114,7 +114,8 @@ $luhd-img-url: #{$img-url}#{"luhd/"}; // ludicrous dppx
 @mixin focus($f-color: $color1) {
   background-color: $f-color;
   color: $color-strong;
-  @include anchor-shadow;
+  transition: background-color .25s;
+  @include anchor-shadow($f-color);
 }
 
 @mixin sprite {

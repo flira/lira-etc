@@ -11,11 +11,11 @@ interface TweenValues {
   _onUpdate: () => void; //Function called each Tween update
 }
 export class ScrollNav {
-  selector: string; //Optional selector for the menu where the component will be applied;
+  component: JQuery; // Element that the component will be applied with an optional selector;
   target: JQuery; // The element that the animation will scroll to
   speed: number; //Tween Speed
   constructor(selector ? : string) {
-    this.selector = !selector ? '[data-scroll-nav]' : selector;
+    this.component = !selector ? $('[data-scroll-nav]') : $(selector);
     this.target; //defined @ init();
     this.speed; //defined @ init();
     this.setSpeed; //Method to set tween speed
@@ -51,17 +51,16 @@ export class ScrollNav {
       });
   }
   init(): void {
-    const source = Rx
-        .Observable
-        .fromEvent($(this.selector), 'click')
+    const source = Rx.Observable
+        .fromEvent(this.component, 'click')
         .subscribe((e: Event): void => {
           const el = <Element>e.target;
           if (el.hasAttribute('href')) {
-            this.speed = this.setSpeed($(e.currentTarget)
-              .data("scrollNavSpeed"));
+            this.speed = this.setSpeed($(e.currentTarget).data("scrollNavSpeed"));
             this.target = $(el.getAttribute('href'));
             e.preventDefault();
-            $(el).blur();
+            this.component.find('.selected').removeClass('selected');
+            $(el).blur().addClass('selected');
             this.animateScroll();
           }
       });
