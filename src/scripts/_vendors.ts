@@ -1,1 +1,1 @@
-import 'components/gwk.js';
+import './components/gwk.js';
