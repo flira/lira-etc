@@ -1,7 +1,3 @@
-/// <reference path="definitely-typed/jquery.d.ts" />
-/// <reference path="definitely-typed/rx.lite.d.ts" />
-/// <reference path="definitely-typed/greensock.d.ts" />
-
 'use strict';
 interface TweenValues {
   _i: {val:number}; //Tween initialization

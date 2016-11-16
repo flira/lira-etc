@@ -1,28 +1,30 @@
-/// <reference path="definitely-typed/jquery.d.ts" />
-/// <reference path="definitely-typed/rx.lite.d.ts" />
-
 export class SelectiveFix {
-  el: JQuery; // 
-  oldY: number; // Previous window.scrollY
+  private readonly el: JQuery; //
+  private oldY: number; // Previous window.scrollY
+  private pinPoint: number;
+
   constructor () {
     this.el = $('[data-selective-fix]');
     this.oldY = this.pinPoint = window.scrollY;
     this.scrollUp; // Method executed when scroll up;
     this.scrollDown; // Method executed when scroll down;
   }
-  scrollUp(): void {
+
+  private scrollUp(): void {
     this.el.removeClass('scroll-down');
     if(!this.el.hasClass('scroll-up') && window.scrollY > this.el.height()) {
       this.el.addClass('scroll-up');
     }
   }
-  scrollDown(): void {
+
+  private scrollDown(): void {
     this.el.removeClass('scroll-up');
     if(!this.el.hasClass('scroll-down') && window.scrollY > this.el.height()) {
       this.el.addClass('scroll-down');
     }
   }
-  init(): void {
+
+  public init(): void {
     const self: SelectiveFix = this,
       source = Rx.Observable
         .fromEvent(window, 'scroll')

@@ -1,5 +1,3 @@
-/// <reference path="definitely-typed/jquery.d.ts" />
-/// <reference path="definitely-typed/rx.lite.d.ts" />
 'use strict';
 export class ToggleItem {
   c: JQuery; // Component controller

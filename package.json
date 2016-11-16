@@ -68,6 +68,7 @@
     "@types/jquery": "^2.0.33",
     "@types/jqueryui": "^1.11.31",
     "@types/node": "^4.0.29",
+    "@types/rx": "^2.5.33",
     "@types/source-map": "^0.1.26",
     "@types/tether": "^1.1.27",
     "@types/uglify-js": "^2.0.27"

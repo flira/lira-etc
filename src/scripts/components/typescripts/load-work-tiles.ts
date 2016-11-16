@@ -1,5 +1,3 @@
-/// <reference path="definitely-typed/jquery.d.ts" />
-/// <reference path="definitely-typed/fl-tile.d.ts" />
 'use strict';
 export class LoadWorkTiles {
   data: FLTile;

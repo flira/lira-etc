@@ -1,6 +1,3 @@
-/// <reference path="definitely-typed/jquery.d.ts" />
-/// <reference path="definitely-typed/rx.lite.d.ts" />
-
 export class SelectiveFix {
   el: JQuery; // 
   oldY: number; // Previous window.scrollY
