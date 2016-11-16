@@ -1,16 +1,41 @@
+// Para adicionar novos arquivos a serem processados para javascript, adicionar aqui no
+// atributo "files" e em gulpfile.babel.js na variável "watchedBrowserify"
+
 {
-  "compileOnSave": true,
   "compilerOptions": {
-    "target": "ES5",
-    "module": "system",
+    "target": "es5",
+    "module": "commonjs",
     "moduleResolution": "node",
-    "sourceMap": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "removeComments": false,
-    "noImplicitAny": false
+    "sourceMap": true,
+    "noEmitHelpers": true,
+    "lib": ["es5", "es6", "dom"],
+    "strictNullChecks": false,
+    "baseUrl": "./src",
+    "paths": [],
+    "files": [
+      "src/scripts/main.ts"
+    ],
+    "types": [
+      "typescript/lib/lib.d.ts",
+      "gsap",
+      "jquery",
+      "jqueryui",
+      "node",
+      "source-map",
+      "uglify-js",
+      "tether"
+    ]
   },
   "exclude": [
     "node_modules"
-  ]
+  ],
+  "awesomeTypescriptLoaderOptions": {
+    "forkChecker": true,
+    "useWebpackText": true
+  },
+  "compileOnSave": false,
+  "buildOnSave": false,
+  "atom": { "rewriteTsconfig": false }
 }
