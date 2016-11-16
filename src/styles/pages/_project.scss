@@ -52,6 +52,7 @@
   .list-img {
     text-align: center;
   }
+
   .project-ctrl {
     background: #c00033;
     border-radius: 100%;
@@ -64,6 +65,7 @@
     text-shadow: none;
     width: 2em;
     height: 2em;
+
     &::before {
       color: $color-white;
       content: '×';
@@ -82,8 +84,41 @@
       text-align: center;
       height: 1.3em;
     }
+
     &:focus {
       background: #f00;
+    }
+  }
+
+  @include medium {
+    .content {
+      padding: 0 $margin-in $margin-bottom;
+    }
+
+    .project-ctrl {
+      border-radius: 0;
+      border-right: solid 2px darken($color3, 7.5%);
+      box-shadow: $soft-shadow;
+      height: 3em;
+      top: 1em;
+      right: 80%;
+    }
+
+    .project-encap {width: 80%}
+  }
+
+  @include large {
+    .content {
+      padding: 0 $margin-out $margin-bottom;
+    }
+
+    .hero {
+      min-height: 0;
+      background-size: contain;
+
+      img {
+        margin-bottom: -1em;
+      }
     }
   }
 }
@@ -94,36 +129,6 @@
     .project-encap {
       right: 0;
       opacity: 1;
-    }
-  }
-}
-@include medium {
-  #project {
-    .content {
-      padding: 0 $margin-in $margin-bottom;
-    }
-    .project-ctrl {
-      border-radius: 0;
-      border-right: solid 2px darken($color3, 7.5%);
-      box-shadow: $soft-shadow;
-      height: 3em;
-      top: 1em;
-      right: 80%;
-    }
-    .project-encap {width: 80%}
-  }
-}
-@include large {
-  #project {
-    .content {
-      padding: 0 $margin-out $margin-bottom;
-    }
-    .hero {
-      min-height: 0;
-      background-size: contain;
-      img {
-        margin-bottom: -1em;
-      }
     }
   }
 }

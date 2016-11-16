@@ -1,11 +1,11 @@
-/* [3.1] Basic definitions */
+/* [2.1] Basic definitions */
 ::-moz-selection {
   @include focus($color1);
 }
 ::selection {
   @include focus($color1);
 }
-html, {
+html {
   background: $color-bg;
 }
 html,

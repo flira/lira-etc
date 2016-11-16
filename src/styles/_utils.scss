@@ -153,7 +153,7 @@ $luhd-img-url: #{$img-url}#{"luhd/"}; // ludicrous dppx
         }
         .works-item {
           @if $mq == $small {margin-left: 1em;}
-          width: calc(#{(100 / $qty)}% - 1em);
+          width: calc(#{(100% / $qty)} - 1em);
         }
       }
     }

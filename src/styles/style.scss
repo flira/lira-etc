@@ -4,70 +4,70 @@ TOC:
 
 style.scss */
 //  │
-//  ├─ [0] utils.scss
+//  ├─ [0] _utils.scss
 //  │   ├─ [0.1] Variables
 //  │   ├─ [0.2] Functions
 //  │   └─ [0.3] Mixes
 //  │       ├─ [0.3.1] works
 //  │       └─ [0.3.2] contacts 
 /*  │
-    ├─ [1] fonts.scss
-    │   └─ [1.1] Font imports 
-    │
-    ├─ [2] normalize.scss
-    │   ├─ [2.1] compass/reset
+    ├─ [1] _normalize.scss
+    │   ├─ [1.1] compass/reset
     │   └─ [2.2] git.io/normalize
     │
-    ├─ [3] globals.scss
-    │   ├─ [3.1] Basic definitions
-    │   └─ [3.2] Inline definitions
-    │       ├─ [3.2.1] Text align
-    │       └─ [3.2.2] Fonts and text definitions
+    ├─ [2] _globals.scss
+    │   ├─ [2.1] Basic definitions
+    │   └─ [2.2] Inline definitions
+    │       ├─ [2.2.1] Text align
+    │       └─ [2.2.2] Fonts and text definitions
+    │
+    ├─ [3] _fonts.scss
+    │   └─ [3.1] Font imports
     │
     ├─ [/a] modules
-    │   ├─ [4] header.scss
-    │   ├─ [5] body.scss
-    │   └─ [6] footer.scss
+    │   ├─ [4] _header.scss
+    │   ├─ [5] _body.scss
+    │   └─ [6] _footer.scss
     │
     ├─ [/b] pages
     │   ├─ [7] works.scss
-    │   ├─ [8] about.scss
+    │   ├─ [8] _about.scss
     │   ├─ [9] faq.scss
     │   ├─ [10] contact.scss
-    │   └─ [11] project.scss
+    │   └─ [11] _project.scss
     │
     └─ [/c] components
-        ├─ [12] sprites.scss
-        └─ [13] table.scss
+        ├─ [12] _sprites.scss
+        └─ [13] _table.scss
 */
-// [0] utils.scss
-@import "utils.scss";
-/* [1] fonts.scss */
-@import "fonts.scss";
-/* [2] normalize.scss */
-@import "normalize.scss";
-/* [3] globals.scss */
-@import "globals.scss";
+// [0] _utils.scss
+@import "utils";
+/* [1] _normalize.scss */
+@import "normalize";
+/* [2] _globals.scss */
+@import "globals";
+/* [3] _fonts.scss */
+@import "fonts";
 /* [/a] modules */
-/* [4] header.scss */
-@import "modules/header.scss";
-/* [5] body.scss */
-@import "modules/body.scss";
-/* [6] footer.scss */
-@import "modules/footer.scss";
+/* [4] _header.scss */
+@import "modules/header";
+/* [5] _body.scss */
+@import "modules/body";
+/* [6] _footer.scss */
+@import "modules/footer";
 /* [/b] pages */
 /* [7] works.scss */
-@import "pages/works.scss";
-/* [8] about.scss */
-@import "pages/about.scss";
+@import "pages/works";
+/* [8] _about.scss */
+@import "pages/about";
 /* [9] faq.scss */
-@import "pages/faq.scss";
+@import "pages/faq";
 /* [10] contact.scss */
-@import "pages/contact.scss";
-/* [11] project.scss */
-@import "pages/project.scss";
+@import "pages/contact";
+/* [11] _project.scss */
+@import "pages/project";
 /* [/c] components */
-/* [12] sprites.scss */
-@import "components/sprites.scss";
-/* [13] table.scss */
-@import "components/table.scss";
+/* [12] _sprites.scss */
+@import "components/sprites";
+/* [13] _table.scss */
+@import "components/table";
