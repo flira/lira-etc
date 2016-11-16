@@ -15,7 +15,7 @@
   Standards: HTML5, CSS3 (Scss), ECMAScript (TypeScript), JSON
   Frameworks: jQuery, Google web-starter-kit, GSAP, RxJS
   Taskrunner: Gulp
-  IDE: Cloud 9 @ c9.io
+  IDE: Cloud 9 @ c9.io, visual code studio
   Source: https://github.com/flira/lira-etc
 
     ┌──          ──┐
