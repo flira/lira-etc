@@ -19,11 +19,11 @@
   "locales": {
     "en": {
       "name": "lira.etc.br",
-      "description": "Fernando Lira's online portfolio."
+      "description": "Fernando Lira UX designer online portfolio."
     },
     "pt": {
       "name": "lira.etc.br",
-      "description": "Portfolio online de Fernando Lira."
+      "description": "Portfolio online do UX designer Fernando Lira."
     }
   }
 }
