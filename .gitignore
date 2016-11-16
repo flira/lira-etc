@@ -2,6 +2,7 @@ node_modules
 .c9
 .tmp
 .vscode
+.idea
 dist/
 site/DEL
 site/styles/.sass-cache
