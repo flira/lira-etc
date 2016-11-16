@@ -56,19 +56,13 @@ a {
 }
 @include large {
   .fluid-txt {
-    -webkit-column-width: 32em;
-       -moz-column-width: 32em;
-            column-width: 32em;
-    -webkit-column-gap: 2em;
-       -moz-column-gap: 2em;
-            column-gap: 2em;
+    column-width: 32em;
+    column-gap: 2em;
   }
 }
 @include huge {
   .fluid-txt {
-    -webkit-column-gap: $margin-out;
-       -moz-column-gap: $margin-out;
-            column-gap: $margin-out;
+    column-gap: $margin-out;
   }
 }
 abbr {cursor: help}
@@ -92,12 +86,18 @@ abbr {cursor: help}
 
 /* [3.2.2] Fonts and text definitions */
 %headers {
-  font-family: $font-header;
-  font-weight: 800;
+  font: {
+    family: $font-header;
+    weight: 800;
+  }
+  text-shadow: none;
 }
 %alt-headers {
-  font-family: $font-header-fallback;
-  font-weight: 700;
+  font: {
+    family: $font-header-fallback;
+    weight: 700;
+  }
+  text-shadow: none;
 }
 @each $header, $size in (h1: 2.125em, h2: 1.75em, h3: 1.5em, h4: 1.25em) {
   #{$header} {
