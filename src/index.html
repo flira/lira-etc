@@ -235,23 +235,8 @@
       </div>
     </section>
   </footer>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" async></script>
-  <script src="../node_modules/systemjs/dist/system.src.js" async></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/4.1.0/rx.lite.min.js" async></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenLite.min.js" async></script>
   <script src="scripts/components/gwk.js" async></script>
-  <script>
-    System.config({
-      packages: {
-        app: {
-          format: 'register',
-          defaultExtension: 'js'
-        }
-      }
-    });
-    System.import('scripts/main.js')
-      .then(null, console.error.bind(console));
-  </script>
+  <script src="scripts/main.js" async></script>
   <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
   <script>
     (function(i, s, o, g, r, a, m) {
