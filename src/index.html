@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="keywords" content="user experience, ux design, design, frontend"/>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Fernando Lira</title>
+  <title>Fernando Lira UX designer</title>
   <!-- Custom fonts loader -->
   <script>
   !function(e){var t,a={kitId:"xux8teb",scriptTimeout:1500,async:!0},c=e.documentElement,i=setTimeout(function(){c.className=c.className.replace(/\bwf-loading\b/g,"")+" wf-inactive"},a.scriptTimeout),n=e.createElement("script"),s=!1,o=e.getElementsByTagName("script")[0];c.className+=" wf-loading",n.src="https://use.typekit.net/"+a.kitId+".js",n.async=!0,n.onload=n.onreadystatechange=function(){if(t=this.readyState,!(s||t&&"complete"!=t&&"loaded"!=t)){s=!0,clearTimeout(i);try{Typekit.load(a)}catch(e){}}},o.parentNode.insertBefore(n,o)}(document);
@@ -43,15 +43,15 @@
   <!-- Add to homescreen for Safari on iOS -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="Web Starter Kit">
+  <meta name="apple-mobile-web-app-title" content="Fernando Lira UX designer">
   <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">
 
   <!-- Tile icon for Win8 (144x144 + tile color) -->
   <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
-  <meta name="msapplication-TileColor" content="#333">
+  <meta name="msapplication-TileColor" content="#edecea">
 
   <!-- Color the status bar on mobile devices -->
-  <meta name="theme-color" content="#333">
+  <meta name="theme-color" content="#edecea">
 
   <!-- links -->
   <link type="text/plain" rel="author" href="humans.txt" />
@@ -99,7 +99,20 @@
       <h2>Works</h2>
       <div data-load-work>
         <span id="load-msg">Loading...</span>
+        <ul class="works-list">
+          <template id="fl-tile">
+              <li class="works-item">
+                <a class="works-anc" href="{{project-href}}">
+                  <figure>
+                    <img src="{{project-source}}" alt="{{}}"/>
+                    <figcaption>{{project-name}}</figcaption>
+                  </figure>
+                </a>
+              </li>
+          </template>
+        </ul>
       </div>
+
       <!--
         About the data:
           Client side loader for the portfolios cards.
@@ -156,7 +169,7 @@
                 <td>ECMAScript 5 / 6 (2015)</td>
                 <td>
                   <ul>
-                    <li>Angular 1</li>
+                    <li>Angular 1 / 2</li>
                     <li>jQuery</li>
                   </ul>
                 </td>
@@ -235,8 +248,7 @@
       </div>
     </section>
   </footer>
-  <script src="scripts/components/gwk.js" async></script>
-  <script src="scripts/main.js" async></script>
+  <script src="scripts/bundle.js" async></script>
   <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
   <script>
     (function(i, s, o, g, r, a, m) {
