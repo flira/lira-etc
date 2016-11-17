@@ -7,5 +7,5 @@ import { ScrollNav } from './components/typescripts/scroll-nav';
     (<Component>components[component]).init();
   }
 }({
-  scrollNav: new ScrollNav()
+  scrollNav: new ScrollNav() // Animate ID anchors scroll
 }));

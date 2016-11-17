@@ -5,8 +5,8 @@ import SettableValues = ScrollNavDef.SettableValues;
 import TweenValues = ScrollNavDef.TweenValues;
 
 export class ScrollNav implements Component {
-  private component: JQuery; // Element that the component will be applied with an optional selector;
-  private target: JQuery; // The element that the animation will scroll to
+  private component: JQuery; // Element containing the anchors
+  private target: JQuery; // Element with ID that the animation will scroll to
   private onclick: EventListener;
 
   //Defaults
@@ -19,13 +19,25 @@ export class ScrollNav implements Component {
     this.component = !selector ? $('[data-scroll-nav]') : $(selector);
   }
 
+  /**
+   * @description
+   * Component initializer
+   */
   public init(): void {
     this.onclick = this._triggerAnimation.bind(this);
     this.component.on('click', this.onclick);
     
     return void 0;
   }
-  
+
+  /**
+   * @description
+   * Method to animate the scroll of an ID anchor, after a click.
+   *
+   * @param e: Event
+   * @return {boolean} Returns false to prevent default
+   * @private
+   */
   private _triggerAnimation(e: Event): boolean {
     const el = <Element>e.target,
           speed = parseFloat(<string>this.component.data('scrollNavSpeed'));
