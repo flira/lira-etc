@@ -1,6 +1,5 @@
 'use strict';
 import * as $ from 'jquery';
-import 'gsap/src/uncompressed/TweenLite.js';
 import SettableValues = ScrollNavDef.SettableValues;
 import TweenValues = ScrollNavDef.TweenValues;
 
@@ -32,7 +31,7 @@ export class ScrollNav implements Component {
 
   /**
    * @description
-   * Method to animate the scroll of an ID anchor, after a click.
+   * Animates the scroll after a click on an anchor to an ID.
    *
    * @param e: Event
    * @return {boolean} Returns false to prevent default
@@ -58,7 +57,7 @@ export class ScrollNav implements Component {
 
   /**
    * @description
-   * Sets values to the TweenLite
+   * Sets TweenLite parameters
    *
    * @return {TweenValues}
    * @private
