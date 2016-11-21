@@ -1,18 +1,20 @@
 'use strict';
-export class ToggleItem {
-  c: JQuery; // Component controller
-  constructor() {
-    this.c = $('[data-toggle-for]');
+import * as $ from 'jquery';
+
+export class ToggleItem implements Component {
+  private readonly C: JQuery = $('[data-toggle-for]'); // Component controller
+  private readonly ONCLICK: EventListener = this._toggle.bind(this);
+
+  public init(): void {
+    this.C.on('click', this.ONCLICK);
   }
-  init(): void {
-    const source:Rx = Rx.Observable
-        .fromEvent(this.c, 'click')
-        .subscribe((e: Event) => {
-          const selector: string = '#' + $(e.target).data('toggleFor'),
-            model: JQuery = $(selector),
-            bool: boolean = !model.hasClass('active')
-              && !($(e.target).data('toggleCloseOnly') != void 0);
-            model.toggleClass('active', bool);
-        });
+
+  private _toggle (e: Event): void {
+    const selector: string = '#' + $(e.target).data('toggleFor'),
+          model: JQuery = $(selector),
+          bool: boolean = !model.hasClass('active')
+            && !($(e.target).data('toggleCloseOnly') != void 0);
+    model.toggleClass('active', bool);
+    return void 0;
   }
 }
