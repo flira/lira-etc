@@ -8,14 +8,18 @@ export class ScrollNav implements Component {
   private target: JQuery; // Element with ID that the animation will scroll to
   private onclick: EventListener;
 
-  //Defaults
-  private _settableValues: SettableValues = {
-    ease: 'Strong.easeOut', // Tween Ease
-    speed: 2500 // Tween Speed
-  };
+  //Default values (can be overwritten by HTML attributes)
+  private _settableValues: SettableValues;
 
   constructor(selector? : string) {
     this.component = !selector ? $('[data-scroll-nav]') : $(selector);
+    this._settableValues = {
+      ease: this.component.data('scrollNavEase') ?
+        this.component.data('scrollNavEase') : 'Strong.easeOut', // Tween Ease
+      speed: this.component.data('scrollNavSpeed') &&
+      parseFloat(<string>this.component.data('scrollNavSpeed')) > 0 ?
+        parseFloat(<string>this.component.data('scrollNavSpeed')) : 2500 // Tween Speed
+    };
   }
 
   /**
@@ -38,15 +42,11 @@ export class ScrollNav implements Component {
    * @private
    */
   private _triggerAnimation(e: Event): boolean {
-    const el = <Element>e.target,
-          speed = parseFloat(<string>this.component.data('scrollNavSpeed'));
+    const el: HTMLAnchorElement = <HTMLAnchorElement>e.target,
+          hash: string  = el.hash;
     
-    if (el.hasAttribute('href')) {
-      this._settableValues.speed = typeof speed === 'number' && speed > 0 ?
-        speed : this._settableValues.speed;
-      this._settableValues.ease = this.component.data('scrollNavEase') ?
-        this.component.data('scrollNavEase') : this._settableValues.ease;
-      this.target = $(el.getAttribute('href'));
+    if (hash.length) {
+      this.target = $(hash);
       this.component.find('.selected').removeClass('selected');
       $(el).blur().addClass('selected');
       this._animateScroll();
@@ -67,13 +67,13 @@ export class ScrollNav implements Component {
       f: number = this.target.length ? this.target.offset().top : 0,
       s: number = this._settableValues.speed,
       e: string = this._settableValues.ease,
-      oS = (): void => {
-        location.hash = f ? this.target[0].id : '';
+      oS: () => void = (): void => {
+        location.hash = f ? this.target.get(0).id : '';
+        return void 0;
       },
-      oU = (): void => {
-        window.scroll(
-          window.scrollX,
-          Math.round(i.val));
+      oU: () => void = (): void => {
+        window.scroll(window.scrollX, Math.round(i.val));
+        return void 0;
       };
 
     return {
@@ -100,8 +100,6 @@ export class ScrollNav implements Component {
         onStart: args._onStart,
         onUpdate: args._onUpdate
       });
-
-    console.log(args._ease);
 
     return void 0;
   }
