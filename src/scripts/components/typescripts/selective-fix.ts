@@ -1,3 +1,4 @@
+/*
 export class SelectiveFix {
   private readonly el: JQuery; //
   private oldY: number; // Previous window.scrollY
@@ -38,4 +39,4 @@ export class SelectiveFix {
           self.oldY = window.scrollY;
         });
   }
-}
+}*/
