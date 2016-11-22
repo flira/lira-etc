@@ -2,11 +2,12 @@
 import * as $ from 'jquery';
 
 export class ToggleItem implements Component {
-  private readonly C: JQuery = $('[data-toggle-for]'); // Component controller
-  private readonly ONCLICK: EventListener = this._toggle.bind(this);
+  private _c: JQuery = $('[data-toggle-for]'); // Component controller
+  private readonly CLICK: EventListener = this._toggle.bind(this);
 
   public init(): void {
-    this.C.on('click', this.ONCLICK);
+    Object.freeze(this.CLICK);
+    this._c.on('click', this.CLICK);
   }
 
   private _toggle (e: Event): void {
