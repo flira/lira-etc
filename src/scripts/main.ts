@@ -6,10 +6,12 @@ import { ScrollAddress } from './components/typescripts/scroll-address';
 
 (function(components: Object){
   for (const component in components) {
-    (<Component>components[component]).init();
+    if ('init' in components[component]) {
+      (<Component>components[component]).init();
+    }
   }
 }({
   scrollAddress: new ScrollAddress,
-  scrollNav: new ScrollNav(), // Animate ID anchors scroll
-  toggleItem: new ToggleItem()
+  scrollNav: new ScrollNav, // Animate ID anchors scroll
+  toggleItem: new ToggleItem
 }));
