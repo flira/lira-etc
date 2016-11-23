@@ -53,19 +53,17 @@ export class ScrollAddress implements Component{
 
 
   static sortArray(array: Array<number>): Int32Array {
-    const l: number = array.length;
+    const l: number = array.length - 1;
     let a: Int32Array = new Int32Array(array),
         i: number = 0;
-    while(true) {
-      if (i < l && a[i] > a[i+1]) {
+    while(i < l) {
+      if (a[i] > a[i+1]) {
         const n1 = a[i], n2 = a[i+1];
         a[i] = n2;
         a[i+1] = n1;
         i = 0;
-      } else if (i < l && a[i] < a[i+1]) {
-        i++;
       } else {
-        break;
+        i++;
       }
     }
 
