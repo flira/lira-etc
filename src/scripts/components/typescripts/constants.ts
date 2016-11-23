@@ -5,5 +5,5 @@ export const CONST = {
   },
   HISTORY_SECTION: 'History Section for FL.etc',
   PAGE_TITLE: document.title,
-  TIMER_LAG: 25
+  TIMER_LAG: 150
 };

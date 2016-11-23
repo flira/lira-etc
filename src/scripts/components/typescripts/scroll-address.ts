@@ -18,7 +18,6 @@ export class ScrollAddress implements Component{
   public init () {
     Object.freeze(this.CONST);
     this._setNavigationPoints();
-    this.CONST.LISTENERS.SCROLL();
     window.addEventListener('scroll', this.CONST.LISTENERS.SCROLL);
     window.addEventListener('resize', this.CONST.LISTENERS.RESIZE);
   }
@@ -61,7 +60,7 @@ export class ScrollAddress implements Component{
         const n1 = a[i], n2 = a[i+1];
         a[i] = n2;
         a[i+1] = n1;
-        i = 0;
+        i = i - 2 > 0 ? i - 2 : 0;
       } else {
         i++;
       }
@@ -121,10 +120,9 @@ export class ScrollAddress implements Component{
    */
   private _checkPosition(): void {
     const y:number = window.scrollY ? window.scrollY : window.pageYOffset;
-
     let active: number = 0;
     for (let i = 0, l = this._positionsMap.length; i < l; i++ ) {
-      if (y >= this._positionsMap[i]) {
+      if (y + 5 > this._positionsMap[i]) {
         active = this._positionsMap[i];
       } else {
         break;

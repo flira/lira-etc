@@ -80,7 +80,7 @@ export class ScrollNav implements Component {
       x: number = window.scrollX ? window.scrollX : window.pageXOffset,
       y: number = window.scrollY ? window.scrollY : window.pageYOffset,
       timerFunction: Function = (): void => {
-        this._anchor.removeClass(CONST.CSS.CLICKED);
+        $(`.${CONST.CSS.CLICKED}`).removeClass(CONST.CSS.CLICKED);
       },
       i: {val:number} = {val: y},
       f: number = this._target.length ? this._target.offset().top : 0,
@@ -97,7 +97,7 @@ export class ScrollNav implements Component {
           CONST.HISTORY_SECTION,
           `${CONST.PAGE_TITLE} - ${hash}`,
           f > 0 ? `#${hash}` : '');
-        this._timerCss = setTimeout(timerFunction, CONST.TIMER_LAG + 10);
+        this._timerCss = setTimeout(timerFunction, CONST.TIMER_LAG * 2);
 
         return void 0;
       };
