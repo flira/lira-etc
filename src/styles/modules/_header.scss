@@ -120,20 +120,9 @@
     position: relative;
     transition: color .3s;
     text-align: left;
-    &:hover, &:focus {
+    &:hover, &:focus, &.active {
       color: $color-selected;
-    }
-    &:hover {
-      background-color: transparent;
-      text-shadow: none;
-    }
-    &:focus {
       @include focus($color1);
-    }
-  }
-  .selected {
-    &, &:hover, &:focus {
-      color: $color-selected;
     }
   }
   .logo {
@@ -149,10 +138,6 @@
     width: 0;
     height: 0;
     transition: all .25s ease-in-out;
-    &.active {
-      width: 3.5em;
-      height: 3.5em;
-    }
     &::before {
       display: none;
     }
@@ -160,6 +145,9 @@
     &:focus {
       background-color: $color1;
       opacity: 1;
+    }
+    &.active {
+      background-color: transparent;
     }
   }
 }

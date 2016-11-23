@@ -1,23 +1,22 @@
-export class ScrollAddress implements Component{
-  private readonly LISTENERS = {
-    resize: this._setNavigationPoints.bind(this),
-    scroll: this._startScrollTimer.bind(this)
-  };
+import { CONST } from './constants';
 
-  private readonly CSS = {
-    active: 'active'
+export class ScrollAddress implements Component{
+  private readonly CONST = {
+    LISTENERS: {
+      RESIZE: this._setNavigationPoints.bind(this),
+      SCROLL: this._startScrollTimer.bind(this)
+    }
   };
 
   private _scrollMap: Object;
   private _scrollTimer: number;
 
   public init () {
-    Object.freeze(this.LISTENERS);
-    Object.freeze(this.CSS);
+    Object.freeze(this.CONST);
     this._setNavigationPoints();
-    this.LISTENERS.scroll();
-    window.addEventListener('scroll', this.LISTENERS.scroll);
-    window.addEventListener('resize', this.LISTENERS.resize);
+    this.CONST.LISTENERS.SCROLL();
+    window.addEventListener('scroll', this.CONST.LISTENERS.SCROLL);
+    window.addEventListener('resize', this.CONST.LISTENERS.RESIZE);
   }
 
   /**
@@ -29,9 +28,10 @@ export class ScrollAddress implements Component{
    * @static
    */
   static getValidHashes(): Array<HTMLAnchorElement> {
-    let anchors: NodeListOf<HTMLAnchorElement> =
-          document.getElementsByTagName('a');
-    let validHashes: Array<HTMLAnchorElement> = [];
+    let
+      anchors: NodeListOf<HTMLAnchorElement> =
+          document.getElementsByTagName('a'),
+      validHashes: Array<HTMLAnchorElement> = [];
 
     for (const anchor in anchors) {
       const isValid: boolean =
@@ -46,6 +46,15 @@ export class ScrollAddress implements Component{
 
     return validHashes;
   };
+
+  // todo: Finish this method to use in "checkPosition"
+
+  static sortArray(array: Array<number>): Int32Array {
+    const length: number = array.length;
+    let IntArray: Int32Array = new Int32Array(length);
+
+    return IntArray;
+  }
 
   /**
    * @description
@@ -81,7 +90,7 @@ export class ScrollAddress implements Component{
   private _startScrollTimer(): void {
     const binder: Function = this._checkPosition.bind(this);
     window.clearTimeout(<number>this._scrollTimer);
-    this._scrollTimer = setTimeout(binder, 50);
+    this._scrollTimer = setTimeout(binder, CONST.TIMER_LAG);
   }
 
   /**
@@ -95,17 +104,27 @@ export class ScrollAddress implements Component{
   private _checkPosition(): void {
     let active: number = 0;
     for (const i in this._scrollMap) {
-      const n: number = parseInt(i, 10);
-      if (window.scrollY >= n) {
+      const
+        n: number = parseInt(i, 10),
+        y: number = window.scrollY ? window.scrollY : window.pageYOffset;
+
+      if (y >= n) {
         active = n;
       } 
     }
 
-    if (!this._scrollMap[active].classList.contains(this.CSS.active)) {
+    if (!this._scrollMap[active].classList.contains(CONST.CSS.ACTIVE) &&
+        !document.getElementsByClassName(CONST.CSS.CLICKED).length) {
+      console.log('mudei por scroll!');
+      const hash = this._scrollMap[active].hash.substring(1);
+      history.replaceState(
+        CONST.HISTORY_SECTION,
+        `${CONST.PAGE_TITLE} - ${hash}`,
+        active > 0 ? `#${hash}` : '');
       for (const i in this._scrollMap) {
-        this._scrollMap[i].classList.remove(this.CSS.active);
+        this._scrollMap[i].classList.remove(CONST.CSS.ACTIVE);
       }
-      this._scrollMap[active].classList.add(this.CSS.active);
+      this._scrollMap[active].classList.add(CONST.CSS.ACTIVE);
     }
 
     return void 0;
