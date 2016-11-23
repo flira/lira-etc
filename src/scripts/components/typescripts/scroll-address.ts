@@ -8,7 +8,11 @@ export class ScrollAddress implements Component{
     }
   };
 
+  // Map of elements and their vertical offset position, where the positions
+  // are the keys and the elements the values
   private _scrollMap: Object;
+  // Identical to _scrollMap keys, but ordered, to avoid bugs
+  private _positionsMap: Int32Array;
   private _scrollTimer: number;
 
   public init () {
@@ -47,13 +51,25 @@ export class ScrollAddress implements Component{
     return validHashes;
   };
 
-  // todo: Finish this method to use in "checkPosition"
 
   static sortArray(array: Array<number>): Int32Array {
-    const length: number = array.length;
-    let IntArray: Int32Array = new Int32Array(length);
+    const l: number = array.length;
+    let a: Int32Array = new Int32Array(array),
+        i: number = 0;
+    while(true) {
+      if (i < l && a[i] > a[i+1]) {
+        const n1 = a[i], n2 = a[i+1];
+        a[i] = n2;
+        a[i+1] = n1;
+        i = 0;
+      } else if (i < l && a[i] < a[i+1]) {
+        i++;
+      } else {
+        break;
+      }
+    }
 
-    return IntArray;
+    return a;
   }
 
   /**
@@ -66,16 +82,20 @@ export class ScrollAddress implements Component{
    * @private
    */
   private _setNavigationPoints(): void {
-    const anchors: Array<HTMLAnchorElement> = ScrollAddress.getValidHashes();
-    let positionsMap: Object= {};
+    const anchors: Array<HTMLAnchorElement> = ScrollAddress.getValidHashes(),
+          positionsMap: Array<number> = [];
+    let scrollMap: Object= {};
     for (let i = 0, l = anchors.length; i < l; i++) {
-      const id: string = anchors[i].hash.substring(1);
+      const id: string = anchors[i].hash.substring(1),
+            position: number = document.getElementById(id).offsetTop;
       if (location.hash.substring(1) === id) {
         anchors[i].classList.add('active');
       }
-      positionsMap[document.getElementById(id).offsetTop] = anchors[i];
+      scrollMap[position] = anchors[i];
+      positionsMap.push(position);
     }
-    this._scrollMap = positionsMap;
+    this._scrollMap = scrollMap;
+    this._positionsMap = ScrollAddress.sortArray(positionsMap);
     
     return void 0;
   };
@@ -102,20 +122,19 @@ export class ScrollAddress implements Component{
    * @private
    */
   private _checkPosition(): void {
-    let active: number = 0;
-    for (const i in this._scrollMap) {
-      const
-        n: number = parseInt(i, 10),
-        y: number = window.scrollY ? window.scrollY : window.pageYOffset;
+    const y:number = window.scrollY ? window.scrollY : window.pageYOffset;
 
-      if (y >= n) {
-        active = n;
-      } 
+    let active: number = 0;
+    for (let i = 0, l = this._positionsMap.length; i < l; i++ ) {
+      if (y >= this._positionsMap[i]) {
+        active = this._positionsMap[i];
+      } else {
+        break;
+      }
     }
 
     if (!this._scrollMap[active].classList.contains(CONST.CSS.ACTIVE) &&
         !document.getElementsByClassName(CONST.CSS.CLICKED).length) {
-      console.log('mudei por scroll!');
       const hash = this._scrollMap[active].hash.substring(1);
       history.replaceState(
         CONST.HISTORY_SECTION,
