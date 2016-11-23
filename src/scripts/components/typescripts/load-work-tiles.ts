@@ -1,4 +1,6 @@
 'use strict';
+import * as $ from 'jquery';
+
 export class LoadWorkTiles {
   data: FLTile;
   items: string;
@@ -15,7 +17,7 @@ export class LoadWorkTiles {
       ? `srcset="${this.data[key].tileSrcset}"`
       : '';
     return `<li class="works-item">
-              <a class="works-anc" href="#works/${this.data[key].anchor}">
+              <a class="works-anc" href="#/works/${this.data[key].anchor}">
                 <figure class="works-fig">
                   <img class="works-img" src="${this.data[key].tileSrc}" ${srcset} alt="${this.data[key].title}"/>
                   <figcaption class="works-captcha">${this.data[key].title}</figcaption>
@@ -24,7 +26,7 @@ export class LoadWorkTiles {
             </li>`
   }
   createItems(): void {
-    $.each(this.data, (i, val): void =>{
+    $.each(this.data, (i): void =>{
       this.items += this.template(i);
     });
     this.createList();
