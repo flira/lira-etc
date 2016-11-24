@@ -3,6 +3,15 @@ import * as $ from 'jquery';
 
 export class ShowProject {
 
+  private readonly CONST = {
+    CSS: {
+      SHOW: 'project-open'
+    },
+    LISTENERS: {
+      CLICK: this._closeProject.bind(this)
+    }
+  }
+
   private _projectKey: string;
   private _docFrag: DocumentFragment = document.createDocumentFragment();
   private _projectData;
@@ -14,6 +23,11 @@ export class ShowProject {
     content: document.createElement('div'),
     encap: document.createElement('div'),
   };
+
+  static getProjectAnchor(): string {
+    const stringList = location.hash.split(CONST.PROJECTS_PATH);
+    return stringList[stringList.length - 1];
+  }
 
   public showProject () {
     this._projectKey = ShowProject.getProjectAnchor();
@@ -36,9 +50,10 @@ export class ShowProject {
         this._docFrag,
         document.getElementById('main-content')
       );
+      $(this._elements.project).css('top', window.pageYOffset + 'px');
       //creates a small lag to make the css animation work
       setTimeout((): void => {
-        $(document.body).addClass('project-open');
+        $(document.body).addClass(this.CONST.CSS.SHOW);
       }, 10);
     } else {
       console.warn('Sorry, project not found');
@@ -47,6 +62,7 @@ export class ShowProject {
 
   private _appendBasicElements(): void {
     this._elements.closeBtn.className = 'project-ctrl';
+    this._elements.closeBtn.addEventListener('click', this.CONST.LISTENERS.CLICK);
     this._elements.encap.className = 'project-encap';
     this._elements.project.appendChild(this._elements.closeBtn);
     this._elements.project.appendChild(this._elements.encap);
@@ -65,6 +81,7 @@ export class ShowProject {
       img.srcset = this._projectData['heroSrcset'];
     }
     img.alt = this._projectData['title'];
+    div.style.backgroundImage = `url(${img.src})`;
     div.appendChild(img);
     this._elements.encap.appendChild(div);
     this._elements.content.className = 'content';
@@ -159,8 +176,14 @@ export class ShowProject {
     return void 0;
   }
 
-  static getProjectAnchor(): string {
-    const stringList = location.hash.split(CONST.PROJECTS_PATH);
-    return stringList[stringList.length - 1];
+  private _closeProject(): void {
+    let body: JQuery = $(document.body);
+    body.css('overflow', 'hidden');
+    body.removeClass(this.CONST.CSS.SHOW);
+    this._elements.closeBtn.removeEventListener('click', this.CONST.LISTENERS.CLICK);
+    setTimeout(():void => {
+      body.css('overflow', '');
+      document.body.removeChild(this._elements.project);
+    }, 500)
   }
 }

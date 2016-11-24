@@ -5,11 +5,8 @@
       "UI/UX Design": "Fernando Lira"
     },
     "tileSrc": "./images/tiles/contas.png",
-    "tileSrcset": "",
-    "heroSrc": "DEL/crossmedia/capa.png",
-    "heroSrcset": "",
+    "heroSrc": "./images/works/contas/cover.png",
     "description": "Omellete du fromage",
-    "git": "img",
     "images": [
       {
         "alt": "",
@@ -22,15 +19,8 @@
         "srcset": ""
       },
       {
-        "alt": "",
-        "src": "",
-        "srcset": ""
-      }
-    ],
-    "others": [
-      {
-        "title": "Original codes",
-        "content": "<p><a href=\"../../projects/img/\">Here</a> is a backup of the front-end working without the back-end implementation.</p>"
+        "alt": "phone version",
+        "src": "./images/works/contas/mobile.png"
       }
     ]
   },
