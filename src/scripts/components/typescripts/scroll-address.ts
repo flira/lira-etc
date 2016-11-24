@@ -84,7 +84,7 @@ export class ScrollAddress implements Component{
     let scrollMap: Object= {};
     for (let i = 0, l = anchors.length; i < l; i++) {
       const id: string = anchors[i].hash.substring(1),
-            position: number = document.getElementById(id).offsetTop;
+            position: number = document.getElementById(id).offsetTop - 20;
       if (location.hash.substring(1) === id) {
         anchors[i].classList.add('active');
       }
@@ -122,7 +122,7 @@ export class ScrollAddress implements Component{
     const y:number = window.scrollY ? window.scrollY : window.pageYOffset;
     let active: number = 0;
     for (let i = 0, l = this._positionsMap.length; i < l; i++ ) {
-      if (y + 5 > this._positionsMap[i]) {
+      if (y > this._positionsMap[i]) {
         active = this._positionsMap[i];
       } else {
         break;
