@@ -6,9 +6,6 @@ import { CONST } from './constants';
 export class LoadWorkTiles implements Component{
 
   private readonly CONST = {
-    CLASSES: {
-      SHOW_PROJECT: new ShowProject()
-    },
     CSS: {
       LOADED: 'loaded'
     },
@@ -54,10 +51,11 @@ export class LoadWorkTiles implements Component{
     parent.className += ` ${this.CONST.CSS.LOADED}`;
   }
   private _chooseProject(e: Event): boolean {
+    let project = new ShowProject();
     e.preventDefault();
     const href: string = (<HTMLAnchorElement>e.currentTarget).hash;
     history.pushState(CONST.HISTORY_SECTION, CONST.PAGE_TITLE, href);
-    this.CONST.CLASSES.SHOW_PROJECT.showProject();
+    project.showProject();
     return false;
   }
   private _createList(): void {
