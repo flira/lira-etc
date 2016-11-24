@@ -28,10 +28,18 @@ export class ShowProject {
       this._docFrag.appendChild(this._elements.project);
       this._appendBasicElements();
       this._appendHeader();
-      if ("credits" in this._projectData) {
-        this._appendCredits();
-      }
+      if ('credits' in this._projectData) this._appendCredits();
       this._appendAbout();
+      if ('git' in this._projectData) this._appendGit();
+      this._appendImages();
+      document.body.insertBefore(
+        this._docFrag,
+        document.getElementById('main-content')
+      );
+      //creates a small lag to make the css animation work
+      setTimeout((): void => {
+        $(document.body).addClass('project-open');
+      }, 10);
     } else {
       console.warn('Sorry, project not found');
     }
@@ -50,6 +58,7 @@ export class ShowProject {
       header: HTMLHeadingElement = document.createElement('h1'),
       div: HTMLDivElement = document.createElement('div'),
       img: HTMLImageElement = document.createElement('img');
+
     div.className = 'hero';
     img.src = this._projectData['heroSrc'];
     if (this._srcsetSupport && 'heroSrcset' in this._projectData) {
@@ -70,6 +79,7 @@ export class ShowProject {
       section: HTMLElement = document.createElement('section'),
       header: HTMLHeadingElement = document.createElement('h2'),
       dl: HTMLDListElement = document.createElement('dl');
+
     header.textContent = 'Credits';
     section.appendChild(header);
     $.each(this._projectData['credits'], (key, value): void =>  {
@@ -93,6 +103,7 @@ export class ShowProject {
     let
       section: HTMLElement = document.createElement('section'),
       header: HTMLHeadingElement = document.createElement('h2');
+
     header.textContent = 'About';
     section.appendChild(header);
     section.appendChild($('<div/>', {
@@ -100,6 +111,50 @@ export class ShowProject {
       html: this._projectData['description']
     }).get(0));
 
+    this._elements.content.appendChild(section);
+    return void 0;
+  }
+
+  private _appendGit(): void {
+    let
+      section: HTMLElement = document.createElement('section'),
+      header: HTMLHeadingElement = document.createElement('h2'),
+      a: HTMLAnchorElement = document.createElement('a');
+
+    header.textContent = 'This project on GitHub';
+    section.appendChild(header);
+    a.href = this._projectData['git'];
+    a.target = '_blank';
+    a.textContent = `${this._projectData['title']}'s repository`;
+    section.appendChild(a);
+    this._elements.content.appendChild(section);
+    return void 0;
+  }
+
+  private _appendImages(): void {
+    let
+      section: HTMLElement = document.createElement('section'),
+      header: HTMLHeadingElement = document.createElement('h2'),
+      ul: HTMLUListElement = document.createElement('ul');
+    
+    header.textContent = 'Images';
+    section.appendChild(header);
+    ul.className = 'list-img';
+    section.appendChild(ul);
+    for (let i = 0, l = this._projectData['images'].length; i < l; i++) {
+      let
+        imgData: Object = this._projectData['images'][i],
+        li: HTMLLIElement = document.createElement('li'),
+        img: HTMLImageElement = document.createElement('img');
+
+      img.src = imgData['src'];
+      img.alt = imgData['alt'];
+      if (this._srcsetSupport && 'srcset' in imgData) {
+        img.srcset = imgData['srcset'];
+      }
+      li.appendChild(img);
+      ul.appendChild(li);      
+    }
     this._elements.content.appendChild(section);
     return void 0;
   }
