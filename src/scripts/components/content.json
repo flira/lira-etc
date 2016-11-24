@@ -1,10 +1,9 @@
 {
   "contas-tcu": {
     "title": "TCU search engine",
-    "positions": [
-      "UI/UX designer",
-      "front-end developer"
-    ],
+    "credits": {
+      "UI/UX Design": "Fernando Lira"
+    },
     "tileSrc": "./images/tiles/contas.png",
     "tileSrcset": "",
     "heroSrc": "DEL/crossmedia/capa.png",
