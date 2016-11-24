@@ -1,54 +1,71 @@
 'use strict';
 import * as $ from 'jquery';
-import { JsonLoader } from './json-loader';
+import { ShowProject } from './show-project';
+import { CONST } from './constants';
 
-export class LoadWorkTiles extends JsonLoader implements Component{
+export class LoadWorkTiles implements Component{
 
   private readonly CONST = {
+    CLASSES: {
+      SHOW_PROJECT: new ShowProject()
+    },
     CSS: {
       LOADED: 'loaded'
     },
+    ELEMENTS: {
+      COMPONENT: document.querySelector('[data-load-work]'),
+      LOAD_MSG: document.getElementById('load-msg')
+    },
     LISTENERS: {
+      CLICK: this._chooseProject.bind(this),
       LOAD: this._addLoadedClass.bind(this)
     }
   };
-  private _component: Element = document.querySelector('[data-load-work]');
   private _items: string = '';
   private _imgs: JQuery;
-  constructor() {super();}
+  private _anchors: JQuery;
 
   public init(): void {
     Object.freeze(this.CONST);
-    this.loadJson(this._createItems.bind(this));
+    CONST.JSON.loadJson(this._createItems.bind(this));
   }
-  private _template(key: string): string {
+  static template(key: string): string {
     //add srcset only if available
-    const srcset: string = this.jsonData[key].tileSrcset
-      ? `srcset="${this.jsonData[key].tileSrcset}"`
+    const srcset: string = CONST.JSON.jsonData[key].tileSrcset
+      ? `srcset="${CONST.JSON.jsonData[key].tileSrcset}"`
       : '';
     return `<li class="works-item">
-              <a class="works-anc" href="#/works/${this.jsonData[key].anchor}">
+              <a class="works-anc" href="${CONST.PROJECTS_PATH}${key}">
                 <figure class="works-fig">
-                  <img class="works-img" src="${this.jsonData[key].tileSrc}" ${srcset} alt="${this.jsonData[key].title}"/>
-                  <figcaption class="works-captcha">${this.jsonData[key].title}</figcaption>
+                  <img class="works-img" src="${CONST.JSON.jsonData[key].tileSrc}" ${srcset} alt="${CONST.JSON.jsonData[key].title}"/>
+                  <figcaption class="works-captcha">${CONST.JSON.jsonData[key].title}</figcaption>
                 </figure>
               </a>
             </li>`
   }
   private _createItems(): void {
-    $.each(this.jsonData, (i): void =>{
-      this._items += this._template(i);
+    $.each(CONST.JSON.jsonData, (i): void =>{
+      this._items += LoadWorkTiles.template(i);
     });
     this._createList();
   }
   private _addLoadedClass(e: Event): void {
-    const parent = (<Node>e.target).parentElement;
+    const parent = (<Node>e.currentTarget).parentElement;
     parent.className += ` ${this.CONST.CSS.LOADED}`;
+  }
+  private _chooseProject(e: Event): boolean {
+    e.preventDefault();
+    const href: string = (<HTMLAnchorElement>e.currentTarget).hash;
+    history.pushState(CONST.HISTORY_SECTION, CONST.PAGE_TITLE, href);
+    this.CONST.CLASSES.SHOW_PROJECT.showProject();
+    return false;
   }
   private _createList(): void {
     const list = $('<ul/>', {'class': 'works-list', html: this._items});
-    list.replaceAll(this._component);
+    list.replaceAll(this.CONST.ELEMENTS.COMPONENT);
     this._imgs = list.find('img');
+    this._anchors = list.find('a');
     this._imgs.on('load', this.CONST.LISTENERS.LOAD);
+    this._anchors.on('click', this.CONST.LISTENERS.CLICK);
   }
 }
