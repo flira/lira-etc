@@ -44,17 +44,12 @@
       size: auto;
     }
     box-shadow: 0 -2px 5px rgba(0,0,0,.2);
-    height: 38vh;
-    opacity: 0;
-    transition: height .5s ease-in-out, opacity .5s ease-in-out;
+    height: 62vh;
+    max-height: 400px;
     img {
       opacity: 0;
       width: 100%;
       max-width: initial;
-    }
-
-    &.loaded {
-      opacity: 1;
     }
   }
   .list-img {
@@ -141,7 +136,6 @@
     }
 
     .hero {
-      min-height: 0;
       background-size: contain;
 
       img {

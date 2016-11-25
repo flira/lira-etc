@@ -83,18 +83,19 @@ export class ShowProject implements Component {
 
   private _appendHeader(): void {
     let
-      header: HTMLHeadingElement = document.createElement('h1'),
-      img: HTMLImageElement = document.createElement('img');
+      header: HTMLHeadingElement = document.createElement('h1');
+      // img: HTMLImageElement = document.createElement('img');
 
     this._elements.hero.className = 'hero';
-    img.src = this._projectData['heroSrc'];
-    if (this._srcsetSupport && 'heroSrcset' in this._projectData) {
-      img.srcset = this._projectData['heroSrcset'];
-    }
-    img.alt = this._projectData['title'];
-    img.addEventListener('load', this.CONST.LISTENERS.LOAD);
-    this._elements.hero.style.backgroundImage = `url(${img.src})`;
-    this._elements.hero.appendChild(img);
+    // img.src = this._projectData['heroSrc'];
+    // if (this._srcsetSupport && 'heroSrcset' in this._projectData) {
+    //   img.srcset = this._projectData['heroSrcset'];
+    // }
+    // img.alt = this._projectData['title'];
+    // img.addEventListener('load', this.CONST.LISTENERS.LOAD);
+    this._elements.hero.style.backgroundImage =
+      `url(${this._projectData['heroSrc']})`;
+    // this._elements.hero.appendChild(img);
     this._elements.encap.appendChild(this._elements.hero);
     this._elements.content.className = 'content';
     this._elements.encap.appendChild(this._elements.content);
@@ -210,12 +211,7 @@ export class ShowProject implements Component {
     const target: EventTarget = e.currentTarget,
           parent: HTMLElement = (<Node>e.currentTarget).parentElement;
 
-    if (parent === this._elements.hero) {
-      parent.className += ` ${CONST.CSS.LOADED}`;
-      parent.style.height = `${(<HTMLElement>target).offsetHeight}px`;
-    } else {
-      (<HTMLElement>target).className += ` ${CONST.CSS.LOADED}`;
-    }
+    (<HTMLElement>target).className += ` ${CONST.CSS.LOADED}`;
     target.removeEventListener('load', this.CONST.LISTENERS.LOAD);
     return void 0;
   }
