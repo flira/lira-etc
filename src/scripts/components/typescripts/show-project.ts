@@ -1,14 +1,14 @@
 import { CONST } from './constants';
 import * as $ from 'jquery';
 
-export class ShowProject {
+export class ShowProject implements Component {
 
   private readonly CONST = {
     CSS: {
       SHOW: 'project-open'
     },
     LISTENERS: {
-      CLICK: this._closeProject.bind(this)
+      CLICK: this._closeProject.bind(this),
     }
   }
 
@@ -29,9 +29,11 @@ export class ShowProject {
     return stringList[stringList.length - 1];
   }
 
-  public showProject () {
+  public init () {
     this._projectKey = ShowProject.getProjectAnchor();
-    CONST.JSON.loadJson(this._mountProject.bind(this));
+    if (this._projectKey && this._projectKey[0] !== '#') {
+      CONST.JSON.loadJson(this._mountProject.bind(this));
+    }
   }
 
   private _mountProject() {
@@ -62,7 +64,7 @@ export class ShowProject {
 
   private _appendBasicElements(): void {
     this._elements.closeBtn.className = 'project-ctrl';
-    this._elements.closeBtn.addEventListener('click', this.CONST.LISTENERS.CLICK);
+    this._elements.project.addEventListener('click', this.CONST.LISTENERS.CLICK);
     this._elements.encap.className = 'project-encap';
     this._elements.project.appendChild(this._elements.closeBtn);
     this._elements.project.appendChild(this._elements.encap);
@@ -176,14 +178,19 @@ export class ShowProject {
     return void 0;
   }
 
-  private _closeProject(): void {
-    let body: JQuery = $(document.body);
-    body.css('overflow', 'hidden');
-    body.removeClass(this.CONST.CSS.SHOW);
-    this._elements.closeBtn.removeEventListener('click', this.CONST.LISTENERS.CLICK);
-    setTimeout(():void => {
-      body.css('overflow', '');
-      document.body.removeChild(this._elements.project);
-    }, 500)
+  private _closeProject(e: Event): void {
+    if (e.target === e.currentTarget || e.target === this._elements.closeBtn) {
+      let body: JQuery = $(document.body);
+      history.pushState(CONST.HISTORY_SECTION, CONST.PAGE_TITLE, '');
+      body.css('overflow', 'hidden');
+      body.removeClass(this.CONST.CSS.SHOW);
+      this._elements.closeBtn.removeEventListener('click', this.CONST.LISTENERS.CLICK);
+      setTimeout(():void => {
+        body.css('overflow', '');
+        document.body.removeChild(this._elements.project);
+      }, 500)
+    } else {
+      e.stopImmediatePropagation();
+    }
   }
 }

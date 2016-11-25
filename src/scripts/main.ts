@@ -9,7 +9,6 @@ import { CONST } from './components/typescripts/constants';
 
 (function(components: Object){
   Object.freeze(CONST);
-  components['showProject'].showProject();
   for (const component in components) {
     if ('init' in components[component]) {
       (<Component>components[component]).init();

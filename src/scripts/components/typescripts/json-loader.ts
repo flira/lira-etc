@@ -7,7 +7,7 @@ export class JsonLoader {
     if (this.jsonData) {
       method();
     } else {
-      $.getJSON('scripts/components/content.json', (data): void => {
+      $.getJSON('./content.json', (data): void => {
         this.jsonData = data;
         method();
       });

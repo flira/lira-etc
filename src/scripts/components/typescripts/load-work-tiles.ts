@@ -55,7 +55,7 @@ export class LoadWorkTiles implements Component{
     e.preventDefault();
     const href: string = (<HTMLAnchorElement>e.currentTarget).hash;
     history.pushState(CONST.HISTORY_SECTION, CONST.PAGE_TITLE, href);
-    project.showProject();
+    project.init();
     return false;
   }
   private _createList(): void {

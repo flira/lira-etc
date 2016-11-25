@@ -52,6 +52,10 @@
   }
   .list-img {
     text-align: center;
+
+    li {
+      padding-bottom: 2em;
+    }
   }
 
   .project-ctrl {
@@ -61,6 +65,7 @@
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
     cursor: pointer;
     position: fixed;
+    margin-right: 2px;
     top: 1em;
     right: 1em;
     text-shadow: none;
@@ -84,7 +89,7 @@
       bottom: 0;
       left: 0;
       text-align: center;
-      height: 1.5em;
+      height: 1.3em;
     }
 
     &:focus {
