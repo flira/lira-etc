@@ -53,7 +53,8 @@ export class ShowProject implements Component {
         this._docFrag,
         document.getElementById('main-content')
       );
-      $(this._elements.project).css('top', window.pageYOffset + 'px');
+      this._elements.project.style.top =  window.pageYOffset + 'px';
+      document.body.style.width = document.body.offsetWidth + 'px';
       //creates a small lag to make the css animation work
       setTimeout((): void => {
         $(document.body).addClass(this.CONST.CSS.SHOW);
@@ -148,7 +149,6 @@ export class ShowProject implements Component {
     a.target = '_blank';
     a.textContent = `${this._projectData['url']}`;
     section.appendChild(a);
-    console.log(section);
     this._elements.content.appendChild(section);
     return void 0;
   }
@@ -199,15 +199,17 @@ export class ShowProject implements Component {
 
   private _closeProject(e: Event): void {
     if (e.target === e.currentTarget || e.target === this._elements.closeBtn) {
-      let body: JQuery = $(document.body);
       history.pushState(CONST.HISTORY_SECTION, CONST.PAGE_TITLE, '');
-      body.css('overflow', 'hidden');
-      body.removeClass(this.CONST.CSS.SHOW);
+      document.body.style.overflow = 'hidden';
+      $(document.body).removeClass(this.CONST.CSS.SHOW);
       this._elements.closeBtn.removeEventListener('click', this.CONST.LISTENERS.CLICK);
       setTimeout(():void => {
-        body.css('overflow', '');
-        document.body.removeChild(this._elements.project);
-      }, 500)
+        document.body.style.overflow = '';
+        if (document.body.contains(this._elements.project)) {
+          document.body.removeChild(this._elements.project);
+          document.body.style.width = '';
+        }
+      }, 500);
     } else {
       e.stopImmediatePropagation();
     }
