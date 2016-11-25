@@ -46,6 +46,7 @@ export class ShowProject implements Component {
       this._appendHeader();
       if ('credits' in this._projectData) this._appendCredits();
       this._appendAbout();
+      if ('url' in this._projectData) this._appendUrl();
       if ('git' in this._projectData) this._appendGit();
       this._appendImages();
       document.body.insertBefore(
@@ -130,6 +131,24 @@ export class ShowProject implements Component {
       html: this._projectData['description']
     }).get(0));
 
+    this._elements.content.appendChild(section);
+    return void 0;
+  }
+
+  
+  private _appendUrl(): void {
+    let
+      section: HTMLElement = document.createElement('section'),
+      header: HTMLHeadingElement = document.createElement('h2'),
+      a: HTMLAnchorElement = document.createElement('a');
+
+    header.textContent = 'URL';
+    section.appendChild(header);
+    a.href = this._projectData['url'];
+    a.target = '_blank';
+    a.textContent = `${this._projectData['url']}`;
+    section.appendChild(a);
+    console.log(section);
     this._elements.content.appendChild(section);
     return void 0;
   }

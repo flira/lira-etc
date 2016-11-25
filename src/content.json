@@ -7,7 +7,8 @@
     },
     "tileSrc": "./images/tiles/contas.png",
     "heroSrc": "./images/works/contas/cover.png",
-    "description": "<p>Search engine to lookup for legal processes and other documents from TCU.</p><div><h3>URL</h3><a href='https://contas.tcu.gov.br/pesquisaJurisprudencia/#/pesquisa/jurisprudencia/' target='_blank'>https://contas.tcu.gov.br/pesquisaJurisprudencia/#/pesquisa/jurisprudencia</a></div>",
+    "description": "<p>Search engine to lookup for legal processes and other documents from TCU.</p>",
+    "url": "https://contas.tcu.gov.br/pesquisaJurisprudencia/#/pesquisa/jurisprudencia",
     "images": [
       {
         "alt": "first screen",
@@ -73,7 +74,8 @@
     "tileSrc": "./images/tiles/torreao.jpg",
     "git": "https://github.com/flira/torreao-braz",
     "heroSrc": "./images/works/torreao/cover.jpg",
-    "description": "<p>Website for a law firm. Design by <a href='http://tiagoferreira.me/2014/' target='_blank'>Tiago Ferreira</a>.</p><div><h3>URL</h3><a href='http://www.torreaobraz.com.br/' target='_blank'>http://www.torreaobraz.com.br</a></div>",
+    "description": "<p>Website for a law firm. Design by <a href='http://tiagoferreira.me/2014/' target='_blank'>Tiago Ferreira</a>.</p>",
+    "url": "http://www.torreaobraz.com.br",
     "images": [
       {
         "alt": "About us",
@@ -106,7 +108,8 @@
     "tileSrc": "./images/tiles/img.jpg",
     "git": "https://github.com/flira/img",
     "heroSrc": "./images/works/img/capa.jpg",
-    "description": "<p>Website for IMG crossmedia studio.</p><div><h3>URL</h3><a href='http://www.img.tv/' target='_blank'>http://www.img.tv/</a></div>",
+    "description": "<p>Website for IMG crossmedia studio.</p><div>",
+    "url": "http://www.img.tv/",
     "images": [
       {
         "alt": "first screen",
@@ -138,7 +141,8 @@
     },
     "tileSrc": "./images/tiles/muradas.jpg",
     "heroSrc": "./images/works/muradas/cover.jpg",
-    "description": "<p>The very first website I worked on as a professional, back in 2009.</p><p>Curiously, it stills online. This site is made with adobe flash, so it definitely doesn't have a responsive layout.</p><div><h3>URL</h3><a href='http://www.alexandermuradas.com.br/' target='_blank'>http://www.alexandermuradas.com.br/</a></div>",
+    "description": "<p>The very first website I worked on as a professional, back in 2009.</p><p>Curiously, it stills online. This site is made with adobe flash, so it definitely doesn't have a responsive layout.</p>",
+    "url": "http://www.alexandermuradas.com.br",
     "images": [
       {
         "alt": "first screen",
