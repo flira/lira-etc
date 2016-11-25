@@ -128,12 +128,6 @@
   }
 }
 
-.main-header,
-.main,
-.main-footer {
-  transition: filter .5s ease-in-out;
-}
-
 .project-open {
   overflow: hidden;
   #project {
@@ -146,10 +140,5 @@
         right: 80%;
       }
     }
-  }
-  .main-header,
-  .main,
-  .main-footer {
-    filter: blur(2px);
   }
 }

@@ -2,21 +2,26 @@
   "contas-tcu": {
     "title": "TCU search engine",
     "credits": {
-      "UI/UX Design": "Fernando Lira"
+      "UI/UX Designer": "Fernando Lira"
     },
     "tileSrc": "./images/tiles/contas.png",
     "heroSrc": "./images/works/contas/cover.png",
-    "description": "Omellete du fromage",
+    "description": "<p>Search engine to lookup for documents from TCU.</p><h3>URL</h3><p><a href='https://contas.tcu.gov.br/pesquisaJurisprudencia/#/pesquisa/jurisprudencia/' target='_blank'>Jurisprudencia TCU</a></p>",
     "images": [
       {
-        "alt": "",
-        "src": "",
-        "srcset": ""
+        "alt": "first screen",
+        "src": "./images/works/contas/1dppx/contas3.jpg",
+        "srcset": "./images/works/contas/1.5dppx/contas3.jpg x1.5, ./images/works/contas/1dppx/contas3.jpg x2"
       },
       {
-        "alt": "",
-        "src": "",
-        "srcset": ""
+        "alt": "Document details",
+        "src": "./images/works/contas/1dppx/contas2.jpg",
+        "srcset": "./images/works/contas/1.5dppx/contas2.jpg x1.5, ./images/works/contas/1dppx/contas2.jpg x2"
+      },
+      {
+        "alt": "Fixed bar on top detail",
+        "src": "./images/works/contas/1dppx/contas2.jpg",
+        "srcset": "./images/works/contas/1.5dppx/contas2.jpg x1.5, ./images/works/contas/1dppx/contas2.jpg x2"
       },
       {
         "alt": "phone version",
@@ -24,32 +29,36 @@
       }
     ]
   },
-  "img": {
-    "title": "Image crossmedia studio",
-    "positions": ["front-end developer"],
-    "tileSrc": "./images/tiles/img.jpg",
-    "tileSrcset": "",
-    "heroSrc": "DEL/crossmedia/capa.png",
-    "heroSrcset": "",
-    "description": "Omellete du fromage",
-    "git": "img",
-    "images": [{
-      "alt": "",
-      "src": "",
-      "srcset": ""
-    }, {
-      "alt": "",
-      "src": "",
-      "srcset": ""
-    }, {
-      "alt": "",
-      "src": "",
-      "srcset": ""
-    }],
-    "others": [{
-      "title": "Original codes",
-      "content": "<p><a href=\"../../projects/img/\">Here</a> is a backup of the front-end working without the back-end implementation.</p>"
-    }]
+  "torreao": {
+    "title": "Torreão braz",
+    "credits": {
+      "UI/UX Designer": "Tiago Ferreira",
+      "Frontend developer": "Fernando Lira"
+    },
+    "tileSrc": "./images/tiles/torreao.png",
+    "heroSrc": "./images/works/torreao/cover.jpg",
+    "description": "<p>Website for a lawyer office.</p><p>Design by <a href='http://tiagoferreira.me/2014/' target='_blank'>Tiago Ferreira</a>.",
+    "images": [
+      {
+        "alt": "first screen",
+        "src": "./images/works/contas/1dppx/contas3.jpg",
+        "srcset": "./images/works/contas/1.5dppx/contas3.jpg x1.5, ./images/works/contas/1dppx/contas3.jpg x2"
+      },
+      {
+        "alt": "Document details",
+        "src": "./images/works/contas/1dppx/contas2.jpg",
+        "srcset": "./images/works/contas/1.5dppx/contas2.jpg x1.5, ./images/works/contas/1dppx/contas2.jpg x2"
+      },
+      {
+        "alt": "Fixed bar on top detail",
+        "src": "./images/works/contas/1dppx/contas2.jpg",
+        "srcset": "./images/works/contas/1.5dppx/contas2.jpg x1.5, ./images/works/contas/1dppx/contas2.jpg x2"
+      },
+      {
+        "alt": "phone version",
+        "src": "./images/works/torreao/mobile.png"
+      }
+    ]
   }
 }
 
