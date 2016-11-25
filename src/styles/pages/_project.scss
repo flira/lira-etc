@@ -1,0 +1,149 @@
+
+#project {
+  @extend %absolute;
+  background-color: rgba(0,0,0, .2);
+  overflow-y: auto;
+  overflow-x: hidden;
+  opacity: 0;
+  transition: opacity .5s ease-in-out;
+  text-align: left;
+  width: 100%;
+  height: 100vh;
+  z-index: 99999;
+
+  .project-encap {
+    @extend %absolute;
+    background-color: $color-bg-layer;
+    min-height: 100vh;
+    width: 100%;
+    right: -10em;
+    opacity: 1;
+    transition: right .5s ease-in-out;
+  }
+  h1 {
+    background: $color-gray1;
+    box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.5);
+    color: $color-bg;
+    display: inline-block;
+    margin-bottom: -1em;
+    max-width: 20em;
+    padding: 0 1em .2em;
+    position: relative;
+    top: -1em;
+    left: -1em;
+  }
+  .content {
+    box-shadow: 0 -2px 5px rgba(0,0,0,.2);
+    padding: 0 $margin-small $margin-bottom;
+  }
+  .hero {
+    background: {
+      attachment: fixed;
+      position: center 0;
+      repeat: no-repeat;
+      size: auto;
+    }
+    box-shadow: 0 -2px 5px rgba(0,0,0,.2);
+    img {
+      opacity: 0;
+      width: 100%;
+      max-width: initial;
+    }
+  }
+  .list-img {
+    text-align: center;
+
+    li {
+      padding-bottom: 2em;
+    }
+  }
+
+  .project-ctrl {
+    background: $color3;
+    border-radius: 100%;
+    border: solid 1px darken($color3, 5%);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    position: fixed;
+    margin-right: 2px;
+    top: 1em;
+    right: 1em;
+    text-shadow: none;
+    width: 2em;
+    height: 2em;
+    z-index: 9999;
+
+    &::before {
+      color: $color-white;
+      content: '×';
+      display: block;
+      font: {
+        family: sans-serif;
+        size: 1.75em;
+        weight: 700;
+      }
+      margin: auto;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      text-align: center;
+      height: 1.3em;
+    }
+
+    &:focus {
+      background: #f00;
+    }
+  }
+
+  @include medium {
+    .content {
+      padding: 0 $margin-in $margin-bottom;
+    }
+
+    .project-ctrl {
+      border-radius: 0;
+      border-right: solid 2px darken($color3, 7.5%);
+      box-shadow: $soft-shadow;
+      height: 3em;
+      top: 1em;
+      transition: right .5s ease-in-out;
+      right: calc(80% - 10em);
+    }
+
+    .project-encap {
+      width: 80%;
+    }
+  }
+
+  @include large {
+    .content {
+      padding: 0 $margin-out $margin-bottom;
+    }
+
+    .hero {
+      min-height: 0;
+      background-size: contain;
+
+      img {
+        margin-bottom: -1em;
+      }
+    }
+  }
+}
+
+.project-open {
+  overflow: hidden;
+  #project {
+    opacity: 1;
+    .project-encap {
+      right: 0;    
+    }
+    @include medium {
+      .project-ctrl {
+        right: 80%;
+      }
+    }
+  }
+}

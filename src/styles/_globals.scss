@@ -1,0 +1,151 @@
+/* [2.1] Basic definitions */
+::-moz-selection {
+  @include focus($color1);
+}
+::selection {
+  @include focus($color1);
+}
+html {
+  background: $color-bg;
+}
+html,
+body,
+button {
+  -moz-osx-font-smoothing: grayscale;
+   -webkit-font-smoothing: antialiased;
+           font-smoothing: antialiased;
+}
+html {
+  @extend %text-center;
+  color: $color-txt;
+  font: normal 300 to-rem($font-size-base)/1.35 $font;
+}
+@media only screen and (min-width: $huge) {
+  html {font-size: 1.125rem}
+}
+@media only screen and (min-width: $huge) and (min-resolution: $uhd),
+       only screen and (min-width: $ludicrous) {
+  html {font-size: 1.5rem}
+}
+.wf-inactive body {
+  font-family: $font-fallback;
+}
+div,
+img,
+video,
+object {
+  max-width: 100%;
+}
+
+a {
+  border-bottom: outset 2px $color1;
+  color: $color-txt;
+  display: inline-block;
+  padding: 0 2px;
+  height: 1.15em;
+  text: {
+    decoration: none;
+    indent: 0;
+  }
+  @include anchor-shadow($color-bg);
+  &:hover,
+  &:focus {
+    outline: none;
+    @include focus;
+  }
+}
+@include large {
+  .fluid-txt {
+    column-width: 32em;
+    column-gap: 2em;
+  }
+}
+@include huge {
+  .fluid-txt {
+    column-gap: $margin-out;
+  }
+}
+abbr {cursor: help}
+/* [3.2] Inline definitions */
+
+/* [3.2.1] Text align */
+%text-center {
+  text-align: center;
+}
+%text-left,
+.main,
+.main-footer {
+  text-align: left;
+}
+%text-right {
+  text-align: right;
+}
+%text-justify {
+  text-align: justify;
+}
+
+/* [3.2.2] Fonts and text definitions */
+%headers {
+  font: {
+    family: $font-header;
+    weight: 800;
+  }
+  text-shadow: none;
+}
+%alt-headers {
+  font: {
+    family: $font-header-fallback;
+    weight: 700;
+  }
+  text-shadow: none;
+}
+@each $header, $size in (h1: 2.125em, h2: 1.75em, h3: 1.5em, h4: 1.25em) {
+  #{$header} {
+    @extend %headers;
+    @extend %text-left;
+    color: $color-strong;
+    font-size: $size;
+    padding: .75em 0 .5em;
+  }
+  #{$header}:first-child {
+    padding-top: .25em;
+  }
+  .wf-inactive #{$header} {
+    @extend %alt-headers;
+  }
+}
+p {
+  text-indent: $p-indent;
+  max-width: 45em;
+  &:first-of-type {
+    text-indent: 0;
+  }
+}
+b, strong, %bold {
+  font-weight: 700;
+}
+i, q, em, %italic {
+  font-style: italic;
+}
+dt {
+  @extend %headers;
+  margin-top: .5em;
+  &:first-child {
+    margin-top: 0;
+  }
+}
+/* [3.3] Block definitions */
+
+/* [3.3.1] Positions */
+
+%absolute {
+  position: absolute;
+}
+
+%relative {
+  position: relative;
+}
+
+%icon {
+  @include sprite
+}
