@@ -3,7 +3,8 @@ import { JsonLoader } from './json-loader';
 export const CONST = {
   CSS: {
     ACTIVE: 'active',
-    CLICKED: 'js-just-clicked'
+    CLICKED: 'js-just-clicked',
+    LOADED: 'loaded'
   },
   HISTORY_SECTION: 'History Section for FL.etc',
   JSON: new JsonLoader(),

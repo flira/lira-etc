@@ -9,8 +9,13 @@ export class ShowProject implements Component {
     },
     LISTENERS: {
       CLICK: this._closeProject.bind(this),
+      LOAD: this._expandHero.bind(this),
+      RESIZE: this._removeBodyWidth.bind(this)
+    },
+    ELEMENTS: {
+      MAIN_HEADER: document.getElementById('main-menu')
     }
-  }
+  };
 
   private _projectKey: string;
   private _docFrag: DocumentFragment = document.createDocumentFragment();
@@ -22,6 +27,7 @@ export class ShowProject implements Component {
     closeBtn: document.createElement('a'),
     content: document.createElement('div'),
     encap: document.createElement('div'),
+    hero: document.createElement('div')
   };
 
   static getProjectAnchor(): string {
@@ -54,7 +60,9 @@ export class ShowProject implements Component {
         document.getElementById('main-content')
       );
       this._elements.project.style.top =  window.pageYOffset + 'px';
-      document.body.style.width = document.body.offsetWidth + 'px';
+      document.body.style.width = this.CONST.ELEMENTS.MAIN_HEADER.style.width =
+        document.body.offsetWidth + 'px';
+      window.addEventListener('resize', this.CONST.LISTENERS.RESIZE);
       //creates a small lag to make the css animation work
       setTimeout((): void => {
         $(document.body).addClass(this.CONST.CSS.SHOW);
@@ -76,18 +84,18 @@ export class ShowProject implements Component {
   private _appendHeader(): void {
     let
       header: HTMLHeadingElement = document.createElement('h1'),
-      div: HTMLDivElement = document.createElement('div'),
       img: HTMLImageElement = document.createElement('img');
 
-    div.className = 'hero';
+    this._elements.hero.className = 'hero';
     img.src = this._projectData['heroSrc'];
     if (this._srcsetSupport && 'heroSrcset' in this._projectData) {
       img.srcset = this._projectData['heroSrcset'];
     }
     img.alt = this._projectData['title'];
-    div.style.backgroundImage = `url(${img.src})`;
-    div.appendChild(img);
-    this._elements.encap.appendChild(div);
+    img.addEventListener('load', this.CONST.LISTENERS.LOAD);
+    this._elements.hero.style.backgroundImage = `url(${img.src})`;
+    this._elements.hero.appendChild(img);
+    this._elements.encap.appendChild(this._elements.hero);
     this._elements.content.className = 'content';
     this._elements.encap.appendChild(this._elements.content);
     header.textContent = this._projectData['title'];
@@ -190,10 +198,30 @@ export class ShowProject implements Component {
       if (this._srcsetSupport && 'srcset' in imgData) {
         img.srcset = imgData['srcset'];
       }
+      img.addEventListener('load', this.CONST.LISTENERS.LOAD);
       li.appendChild(img);
       ul.appendChild(li);      
     }
     this._elements.content.appendChild(section);
+    return void 0;
+  }
+
+  private _expandHero(e: Event): void {
+    const target: EventTarget = e.currentTarget,
+          parent: HTMLElement = (<Node>e.currentTarget).parentElement;
+
+    if (parent === this._elements.hero) {
+      parent.className += ` ${CONST.CSS.LOADED}`;
+      parent.style.height = `${(<HTMLElement>target).offsetHeight}px`;
+    } else {
+      (<HTMLElement>target).className += ` ${CONST.CSS.LOADED}`;
+    }
+    target.removeEventListener('load', this.CONST.LISTENERS.LOAD);
+    return void 0;
+  }
+
+  private _removeBodyWidth(): void {
+    document.body.style.width = this.CONST.ELEMENTS.MAIN_HEADER.style.width = '';
     return void 0;
   }
 
@@ -207,7 +235,7 @@ export class ShowProject implements Component {
         document.body.style.overflow = '';
         if (document.body.contains(this._elements.project)) {
           document.body.removeChild(this._elements.project);
-          document.body.style.width = '';
+          this._removeBodyWidth();
         }
       }, 500);
     } else {
