@@ -3,7 +3,8 @@
 /* All font imports are made using adobe typekit, so this small style just avoid the flash of unstyled text */
 
 body,
-.wf-loading.wf-inactive body{
+.wf-loading.wf-inactive body,
+.fl-visible {
   opacity: 1;
   transition: opacity .2s ease-in;
 }

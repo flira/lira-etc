@@ -56,16 +56,21 @@
     text-align: center;
 
     li {
-      padding-bottom: 2em;
+      padding: 25px 0;
     }
 
     img {
+      box-shadow: 0 0 10px rgba(0,0,0,.25);
       height: 0;
       opacity: 0;
       transition: opacity .5s ease-in-out;
 
+      &.no-shadow {
+        box-shadow: none;
+      }
+
       &.loaded {
-        height: 100%;
+        height: auto;
         opacity: 1;
       }
     }
@@ -102,7 +107,7 @@
       bottom: 0;
       left: 0;
       text-align: center;
-      height: 2.6rem;
+      height: 2.3rem;
     }
 
     &:focus {
@@ -123,6 +128,7 @@
       top: 1em;
       transition: right .5s ease-in-out;
       right: calc(80% - 10em);
+      
     }
 
     .project-encap {
@@ -147,11 +153,14 @@
 
 .project-open {
   overflow: hidden;
+
   #project {
     opacity: 1;
+    
     .project-encap {
       right: 0;    
     }
+    
     @include medium {
       .project-ctrl {
         right: 80%;

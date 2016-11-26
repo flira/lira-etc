@@ -199,6 +199,9 @@ export class ShowProject implements Component {
       if (this._srcsetSupport && 'srcset' in imgData) {
         img.srcset = imgData['srcset'];
       }
+      if ('shadow' in imgData) {
+        img.className = "no-shadow";
+      }
       img.addEventListener('load', this.CONST.LISTENERS.LOAD);
       li.appendChild(img);
       ul.appendChild(li);      
