@@ -9,8 +9,13 @@ export class ShowProject implements Component {
     },
     LISTENERS: {
       CLICK: this._closeProject.bind(this),
+      LOAD: this._expandHero.bind(this),
+      RESIZE: this._removeBodyWidth.bind(this)
+    },
+    ELEMENTS: {
+      MAIN_HEADER: document.getElementById('main-menu')
     }
-  }
+  };
 
   private _projectKey: string;
   private _docFrag: DocumentFragment = document.createDocumentFragment();
@@ -22,6 +27,7 @@ export class ShowProject implements Component {
     closeBtn: document.createElement('a'),
     content: document.createElement('div'),
     encap: document.createElement('div'),
+    hero: document.createElement('div')
   };
 
   static getProjectAnchor(): string {
@@ -53,7 +59,10 @@ export class ShowProject implements Component {
         this._docFrag,
         document.getElementById('main-content')
       );
-      $(this._elements.project).css('top', window.pageYOffset + 'px');
+      this._elements.project.style.top =  window.pageYOffset + 'px';
+      document.body.style.width = this.CONST.ELEMENTS.MAIN_HEADER.style.width =
+        document.body.offsetWidth + 'px';
+      window.addEventListener('resize', this.CONST.LISTENERS.RESIZE);
       //creates a small lag to make the css animation work
       setTimeout((): void => {
         $(document.body).addClass(this.CONST.CSS.SHOW);
@@ -74,19 +83,20 @@ export class ShowProject implements Component {
 
   private _appendHeader(): void {
     let
-      header: HTMLHeadingElement = document.createElement('h1'),
-      div: HTMLDivElement = document.createElement('div'),
-      img: HTMLImageElement = document.createElement('img');
+      header: HTMLHeadingElement = document.createElement('h1');
+      // img: HTMLImageElement = document.createElement('img');
 
-    div.className = 'hero';
-    img.src = this._projectData['heroSrc'];
-    if (this._srcsetSupport && 'heroSrcset' in this._projectData) {
-      img.srcset = this._projectData['heroSrcset'];
-    }
-    img.alt = this._projectData['title'];
-    div.style.backgroundImage = `url(${img.src})`;
-    div.appendChild(img);
-    this._elements.encap.appendChild(div);
+    this._elements.hero.className = 'hero';
+    // img.src = this._projectData['heroSrc'];
+    // if (this._srcsetSupport && 'heroSrcset' in this._projectData) {
+    //   img.srcset = this._projectData['heroSrcset'];
+    // }
+    // img.alt = this._projectData['title'];
+    // img.addEventListener('load', this.CONST.LISTENERS.LOAD);
+    this._elements.hero.style.backgroundImage =
+      `url(${this._projectData['heroSrc']})`;
+    // this._elements.hero.appendChild(img);
+    this._elements.encap.appendChild(this._elements.hero);
     this._elements.content.className = 'content';
     this._elements.encap.appendChild(this._elements.content);
     header.textContent = this._projectData['title'];
@@ -148,7 +158,6 @@ export class ShowProject implements Component {
     a.target = '_blank';
     a.textContent = `${this._projectData['url']}`;
     section.appendChild(a);
-    console.log(section);
     this._elements.content.appendChild(section);
     return void 0;
   }
@@ -190,6 +199,10 @@ export class ShowProject implements Component {
       if (this._srcsetSupport && 'srcset' in imgData) {
         img.srcset = imgData['srcset'];
       }
+      if ('shadow' in imgData) {
+        img.className = "no-shadow";
+      }
+      img.addEventListener('load', this.CONST.LISTENERS.LOAD);
       li.appendChild(img);
       ul.appendChild(li);      
     }
@@ -197,17 +210,33 @@ export class ShowProject implements Component {
     return void 0;
   }
 
+  private _expandHero(e: Event): void {
+    const target: EventTarget = e.currentTarget,
+          parent: HTMLElement = (<Node>e.currentTarget).parentElement;
+
+    (<HTMLElement>target).className += ` ${CONST.CSS.LOADED}`;
+    target.removeEventListener('load', this.CONST.LISTENERS.LOAD);
+    return void 0;
+  }
+
+  private _removeBodyWidth(): void {
+    document.body.style.width = this.CONST.ELEMENTS.MAIN_HEADER.style.width = '';
+    return void 0;
+  }
+
   private _closeProject(e: Event): void {
     if (e.target === e.currentTarget || e.target === this._elements.closeBtn) {
-      let body: JQuery = $(document.body);
       history.pushState(CONST.HISTORY_SECTION, CONST.PAGE_TITLE, '');
-      body.css('overflow', 'hidden');
-      body.removeClass(this.CONST.CSS.SHOW);
+      document.body.style.overflow = 'hidden';
+      $(document.body).removeClass(this.CONST.CSS.SHOW);
       this._elements.closeBtn.removeEventListener('click', this.CONST.LISTENERS.CLICK);
       setTimeout(():void => {
-        body.css('overflow', '');
-        document.body.removeChild(this._elements.project);
-      }, 500)
+        document.body.style.overflow = '';
+        if (document.body.contains(this._elements.project)) {
+          document.body.removeChild(this._elements.project);
+          this._removeBodyWidth();
+        }
+      }, 500);
     } else {
       e.stopImmediatePropagation();
     }

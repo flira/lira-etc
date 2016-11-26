@@ -6,9 +6,6 @@ import { CONST } from './constants';
 export class LoadWorkTiles implements Component{
 
   private readonly CONST = {
-    CSS: {
-      LOADED: 'loaded'
-    },
     ELEMENTS: {
       COMPONENT: document.querySelector('[data-load-work]'),
       LOAD_MSG: document.getElementById('load-msg')
@@ -48,7 +45,7 @@ export class LoadWorkTiles implements Component{
   }
   private _addLoadedClass(e: Event): void {
     const parent = (<Node>e.currentTarget).parentElement;
-    parent.className += ` ${this.CONST.CSS.LOADED}`;
+    parent.className += ` ${CONST.CSS.LOADED}`;
   }
   private _chooseProject(e: Event): boolean {
     let project = new ShowProject();
