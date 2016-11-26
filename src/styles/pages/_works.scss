@@ -23,8 +23,8 @@
       box-shadow: $soft-shadow;
       opacity: 0;
       transition: filter .25s, -webkit-filter .25s, opacity .5s .1s ease-out;
-      -webkit-filter: grayscale(50%) sepia(25%);
-              filter: grayscale(50%) sepia(25%);
+      filter: grayscale(50%) sepia(25%);
+      width: 100%;
     }
     &-captcha {
       font-weight: 700;
