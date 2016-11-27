@@ -2,18 +2,17 @@
 
 /* All font imports are made using adobe typekit, so this small style just avoid the flash of unstyled text */
 
-body,
-.wf-loading.wf-inactive body,
-.fl-visible {
-  opacity: 1;
-  transition: opacity .2s ease-in;
-}
-
-.wf-loading,
-.wf-inactive {
+.wf-loading {
   body {
     opacity: 0;
   }
+}
+
+body,
+.wf-loading.wf-inactive body,
+.fl-visible body {
+  opacity: 1;
+  transition: opacity .2s ease-in;
 }
 
 .wf-loading.wf-inactive body::before {
