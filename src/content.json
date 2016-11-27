@@ -14,12 +14,12 @@
       {
         "alt": "first screen",
         "src": "./images/works/contas/1dppx/contas3.jpg",
-        "srcset": "./images/works/contas/1dppx/contas3.jpg 1.5x, ./images/works/contas/1dppx/contas3.jpg 2x"
+        "srcset": "./images/works/contas/1dppx/contas3.jpg 1.5x, ./images/works/contas/2dppx/contas3.jpg 2x"
       },
       {
         "alt": "Fixed bar on top detail",
         "src": "./images/works/contas/1dppx/contas2.jpg",
-        "srcset": "./images/works/contas/2dppx/contas2.jpg 1.5x, ./images/works/contas/1dppx/contas2.jpg 2x"
+        "srcset": "./images/works/contas/2dppx/contas2.jpg 1.5x, ./images/works/contas/2dppx/contas2.jpg 2x"
       },
       {
         "alt": "phone version",
@@ -42,12 +42,12 @@
       {
         "alt": "first screen",
         "src": "./images/works/maria-penha/1dppx/maria-penha1.jpg",
-        "srcset": "./images/works/maria-penha/1.5dppx/maria-penha1.jpg 1.5x, ./images/works/maria-penha/1dppx/maria-penha1.jpg 2x"
+        "srcset": "./images/works/maria-penha/1.5dppx/maria-penha1.jpg 1.5x, ./images/works/maria-penha/2dppx/maria-penha1.jpg 2x"
       },
       {
         "alt": "Who was Maria da Penha",
         "src": "./images/works/maria-penha/1dppx/maria-penha2.jpg",
-        "srcset": "./images/works/maria-penha/1.5dppx/maria-penha2.jpg 1.5x, ./images/works/maria-penha/1dppx/maria-penha2.jpg 2x"
+        "srcset": "./images/works/maria-penha/1.5dppx/maria-penha2.jpg 1.5x, ./images/works/maria-penha/2dppx/maria-penha2.jpg 2x"
       }
     ]
   },
@@ -86,17 +86,17 @@
       {
         "alt": "About us",
         "src": "./images/works/torreao/1dppx/torreao2.jpg",
-        "srcset": "./images/works/torreao/1.5dppx/torreao2.jpg 1.5x, ./images/works/torreao/1dppx/torreao2.jpg 2x"
+        "srcset": "./images/works/torreao/1.5dppx/torreao2.jpg 1.5x, ./images/works/torreao/2dppx/torreao2.jpg 2x"
       },
       {
         "alt": "first screen",
         "src": "./images/works/torreao/1dppx/torreao1.jpg",
-        "srcset": "./images/works/torreao/1.5dppx/torreao1.jpg 1.5x, ./images/works/torreao/1dppx/torreao1.jpg 2x"
+        "srcset": "./images/works/torreao/1.5dppx/torreao1.jpg 1.5x, ./images/works/torreao/2dppx/torreao1.jpg 2x"
       },
       {
         "alt": "Team page",
         "src": "./images/works/torreao/1dppx/torreao3.jpg",
-        "srcset": "./images/works/torreao/1.5dppx/torreao3.jpg 1.5x, ./images/works/torreao/1dppx/torreao3.jpg 2x"
+        "srcset": "./images/works/torreao/1.5dppx/torreao3.jpg 1.5x, ./images/works/torreao/2dppx/torreao3.jpg 2x"
       },
       {
         "alt": "phone version",
