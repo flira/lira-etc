@@ -15,6 +15,16 @@ export class ToggleItem implements Component {
     this.C.on('click', this.CLICK);
   }
 
+
+  /**
+   * @description
+   * Toggle CSS class "active" for the element with ID equal to
+   * "data-toggle-for" attribute on the html
+   *
+   * @param e: Event
+   * @return {any}
+   * @private
+   */
   private _toggle (e: Event): void {
     const
       selector: string = '#' + $(e.target).data(this.CONST.TOGGLE_FOR),

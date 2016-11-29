@@ -9,7 +9,7 @@ export class ShowProject implements Component {
     },
     LISTENERS: {
       CLICK: this._closeProject.bind(this),
-      LOAD: this._expandHero.bind(this),
+      LOAD: this._imageLoaded.bind(this),
       RESIZE: this._removeBodyWidth.bind(this)
     },
     ELEMENTS: {
@@ -17,11 +17,17 @@ export class ShowProject implements Component {
     }
   };
 
+  // Project key on the json
   private _projectKey: string;
+  // Document fragment, where the component will be built before being
+  // appended to the DOM
   private _docFrag: DocumentFragment = document.createDocumentFragment();
+  // Object with properties to build the project page
   private _projectData;
+  // Test if browser have support to srcset
   private _srcsetSupport: boolean =
             ('srcset' in document.createElement('img'));
+  // Elements accessed on more than one method
   private _elements = {
     project: document.createElement('article'),
     closeBtn: document.createElement('a'),
@@ -30,19 +36,34 @@ export class ShowProject implements Component {
     hero: document.createElement('div')
   };
 
+  /**
+   * @description
+   * Returns a possible project key from the address bar
+   *
+   * @return {string}
+   * @static
+   */
   static getProjectAnchor(): string {
-    const stringList = location.hash.split(CONST.PROJECTS_PATH);
-    return stringList[stringList.length - 1];
+    const regex: RegExp = new RegExp(CONST.PROJECTS_PATH);
+
+    return regex.test(location.hash) ?
+      location.hash.split(CONST.PROJECTS_PATH).pop() : '';
   }
 
   public init () {
     this._projectKey = ShowProject.getProjectAnchor();
-    if (this._projectKey && this._projectKey[0] !== '#') {
+    if (this._projectKey.length) {
       CONST.JSON.loadJson(this._mountProject.bind(this));
     }
   }
 
-  private _mountProject() {
+  /**
+   * @description
+   * Mounts projects pages
+   * 
+   * @private
+   */
+  private _mountProject(): void {
     if (this._projectKey in CONST.JSON.jsonData) {
       this._docFrag.textContent = '';
       this._projectData = CONST.JSON.jsonData[this._projectKey];
@@ -60,6 +81,7 @@ export class ShowProject implements Component {
         document.getElementById('main-content')
       );
       this._elements.project.style.top =  window.pageYOffset + 'px';
+      // This is added to avoid a small screen that occur when the body scroll is removed
       document.body.style.width = this.CONST.ELEMENTS.MAIN_HEADER.style.width =
         document.body.offsetWidth + 'px';
       window.addEventListener('resize', this.CONST.LISTENERS.RESIZE);
@@ -70,8 +92,17 @@ export class ShowProject implements Component {
     } else {
       console.warn('Sorry, project not found');
     }
+    
+    return void 0;
   }
 
+  /**
+   * @description
+   * Appends structural elements and add a click event to the area
+   * outside the project to close it
+   *
+   * @private
+   */
   private _appendBasicElements(): void {
     this._elements.closeBtn.className = 'project-ctrl';
     this._elements.project.addEventListener('click', this.CONST.LISTENERS.CLICK);
@@ -81,6 +112,12 @@ export class ShowProject implements Component {
     return void 0;
   }
 
+  /**
+   * @description
+   * Appends hero image and the project title
+   * 
+   * @private
+   */
   private _appendHeader(): void {
     let
       header: HTMLHeadingElement = document.createElement('h1');
@@ -104,6 +141,12 @@ export class ShowProject implements Component {
     return void 0;
   }
 
+  /**
+   * @description
+   * Appends the project credits section
+   * 
+   * @private
+   */
   private _appendCredits(): void {
     let
       section: HTMLElement = document.createElement('section'),
@@ -129,6 +172,12 @@ export class ShowProject implements Component {
     return void 0;
   }
 
+  /**
+   * @description
+   * Appends the project about section
+   *
+   * @private
+   */
   private _appendAbout(): void {
     let
       section: HTMLElement = document.createElement('section'),
@@ -145,7 +194,12 @@ export class ShowProject implements Component {
     return void 0;
   }
 
-  
+  /**
+   * @description
+   * Appends a link to the original work
+   *
+   * @private
+   */
   private _appendUrl(): void {
     let
       section: HTMLElement = document.createElement('section'),
@@ -162,6 +216,12 @@ export class ShowProject implements Component {
     return void 0;
   }
 
+  /**
+   * @description
+   * Appends a link to the project github's repository
+   *
+   * @private
+   */
   private _appendGit(): void {
     let
       section: HTMLElement = document.createElement('section'),
@@ -178,6 +238,12 @@ export class ShowProject implements Component {
     return void 0;
   }
 
+  /**
+   * @description
+   * Appends the project images
+   *
+   * @private
+   */
   private _appendImages(): void {
     let
       section: HTMLElement = document.createElement('section'),
@@ -210,20 +276,39 @@ export class ShowProject implements Component {
     return void 0;
   }
 
-  private _expandHero(e: Event): void {
-    const target: EventTarget = e.currentTarget,
-          parent: HTMLElement = (<Node>e.currentTarget).parentElement;
+  /**
+   * @description
+   * Adds a CSS class to loaded images
+   *
+   * @param e: Event
+   * @private
+   */
+  private _imageLoaded(e: Event): void {
+    const target: EventTarget = e.currentTarget;
 
     (<HTMLElement>target).className += ` ${CONST.CSS.LOADED}`;
     target.removeEventListener('load', this.CONST.LISTENERS.LOAD);
     return void 0;
   }
 
+  /**
+   * @description
+   * Resets body width
+   *
+   * @private
+   */
   private _removeBodyWidth(): void {
     document.body.style.width = this.CONST.ELEMENTS.MAIN_HEADER.style.width = '';
     return void 0;
   }
 
+  /**
+   * @description
+   * Hides and removes the project from the DOM
+   *
+   * @param e: Event
+   * @private
+   */
   private _closeProject(e: Event): void {
     if (e.target === e.currentTarget || e.target === this._elements.closeBtn) {
       history.pushState(CONST.HISTORY_SECTION, CONST.PAGE_TITLE, '');
