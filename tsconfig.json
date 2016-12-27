@@ -21,11 +21,10 @@
       "typescript/lib/lib.d.ts",
       "gsap",
       "jquery",
-      "jqueryui",
+      "mocha",
       "node",
       "source-map",
-      "uglify-js",
-      "tether"
+      "uglify-js"
     ]
   },
   "exclude": [

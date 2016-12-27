@@ -9,6 +9,8 @@ site/styles/.sass-cache
 site/styles/components/.sass-cache
 site/styles/modules/.sass-cache
 site/styles/pages/.sass-cache
+test/*.js
+test/**/*.js
 .htaccess
 app.yaml
 npm-debug.log

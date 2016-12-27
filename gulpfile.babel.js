@@ -33,6 +33,8 @@ import gulp from 'gulp';
 import browserify from 'browserify';
 import source from 'vinyl-source-stream';
 import tsify from 'tsify';
+import ts from 'gulp-typescript';
+import mocha from 'gulp-mocha';
 import streamify from 'gulp-streamify';
 import del from 'del';
 import runSequence from 'run-sequence';
@@ -41,6 +43,7 @@ import swPrecache from 'sw-precache';
 import gulpLoadPlugins from 'gulp-load-plugins';
 import {output as pagespeed} from 'psi';
 import pkg from './package.json';
+
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
@@ -62,8 +65,7 @@ gulp.task('typescript', () =>
     .pipe(gulp.dest(tsOptions.dest))
 );
 
-// Compacta javascript
-
+// Minimize javascript
 gulp.task('typescript:dist',['typescript'], () =>
   gulp.src(tsOptions.dest +'/'+tsOptions.fileName)
     .pipe(streamify($.uglify()))
@@ -72,6 +74,23 @@ gulp.task('typescript:dist',['typescript'], () =>
     .pipe($.sourcemaps.write('.'))
     .pipe(gulp.dest('dist/scripts'))
 )
+
+gulp.task('test:compile-units', ()=>
+gulp.src('src/scripts/components/typescripts/*.ts')
+  .pipe(ts())
+  .pipe(gulp.dest('test/units'))
+);
+
+gulp.task('test:compile-tests', ()=>
+  gulp.src('test/*.ts')
+  .pipe(ts())
+  .pipe(gulp.dest('test/'))
+);
+
+gulp.task('test', ['test:compile-units','test:compile-tests'], ()=>
+  gulp.src('test/*.js')
+  .pipe(mocha())
+);
 
 // Optimize images
 gulp.task('images', () =>
@@ -176,7 +195,7 @@ gulp.task('html', () => {
 gulp.task('clean', () => del(['.tmp', 'dist/*', '!dist/.git'], {dot: true}));
 
 // Watch files for changes & reload
-gulp.task('serve', ['typescript', 'styles', 'fonts'], () => {
+gulp.task('serve', ['typescript','test', 'styles', 'fonts'], () => {
   browserSync({
     notify: false,
     // Customize the Browsersync console logging prefix
@@ -194,6 +213,7 @@ gulp.task('serve', ['typescript', 'styles', 'fonts'], () => {
   gulp.watch(['src/**/*.html'], reload);
   gulp.watch(['src/styles/**/*.{scss,css}'], ['styles', reload]);
   gulp.watch(['src/scripts/**/*.ts'], ['typescript', reload]);
+  gulp.watch(['tests/*.ts'], ['test']);
   gulp.watch(['src/images/**/*'], reload);
 });
 
