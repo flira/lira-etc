@@ -30,6 +30,7 @@
 
 import path from 'path';
 import gulp from 'gulp';
+import merge from 'merge-stream';
 import browserify from 'browserify';
 import source from 'vinyl-source-stream';
 import tsify from 'tsify';
@@ -75,19 +76,21 @@ gulp.task('typescript:dist',['typescript'], () =>
     .pipe(gulp.dest('dist/scripts'))
 )
 
-gulp.task('test:compile-units', ()=>
-gulp.src('src/scripts/components/typescripts/*.ts')
-  .pipe(ts())
-  .pipe(gulp.dest('test/units'))
-);
+gulp.task('test:typescript', ()=> {
+  return merge(
+    gulp.src('src/scripts/components/typescripts/*.ts')
+      .pipe(ts())
+      .pipe(gulp.dest('test/units')),
+    gulp.src('test/components/*.ts')
+      .pipe(ts())
+      .pipe(gulp.dest('test/components')),
+    gulp.src('test/*.ts')
+      .pipe(ts())
+      .pipe(gulp.dest('test/'))
+  )
+});
 
-gulp.task('test:compile-tests', ()=>
-  gulp.src('test/*.ts')
-  .pipe(ts())
-  .pipe(gulp.dest('test/'))
-);
-
-gulp.task('test', ['test:compile-units','test:compile-tests'], ()=>
+gulp.task('test', ['test:typescript'], ()=>
   gulp.src('test/*.js')
   .pipe(mocha())
 );
