@@ -1,6 +1,6 @@
 /*
 export class SelectiveFix {
-  readonly el: JQuery; //
+  private  el: JQuery; //
   private oldY: number; // Previous window.scrollY
   private pinPoint: number;
 

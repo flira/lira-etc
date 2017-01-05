@@ -1,7 +1,7 @@
 import { CONST } from './constants';
 
 export class ScrollAddress implements Component {
-  readonly CONST = {
+  private  CONST = {
     LISTENERS: {
       RESIZE: this._setNavigationPoints.bind(this),
       SCROLL: this._startScrollTimer.bind(this)

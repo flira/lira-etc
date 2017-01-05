@@ -3,7 +3,7 @@ import * as $ from 'jquery';
 
 export class ShowProject implements Component {
 
-  readonly CONST = {
+  private  CONST = {
     CSS: {
       SHOW: 'project-open'
     },

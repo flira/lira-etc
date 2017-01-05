@@ -2,9 +2,9 @@
 import * as $ from 'jquery';
 
 export class ToggleItem implements Component {
-  readonly C: JQuery = $('[data-toggle-for]'); // Component controller
-  readonly CLICK: EventListener = this._toggle.bind(this);
-  readonly CONST = {
+  private  C: JQuery = $('[data-toggle-for]'); // Component controller
+  private  CLICK: EventListener = this._toggle.bind(this);
+  private  CONST = {
     ACTIVE: 'active',
     TOGGLE_FOR: 'toggleFor',
     CLOSE_ONLY: 'toggleCloseOnly'
@@ -30,7 +30,7 @@ export class ToggleItem implements Component {
       selector: string = '#' + $(e.target).data(this.CONST.TOGGLE_FOR),
       model: JQuery = $(selector),
       bool: boolean = !model.hasClass(this.CONST.ACTIVE)
-        && !($(e.target).data(this.CONST.CLOSE_ONLY) != void 0);
+        && !($(e.target).data(this.CONST.CLOSE_ONLY) !== void 0);
 
     model.toggleClass(this.CONST.ACTIVE, bool);
     return void 0;

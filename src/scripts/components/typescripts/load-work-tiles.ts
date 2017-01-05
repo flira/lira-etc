@@ -5,7 +5,7 @@ import { CONST } from './constants';
 
 export class LoadWorkTiles implements Component {
 
-  readonly CONST = {
+  private  CONST = {
     ELEMENTS: {
       COMPONENT: document.querySelector('[data-load-work]'),
       LOAD_MSG: document.getElementById('load-msg')

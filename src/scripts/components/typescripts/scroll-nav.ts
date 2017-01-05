@@ -6,7 +6,7 @@ import TweenValues = ScrollNavDef.TweenValues;
 
 
 export class ScrollNav implements Component {
-  readonly CONST = {
+  private  CONST = {
     LISTENERS: {
       CLICK: this._triggerAnimation.bind(this)
     }
