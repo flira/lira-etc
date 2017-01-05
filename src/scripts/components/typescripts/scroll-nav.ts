@@ -6,7 +6,7 @@ import TweenValues = ScrollNavDef.TweenValues;
 
 
 export class ScrollNav implements Component {
-  private readonly CONST = {
+  readonly CONST = {
     LISTENERS: {
       CLICK: this._triggerAnimation.bind(this)
     }
@@ -18,10 +18,10 @@ export class ScrollNav implements Component {
   // Lag to remove the 'clicked' class, to avoid conflicts between this click and the scroll address
   private _timerCss: number = 0;
 
-  //Default values (can be overwritten by HTML attributes)
+  // Default values (can be overwritten by HTML attributes)
   private _settableValues: SettableValues;
 
-  constructor(selector? : string) {
+  constructor(selector?: string) {
     Object.freeze(this.CONST);
     this._component = !selector ? $('[data-scroll-nav]') : $(selector);
     this._settableValues = {
@@ -63,7 +63,7 @@ export class ScrollNav implements Component {
       this._anchor.blur().addClass(`${CONST.CSS.ACTIVE} ${CONST.CSS.CLICKED}`);
       this._animateScroll();
     }
-    
+
     return false;
   }
 
@@ -82,7 +82,7 @@ export class ScrollNav implements Component {
       timerFunction: Function = (): void => {
         $(`.${CONST.CSS.CLICKED}`).removeClass(CONST.CSS.CLICKED);
       },
-      i: {val:number} = {val: y},
+      i: {val: number} = {val: y},
       f: number = this._target.length ? this._target.offset().top : 0,
       s: number = this._settableValues.speed,
       e: string = this._settableValues.ease,

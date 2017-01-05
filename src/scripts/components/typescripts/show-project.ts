@@ -3,7 +3,7 @@ import * as $ from 'jquery';
 
 export class ShowProject implements Component {
 
-  private readonly CONST = {
+  readonly CONST = {
     CSS: {
       SHOW: 'project-open'
     },
@@ -85,14 +85,14 @@ export class ShowProject implements Component {
       document.body.style.width = this.CONST.ELEMENTS.MAIN_HEADER.style.width =
         document.body.offsetWidth + 'px';
       window.addEventListener('resize', this.CONST.LISTENERS.RESIZE);
-      //creates a small lag to make the css animation work
+      // creates a small lag to make the css animation work
       setTimeout((): void => {
         $(document.body).addClass(this.CONST.CSS.SHOW);
       }, 10);
     } else {
       console.warn('Sorry, project not found');
     }
-    
+
     return void 0;
   }
 
@@ -109,6 +109,7 @@ export class ShowProject implements Component {
     this._elements.encap.className = 'project-encap';
     this._elements.project.appendChild(this._elements.closeBtn);
     this._elements.project.appendChild(this._elements.encap);
+
     return void 0;
   }
 
@@ -138,6 +139,7 @@ export class ShowProject implements Component {
     this._elements.encap.appendChild(this._elements.content);
     header.textContent = this._projectData['title'];
     this._elements.content.appendChild(header);
+
     return void 0;
   }
 
@@ -191,6 +193,7 @@ export class ShowProject implements Component {
     }).get(0));
 
     this._elements.content.appendChild(section);
+
     return void 0;
   }
 
@@ -213,6 +216,7 @@ export class ShowProject implements Component {
     a.textContent = `${this._projectData['url']}`;
     section.appendChild(a);
     this._elements.content.appendChild(section);
+
     return void 0;
   }
 
@@ -235,6 +239,7 @@ export class ShowProject implements Component {
     a.textContent = `${this._projectData['title']}'s repository`;
     section.appendChild(a);
     this._elements.content.appendChild(section);
+
     return void 0;
   }
 
@@ -249,7 +254,7 @@ export class ShowProject implements Component {
       section: HTMLElement = document.createElement('section'),
       header: HTMLHeadingElement = document.createElement('h2'),
       ul: HTMLUListElement = document.createElement('ul');
-    
+
     header.textContent = 'Images';
     section.appendChild(header);
     ul.className = 'list-img';
@@ -266,13 +271,14 @@ export class ShowProject implements Component {
         img.srcset = imgData['srcset'];
       }
       if ('shadow' in imgData) {
-        img.className = "no-shadow";
+        img.className = 'no-shadow';
       }
       img.addEventListener('load', this.CONST.LISTENERS.LOAD);
       li.appendChild(img);
-      ul.appendChild(li);      
+      ul.appendChild(li);
     }
     this._elements.content.appendChild(section);
+
     return void 0;
   }
 
@@ -288,6 +294,7 @@ export class ShowProject implements Component {
 
     (<HTMLElement>target).className += ` ${CONST.CSS.LOADED}`;
     target.removeEventListener('load', this.CONST.LISTENERS.LOAD);
+
     return void 0;
   }
 
@@ -299,6 +306,7 @@ export class ShowProject implements Component {
    */
   private _removeBodyWidth(): void {
     document.body.style.width = this.CONST.ELEMENTS.MAIN_HEADER.style.width = '';
+
     return void 0;
   }
 
@@ -315,7 +323,7 @@ export class ShowProject implements Component {
       document.body.style.overflow = 'hidden';
       $(document.body).removeClass(this.CONST.CSS.SHOW);
       this._elements.closeBtn.removeEventListener('click', this.CONST.LISTENERS.CLICK);
-      setTimeout(():void => {
+      setTimeout((): void => {
         document.body.style.overflow = '';
         if (document.body.contains(this._elements.project)) {
           document.body.removeChild(this._elements.project);

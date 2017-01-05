@@ -1,7 +1,7 @@
 import { CONST } from './constants';
 
-export class ScrollAddress implements Component{
-  private readonly CONST = {
+export class ScrollAddress implements Component {
+  readonly CONST = {
     LISTENERS: {
       RESIZE: this._setNavigationPoints.bind(this),
       SCROLL: this._startScrollTimer.bind(this)
@@ -14,13 +14,6 @@ export class ScrollAddress implements Component{
   // Identical to _scrollMap keys, but ordered, to avoid bugs
   private _positionsMap: Int32Array;
   private _scrollTimer: number;
-
-  public init () {
-    Object.freeze(this.CONST);
-    this._setNavigationPoints();
-    window.addEventListener('scroll', this.CONST.LISTENERS.SCROLL);
-    window.addEventListener('resize', this.CONST.LISTENERS.RESIZE);
-  }
 
   /**
    * @description
@@ -55,11 +48,11 @@ export class ScrollAddress implements Component{
     const l: number = array.length - 1;
     let a: Int32Array = new Int32Array(array),
         i: number = 0;
-    while(i < l) {
-      if (a[i] > a[i+1]) {
-        const n1 = a[i], n2 = a[i+1];
+    while (i < l) {
+      if (a[i] > a[i + 1]) {
+        const n1 = a[i], n2 = a[i + 1];
         a[i] = n2;
-        a[i+1] = n1;
+        a[i + 1] = n1;
         i = i - 2 > 0 ? i - 2 : 0;
       } else {
         i++;
@@ -67,6 +60,13 @@ export class ScrollAddress implements Component{
     }
 
     return a;
+  }
+
+  public init () {
+    Object.freeze(this.CONST);
+    this._setNavigationPoints();
+    window.addEventListener('scroll', this.CONST.LISTENERS.SCROLL);
+    window.addEventListener('resize', this.CONST.LISTENERS.RESIZE);
   }
 
   /**
@@ -81,7 +81,7 @@ export class ScrollAddress implements Component{
   private _setNavigationPoints(): void {
     const anchors: Array<HTMLAnchorElement> = ScrollAddress.getValidHashes(),
           positionsMap: Array<number> = [];
-    let scrollMap: Object= {};
+    let scrollMap: Object = {};
     for (let i = 0, l = anchors.length; i < l; i++) {
       const id: string = anchors[i].hash.substring(1),
             position: number = document.getElementById(id).offsetTop - 20;
@@ -93,7 +93,7 @@ export class ScrollAddress implements Component{
     }
     this._scrollMap = scrollMap;
     this._positionsMap = ScrollAddress.sortArray(positionsMap);
-    
+
     return void 0;
   };
 
@@ -119,7 +119,7 @@ export class ScrollAddress implements Component{
    * @private
    */
   private _checkPosition(): void {
-    const y:number = window.scrollY ? window.scrollY : window.pageYOffset;
+    const y: number = window.scrollY ? window.scrollY : window.pageYOffset;
     let active: number = 0;
     for (let i = 0, l = this._positionsMap.length; i < l; i++ ) {
       if (y > this._positionsMap[i]) {
@@ -137,12 +137,13 @@ export class ScrollAddress implements Component{
         `${CONST.PAGE_TITLE} - ${hash}`,
         active > 0 ? `#${hash}` : '');
       for (const i in this._scrollMap) {
-        this._scrollMap[i].classList.remove(CONST.CSS.ACTIVE);
+        if (this._scrollMap.hasOwnProperty(i)) {
+          this._scrollMap[i].classList.remove(CONST.CSS.ACTIVE);
+        }
       }
       this._scrollMap[active].classList.add(CONST.CSS.ACTIVE);
     }
 
     return void 0;
   }
-  
 }

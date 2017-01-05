@@ -3,9 +3,9 @@ import * as $ from 'jquery';
 import { ShowProject } from './show-project';
 import { CONST } from './constants';
 
-export class LoadWorkTiles implements Component{
+export class LoadWorkTiles implements Component {
 
-  private readonly CONST = {
+  readonly CONST = {
     ELEMENTS: {
       COMPONENT: document.querySelector('[data-load-work]'),
       LOAD_MSG: document.getElementById('load-msg')
@@ -19,26 +19,29 @@ export class LoadWorkTiles implements Component{
   private _imgs: JQuery;
   private _anchors: JQuery;
 
-  public init(): void {
-    Object.freeze(this.CONST);
-    CONST.JSON.loadJson(this._createItems.bind(this));
-  }
   static template(key: string): string {
-    //add srcset only if available
+    // add srcset only if available
     const srcset: string = CONST.JSON.jsonData[key].tileSrcset
       ? `srcset="${CONST.JSON.jsonData[key].tileSrcset}"`
       : '';
     return `<li class="works-item">
               <a class="works-anc" href="${CONST.PROJECTS_PATH}${key}">
                 <figure class="works-fig">
-                  <img class="works-img" src="${CONST.JSON.jsonData[key].tileSrc}" ${srcset} alt="${CONST.JSON.jsonData[key].title}"/>
+                  <img class="works-img" src="${CONST.JSON.jsonData[key].tileSrc}"
+                       ${srcset} alt="${CONST.JSON.jsonData[key].title}"/>
                   <figcaption class="works-captcha">${CONST.JSON.jsonData[key].title}</figcaption>
                 </figure>
               </a>
-            </li>`
+            </li>`;
   }
+
+  public init(): void {
+    Object.freeze(this.CONST);
+    CONST.JSON.loadJson(this._createItems.bind(this));
+  }
+
   private _createItems(): void {
-    $.each(CONST.JSON.jsonData, (i): void =>{
+    $.each(CONST.JSON.jsonData, (i): void => {
       this._items += LoadWorkTiles.template(i);
     });
     this._createList();
