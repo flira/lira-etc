@@ -198,7 +198,7 @@ gulp.task('html', () => {
 gulp.task('clean', () => del(['.tmp', 'dist/*', '!dist/.git'], {dot: true}));
 
 // Watch files for changes & reload
-gulp.task('serve', ['typescript','test', 'styles', 'fonts'], () => {
+gulp.task('serve', ['typescript', 'styles', 'fonts'], () => {
   browserSync({
     notify: false,
     // Customize the Browsersync console logging prefix
@@ -216,7 +216,6 @@ gulp.task('serve', ['typescript','test', 'styles', 'fonts'], () => {
   gulp.watch(['src/**/*.html'], reload);
   gulp.watch(['src/styles/**/*.{scss,css}'], ['styles', reload]);
   gulp.watch(['src/scripts/**/*.ts'], ['typescript', reload]);
-  gulp.watch(['tests/*.ts'], ['test']);
   gulp.watch(['src/images/**/*'], reload);
 });
 
