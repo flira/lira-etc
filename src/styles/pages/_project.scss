@@ -1,4 +1,3 @@
-
 #project {
   @extend %absolute;
   background-color: rgba(0,0,0, .2);
@@ -165,6 +164,14 @@
       .project-ctrl {
         right: 80%;
       }
+    }
+  }
+
+  #main {
+    &-header,
+    &-content,
+    &-footer {
+      filter: blur(2px);
     }
   }
 }
