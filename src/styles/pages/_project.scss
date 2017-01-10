@@ -150,6 +150,10 @@
   }
 }
 
+%blur-2px {
+  filter: blur(2px);
+}
+
 .project-open {
   overflow: hidden;
 
@@ -167,11 +171,16 @@
     }
   }
 
+  .main-menu-a.logo {
+    @extend %blur-2px;
+  }
+
   #main {
     &-header,
     &-content,
     &-footer {
-      filter: blur(2px);
+      @extend %blur-2px;
     }
   }
 }
+
