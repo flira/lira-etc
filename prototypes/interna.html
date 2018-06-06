@@ -24,21 +24,21 @@
         html {
             background:#edecea;
             font-family: Georgia, serif;
+            font-size: .9375em;
             line-height: 1.5;
         }
         .encap {
-            margin: 10vw 5.55vw 15vw;
+            margin: 11.3vh 0 22.7vh;
+        }
+        .text, h1, h2, h3, h4, h5, h6 {
+            margin: 11.2vw;
         }
         .text {
             color: #222;
-            column-count: 2;
-            column-gap: 11vw;
-            margin: 5.55vw;
+            hyphens: auto;
         }
         .text p {
-            hyphens: auto;
             margin: 0;
-            text-align: justify;
             text-indent: 2em;
         }
         .text p:first-of-type {
@@ -50,39 +50,51 @@
             font-size: 3.2em;
             padding: .2em .2em 0 0;
         }
-        .main-image, .content {
-            box-sizing: border-box;
-            display: inline-block;
-            min-height: 100vh;
-            padding: 2.5em 0 4em;
+        h1 {
+            margin-bottom: 2em;
+            margin-top: 0;
         }
-
+        .img {
+            background: #fff;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0 5.5vw;
+            width: 100%;
+        }
+        @media screen and (min-width: 30em) {
+            html {
+                font-size: 1.125em;
+            }
+            .justify .text p {
+                text-align: justify;
+            }
+        }
+        @media screen and (min-width: 60em) {
+            .text {
+                column-count: 2;
+                column-gap: 11.2vw;
+                column-rule: solid 1px rgba(0,0,0,.1);
+                margin: 1em 11.2vw;
+            }
+        }
     </style>
 </head>
 <body class="body">
-<main>
-    <div class="encap">
-        <figure>
-            Isso é um teste para ver se está indo tudo certinho.
-        </figure>
-        <div class="text">
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit amet ornare lacus. Nulla facilisi. In dapibus nulla id est ullamcorper luctus. Nam viverra varius massa, venenatis ultricies ipsum aliquam at. Maecenas sit amet tellus id purus blandit iaculis non non ex. Sed ultricies elit ut justo accumsan, non sagittis nunc fringilla. Vestibulum efficitur id justo ut viverra. Praesent luctus odio id lectus posuere iaculis. Quisque fringilla orci eu ex interdum pellentesque. Nullam eu ante id mi egestas convallis vel sed arcu. Donec sed rutrum tortor. Nam faucibus faucibus risus vel rutrum. Vestibulum ex tortor, pellentesque sit amet risus ut, ultrices interdum arcu. Nam quis nunc egestas, dapibus nibh quis, eleifend dolor.
-            </p>
-            <p>
-                Pellentesque egestas dui non quam malesuada, at mollis velit congue. Cras sit amet dolor in ligula tincidunt molestie. Quisque eget condimentum ex. Duis urna arcu, congue convallis arcu sed, luctus laoreet metus. Suspendisse congue sem et tempor cursus. Suspendisse potenti. In varius lectus risus. Etiam ultricies eros vel nibh pretium venenatis. Sed a suscipit sem. In at sem turpis. Nam consequat turpis felis, a ullamcorper tortor condimentum ac. Vestibulum rhoncus auctor enim, congue cursus ligula tristique a.
-            </p>
-            <p>
-                Aenean vitae dolor et nisl maximus rutrum. Vestibulum faucibus egestas tincidunt. Proin tincidunt elementum tellus at gravida. Donec ornare orci tortor, vitae dapibus leo aliquam eu. Suspendisse potenti. Pellentesque id velit fringilla, suscipit lorem vel, vestibulum purus. Curabitur a enim tortor.
-            </p>
-            <p>
-                Integer feugiat sapien quam, nec euismod est fermentum sed. Praesent iaculis nec odio eget placerat. Mauris congue tortor sed viverra euismod. Sed quis tincidunt quam. Duis tempus turpis ac mollis egestas. Cras consequat, dolor ac pharetra egestas, diam arcu luctus leo, at tempus ex metus ac sapien. In fringilla massa a volutpat auctor. Morbi sodales tempor neque, id consectetur risus elementum id. Phasellus vestibulum ultricies commodo.
-            </p>
-            <p>
-                Nunc in lectus nibh. Curabitur ac convallis elit. Praesent eget nunc egestas, euismod nisi a, hendrerit augue. Proin nec interdum nunc, at dictum lacus. Cras finibus maximus posuere. Vestibulum lacinia eu ex quis sagittis. Nulla blandit velit nulla, a rhoncus arcu condimentum nec. Nunc sed diam a ante iaculis interdum. Etiam in velit et est facilisis accumsan nec sed enim. Ut posuere eros quis nunc fringilla eleifend. Fusce auctor ac tortor vulputate auctor. Nam mollis neque lorem, et lacinia metus suscipit posuere. Sed eleifend ipsum sed leo convallis fringilla. Mauris vel magna dignissim, porttitor augue in, faucibus ligula.
-            </p>
+    <main>
+        <div class="encap">
+            <h1>Isso é um título</h1>
+            <figure class="img">
+                Isso é um teste para ver se está indo tudo certinho.
+            </figure>
+            <div class="text">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sit amet ornare lacus. Nulla facilisi. In dapibus nulla id est ullamcorper luctus. Nam viverra varius massa, venenatis ultricies ipsum aliquam at. Maecenas sit amet tellus id purus blandit iaculis non non ex. Sed ultricies elit ut justo accumsan, non sagittis nunc fringilla. Vestibulum efficitur id justo ut viverra. Praesent luctus odio id lectus posuere iaculis. Quisque fringilla orci eu ex interdum pellentesque. Nullam eu ante id mi egestas convallis vel sed arcu. Donec sed rutrum tortor. Nam faucibus faucibus risus vel rutrum. Vestibulum ex tortor, pellentesque sit amet risus ut, ultrices interdum arcu. Nam quis nunc egestas, dapibus nibh quis, eleifend dolor.
+                </p>
+                <p>
+                    Pellentesque egestas dui non quam malesuada, at mollis velit congue. Cras sit amet dolor in ligula tincidunt molestie. Quisque eget condimentum ex. Duis urna arcu, congue convallis arcu sed, luctus laoreet metus. Suspendisse congue sem et tempor cursus. Suspendisse potenti. In varius lectus risus. Etiam ultricies eros vel nibh pretium venenatis. Sed a suscipit sem. In at sem turpis. Nam consequat turpis felis, a ullamcorper tortor condimentum ac. Vestibulum rhoncus auctor enim, congue cursus ligula tristique a.
+                </p>
+            </div>
         </div>
-    </div>
-</main>
+    </main>
 </body>
 </html>
